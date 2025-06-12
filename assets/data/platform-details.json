@@ -1,0 +1,66 @@
+{
+  "safari-mac": {
+    "title": "Safari on macOS",
+    "description": "A guide to using the BlockLang extension on Safari for macOS.",
+    "image_o": "assets/img/portfolio/safari-mac.jpg",
+    "images": [
+      "assets/img/portfolio/app-1.jpg",
+      "assets/img/portfolio/books-1.jpg",
+      "assets/img/portfolio/branding-1.jpg",
+      "assets/img/portfolio/product-1.jpg"
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Safari macOS"
+  },
+  "safari-ios": {
+    "title": "Safari on iOS",
+    "description": "A guide to using the BlockLang extension on Safari for iPhone and iPad.",
+    "image_o": "assets/img/portfolio/safari-ios.jpg",
+    "images": [
+      "assets/img/portfolio/app-2.jpg",
+      "assets/img/portfolio/books-2.jpg",
+      "assets/img/portfolio/branding-2.jpg",
+      "assets/img/portfolio/product-2.jpg"
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Safari iOS"
+  },
+  "chrome": {
+    "title": "Chrome",
+    "description": "A guide to using the BlockLang extension on Google Chrome.",
+    "image_o": "assets/img/portfolio/chrome.jpg",
+    "images": [
+      "assets/img/portfolio/app-3.jpg",
+      "assets/img/portfolio/books-3.jpg",
+      "assets/img/portfolio/branding-3.jpg",
+      "assets/img/portfolio/product-3.jpg"
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Chrome"
+  },
+  "firefox": {
+    "title": "Firefox",
+    "description": "A guide to using the BlockLang extension on Mozilla Firefox.",
+    "image_o": "assets/img/portfolio/firefox.jpg",
+    "images": [
+      "assets/img/portfolio/app-4.jpg",
+      "assets/img/portfolio/books-4.jpg",
+      "assets/img/portfolio/branding-4.jpg",
+      "assets/img/portfolio/product-4.jpg"
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Firefox"
+  }
+}
