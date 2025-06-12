@@ -1,0 +1,47 @@
+# Manually excluded files and folders
+portfolio-details-original.html
+forms/
+index_old.html
+index_original.html
+Readme.txt
+service-details.html
+
+# Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Cache, temp, and build directories
+dist/
+build/
+.cache/
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Compressed and archive files
+*.gz
+*.zip
+*.tar
+*.rar
+
+# Source maps
+*.map
