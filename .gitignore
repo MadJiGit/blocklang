@@ -1,4 +1,11 @@
-# Manually excluded files and folders
+# Do NOT ignore these — they are needed
+!assets/vendor/
+!assets/css/main.css
+
+# Ignore SCSS if not used in GitHub build
+assets/scss/
+
+# Ignore backup/unused files
 portfolio-details-original.html
 forms/
 index_old.html
