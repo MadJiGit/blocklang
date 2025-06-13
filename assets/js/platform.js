@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         const img = document.createElement('img');
                         img.src = path;
-                        img.alt = `Screenshot ${index + 1}`;
+                        img.alt = "under constructions";
                         img.classList.add('image-border');
 
                         const caption = document.createElement('div');
