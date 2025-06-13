@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(detailsMap => {
             const details = detailsMap[platform];
-
-            console.log("Platform:", platform);
-            console.log("Platform Details:", details);
-
             if (details) {
                 document.getElementById("service-details-title").textContent = details.title;
                 document.getElementById("service-details-description").textContent = details.description;
@@ -31,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const serviceDetailImage = document.getElementById("service-details-image");
 
-                console.log(details.image_main);
                 if (serviceDetailImage) {
                     serviceDetailImage.setAttribute("src", details.image_main);
                     serviceDetailImage.setAttribute("alt", details.alt);

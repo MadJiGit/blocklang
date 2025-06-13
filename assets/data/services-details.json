@@ -10,7 +10,7 @@
 
   "chrome": {
     "title": "Chrome",
-    "description": "A guide to using the BlockLang extension on Google Chrome.",
+    "description": "Install BlockLang on Google Chrome.",
     "app_store_link": "https://chromewebstore.google.com/detail/jhaaififdgohacmbigmellnhiihiidee?utm_source=item-share-cb",
     "app_store_logo": "assets/img/logos/lockup_Google_Play_RGB_color_horizontal_173x35px.png",
     "alt": "Get it on Google Play",
@@ -19,7 +19,7 @@
 
   "firefox": {
     "title": "Firefox",
-    "description": "A guide to using the BlockLang extension on Mozilla Firefox.",
+    "description": "AInstall BlockLang on Mozilla Firefox.",
     "app_store_link": "https://addons.mozilla.org/en-GB/firefox/addon/search-language-filter/",
     "app_store_logo": "assets/img/logos/firefox_logo_64.png",
     "alt": "Download on the App Store",

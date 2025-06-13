@@ -1304,8 +1304,17 @@ section,
 }
 
 .madji-img {
-    height: 80px;
+    width: 80px;
+    height: auto;
+    /*height: 80px;*/
     vertical-align: middle;
+}
+
+.madji-img-footer {
+    width: 48px;
+    height: auto;
+    image-rendering: auto;
+    /*display: block;*/
 }
 
 .slide-caption {
