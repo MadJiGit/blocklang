@@ -1340,3 +1340,11 @@ section,
 .swiper-slide {
   position: relative;
 }
+
+@media (max-width: 767px) {
+  .contact-mail {
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 0 15px; /* добавяме малко вътрешни отстояния */
+  }
+}
