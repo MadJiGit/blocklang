@@ -1,24 +1,93 @@
 {
-  "safari-mac": {
+  "safari-mac-install": {
     "title": "Safari on macOS",
-    "description": "A guide to using the BlockLang extension on Safari for macOS.",
-    "image_o": "assets/img/portfolio/safari-mac.jpg",
+    "description": "Install BlockLang on Safari macOS.",
+    "image_main": "assets/img/portfolio/safari-mac-install.jpg",
     "images": [
-      "assets/img/portfolio/app-1.jpg",
-      "assets/img/portfolio/books-1.jpg",
-      "assets/img/portfolio/branding-1.jpg",
-      "assets/img/portfolio/product-1.jpg"
+        "assets/img/safari_macOS_install/safari_macOS_install_1.png",
+        "assets/img/safari_macOS_install/safari_macOS_install_2.png",
+        "assets/img/safari_macOS_install/safari_macOS_install_3.png",
+        "assets/img/safari_macOS_install/safari_macOS_install_4.png",
+        "assets/img/safari_macOS_install/safari_macOS_install_5.png"
+      ],
+    "captions":[
+      "Click ont the Apple icon in the top left corner of your screen.",
+      "Chose 'Settings'.",
+      "Select checkbox on the BlockLang extension to enable it.",
+      "Select if you want 'Allow in Private Browsing.' and 'Share across devices.'",
+      "The BlockLang icon should appear in the toolbar."
     ],
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
     "url": "https://blocklang.org",
-    "platform": "Safari macOS"
+    "platform": "Safari macOS",
+    "action": "Install"
+  },
+  "safari-mac-lang": {
+    "title": "Safari on macOS",
+    "description": "Add language filter on Safari macOS.",
+    "image_main": "assets/img/portfolio/safari-mac-lang.jpg",
+    "images":[
+        "assets/img/safari_macOS_lang/safari_macOS_lang_1.png",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_2.png",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_3.png",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_4.png",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_5.png",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_6.png"
+      ],
+    "captions":[
+      "Click ont the Apple icon in the top left corner of your screen.",
+      "Chose 'Settings'.",
+      "Select checkbox on the BlockLang extension to enable it.",
+      "Select if you want 'Allow in Private Browsing.' and 'Share across devices.'",
+      "The BlockLang icon should appear in the toolbar."
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Safari macOS",
+    "action": "Language"
+
+  },
+  "safari-mac-site": {
+    "title": "Safari on macOS",
+    "description": "Add site filter on Safari macOS.",
+    "image_main": "assets/img/portfolio/safari-mac-site.jpg",
+    "images": [
+        "assets/img/safari_macOS_site/safari_macOS_cnn_1.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_2.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_3.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_4.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_5.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_6.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_7.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_8.png",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_9.png"
+      ],
+    "captions":[
+      "Find the BlockLang icon in the toolbar.",
+      "Click on it. You will see a popup with disabled BlockLang extension.",
+      "When the BlockLang extension is disabled, enter site name into the search abr.",
+      "You will see a result like this.",
+      "Click on the BlockLang icon. Add domain name to the 'Site Filter' field.",
+      "Click 'Add' to add the site to the filter list.",
+      "The site will be shown in the list below.",
+      "Click on the BlockLang button to turn the extension on.",
+      "Into the search bar type the site name to check if it is filtered."
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Safari macOS",
+    "action": "Site"
   },
   "safari-ios": {
     "title": "Safari on iOS",
     "description": "A guide to using the BlockLang extension on Safari for iPhone and iPad.",
-    "image_o": "assets/img/portfolio/safari-ios.jpg",
+    "image_main": "assets/img/portfolio/safari-ios.jpg",
     "images": [
       "assets/img/portfolio/app-2.jpg",
       "assets/img/portfolio/books-2.jpg",
@@ -29,12 +98,13 @@
     "client": "BlockLang Project",
     "date": "June 2025",
     "url": "https://blocklang.org",
-    "platform": "Safari iOS"
+    "platform": "Safari iOS",
+    "action": ""
   },
   "chrome": {
     "title": "Chrome",
     "description": "A guide to using the BlockLang extension on Google Chrome.",
-    "image_o": "assets/img/portfolio/chrome.jpg",
+    "image_main": "assets/img/portfolio/chrome.jpg",
     "images": [
       "assets/img/portfolio/app-3.jpg",
       "assets/img/portfolio/books-3.jpg",
@@ -45,12 +115,13 @@
     "client": "BlockLang Project",
     "date": "June 2025",
     "url": "https://blocklang.org",
-    "platform": "Chrome"
+    "platform": "Chrome",
+    "action": ""
   },
   "firefox": {
     "title": "Firefox",
     "description": "A guide to using the BlockLang extension on Mozilla Firefox.",
-    "image_o": "assets/img/portfolio/firefox.jpg",
+    "image_main": "assets/img/portfolio/firefox.jpg",
     "images": [
       "assets/img/portfolio/app-4.jpg",
       "assets/img/portfolio/books-4.jpg",
@@ -61,6 +132,7 @@
     "client": "BlockLang Project",
     "date": "June 2025",
     "url": "https://blocklang.org",
-    "platform": "Firefox"
+    "platform": "Firefox",
+    "action": ""
   }
 }

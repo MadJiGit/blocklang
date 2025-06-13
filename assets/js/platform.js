@@ -16,12 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // console.log("platform is: ", platform);
+
   fetch("assets/data/platform-details.json")
     .then(response => response.json())
     .then(detailsMap => {
       const details = detailsMap[platform];
 
       const imagePaths = details.images || [];
+
+      // console.log(detailsMap[platform]);
+      // console.log(imagePaths);
 
       const wrapper = document.getElementById("platform-images");
       if (wrapper) {
@@ -35,7 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
             img.src = path;
             img.alt = `Screenshot ${index + 1}`;
 
+            const caption = document.createElement('div');
+            caption.className = 'slide-caption';
+            caption.textContent = (details.captions && details.captions[index]) || '';
+
             slide.appendChild(img);
+            slide.appendChild(caption);
             wrapper.appendChild(slide);
           });
         }
@@ -58,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         document.getElementById("platform-current").textContent = details.platform;
+        document.getElementById("platform-action").textContent = details.action;
       } else {
         document.getElementById("platform-details")?.classList.add("d-none");
         document.getElementById("platform-error")?.classList.remove("d-none");

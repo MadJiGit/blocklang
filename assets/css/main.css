@@ -1307,3 +1307,36 @@ section,
   height: 80px;
   vertical-align: middle;
 }
+
+.slide-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  max-width: 90%;
+  z-index: 10;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/*.slide-caption {*/
+/*  position: relative;*/
+/*  bottom: 10px;*/
+/*  !*left: 10px;*!*/
+/*  color: white;*/
+/*  background: rgba(0,0,0,0.5);*/
+/*  padding: 5px 10px;*/
+/*  border-radius: 5px;*/
+/*  font-size: 14px;*/
+/*  max-width: 90%;*/
+/*  z-index: 10;*/
+/*}*/
+
+.swiper-slide {
+  position: relative;
+}
