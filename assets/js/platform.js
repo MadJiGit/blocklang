@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const img = document.createElement('img');
             img.src = path;
             img.alt = `Screenshot ${index + 1}`;
+            img.classList.add('image-border');
 
             const caption = document.createElement('div');
             caption.className = 'slide-caption';
@@ -55,6 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (details) {
+
+        console.log("details:", details);
+        console.log("Platform details loaded:", details.platform_actions_title);
+        document.getElementById("platform-actions-title").textContent = details.platform_actions_title;
         document.getElementById("platform-title").textContent = details.title;
         document.getElementById("platform-description").textContent = details.description;
 
@@ -67,8 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
           urlElement.setAttribute("href", details.url);
         }
 
-        document.getElementById("platform-current").textContent = details.platform;
+        // document.getElementById("platform-current").textContent = details.platform;
         document.getElementById("platform-action").textContent = details.action;
+
+        const platformCurrentElement = document.getElementById("platform-current");
+        const platformCurrentLink = platformCurrentElement.querySelector("a");
+        if (platformCurrentLink) {
+          platformCurrentLink.textContent = details.platform;
+        }
       } else {
         document.getElementById("platform-details")?.classList.add("d-none");
         document.getElementById("platform-error")?.classList.remove("d-none");

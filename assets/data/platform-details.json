@@ -22,7 +22,8 @@
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Safari macOS",
-    "action": "Install"
+    "action": "Install",
+    "platform_actions_title": "How to install BlockLang on Safari for macOS"
   },
   "safari-mac-lang": {
     "title": "Safari on macOS",
@@ -48,7 +49,8 @@
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Safari macOS",
-    "action": "Language"
+    "action": "Language",
+    "platform_actions_title": "How to add language filter."
 
   },
   "safari-mac-site": {
@@ -82,7 +84,8 @@
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Safari macOS",
-    "action": "Site"
+    "action": "Site",
+    "platform_actions_title": "How to add site filter."
   },
   "safari-ios": {
     "title": "Safari on iOS",
@@ -99,7 +102,8 @@
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Safari iOS",
-    "action": ""
+    "action": "",
+    "platform_actions_title": "How to install BlockLang on Safari for iOS."
   },
   "chrome": {
     "title": "Chrome",
@@ -116,7 +120,8 @@
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Chrome",
-    "action": ""
+    "action": "",
+    "platform_actions_title": "How to add language filter."
   },
   "firefox": {
     "title": "Firefox",
@@ -133,6 +138,7 @@
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Firefox",
-    "action": ""
+    "action": "",
+    "platform_actions_title": "How to add site filter."
   }
 }
