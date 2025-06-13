@@ -2,7 +2,7 @@
   "safari-mac-install": {
     "title": "Safari on macOS",
     "description": "Install BlockLang on Safari macOS.",
-    "image_main": "assets/img/portfolio/safari-mac-install.jpg",
+    "image_main": "assets/img/safari_macOS/install.jpg",
     "images": [
         "assets/img/safari_macOS_install/safari_macOS_install_1.png",
         "assets/img/safari_macOS_install/safari_macOS_install_2.png",
@@ -28,7 +28,7 @@
   "safari-mac-lang": {
     "title": "Safari on macOS",
     "description": "Add language filter on Safari macOS.",
-    "image_main": "assets/img/portfolio/safari-mac-lang.jpg",
+    "image_main": "assets/img/safari_macOS/lang.jpg",
     "images":[
         "assets/img/safari_macOS_lang/safari_macOS_lang_1.png",
         "assets/img/safari_macOS_lang/safari_macOS_lang_2.png",
@@ -56,7 +56,7 @@
   "safari-mac-site": {
     "title": "Safari on macOS",
     "description": "Add site filter on Safari macOS.",
-    "image_main": "assets/img/portfolio/safari-mac-site.jpg",
+    "image_main": "assets/img/safari_macOS/site.jpg",
     "images": [
         "assets/img/safari_macOS_site/safari_macOS_cnn_1.png",
         "assets/img/safari_macOS_site/safari_macOS_cnn_2.png",
@@ -87,33 +87,74 @@
     "action": "Site",
     "platform_actions_title": "How to add site filter."
   },
-  "safari-ios": {
+
+
+  "safari-ios-install": {
     "title": "Safari on iOS",
     "description": "A guide to using the BlockLang extension on Safari for iPhone and iPad.",
-    "image_main": "assets/img/portfolio/safari-ios.jpg",
+    "image_main": "assets/img/safari_iOS/install.jpg",
     "images": [
-      "assets/img/portfolio/app-2.jpg",
-      "assets/img/portfolio/books-2.jpg",
-      "assets/img/portfolio/branding-2.jpg",
-      "assets/img/portfolio/product-2.jpg"
+      ""
+    ],
+    "captions":[
+      ""
     ],
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
     "url": "https://blocklang.org",
     "platform": "Safari iOS",
-    "action": "",
+    "action": "Install",
     "platform_actions_title": "How to install BlockLang on Safari for iOS."
   },
-  "chrome": {
+  "safari-ios-site": {
+    "title": "Safari on iOS",
+    "description": "A guide to using the BlockLang extension on Safari for iPhone and iPad.",
+    "image_main": "assets/img/safari_iOS/site.jpg",
+    "images": [
+      ""
+    ],
+    "captions":[
+      ""
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Safari iOS",
+    "action": "Site",
+    "platform_actions_title": "How to add site filter."
+  },
+  "safari-ios-lang": {
+    "title": "Safari on iOS",
+    "description": "A guide to using the BlockLang extension on Safari for iPhone and iPad.",
+    "image_main": "assets/img/safari_iOS/lang.jpg",
+    "images": [
+      ""
+    ],
+    "captions":[
+      ""
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Safari iOS",
+    "action": "Language",
+    "platform_actions_title": "How to add site filter."
+  },
+
+
+
+  "chrome-install": {
     "title": "Chrome",
     "description": "A guide to using the BlockLang extension on Google Chrome.",
-    "image_main": "assets/img/portfolio/chrome.jpg",
+    "image_main": "assets/img/chrome/in_progress.jpg",
     "images": [
-      "assets/img/portfolio/app-3.jpg",
-      "assets/img/portfolio/books-3.jpg",
-      "assets/img/portfolio/branding-3.jpg",
-      "assets/img/portfolio/product-3.jpg"
+      "assets/img/chrome/in_progress.jpg"
+    ],
+    "captions":[
+      "BlockLang for Chrome is currently in developments."
     ],
     "category": "Web Extension",
     "client": "BlockLang Project",
@@ -121,17 +162,20 @@
     "url": "https://blocklang.org",
     "platform": "Chrome",
     "action": "",
-    "platform_actions_title": "How to add language filter."
+    "platform_actions_title": "In Development — Stay Tuned!"
   },
-  "firefox": {
+
+
+
+  "firefox-install": {
     "title": "Firefox",
     "description": "A guide to using the BlockLang extension on Mozilla Firefox.",
-    "image_main": "assets/img/portfolio/firefox.jpg",
+    "image_main": "assets/img/firefox/in_progress.jpg",
     "images": [
-      "assets/img/portfolio/app-4.jpg",
-      "assets/img/portfolio/books-4.jpg",
-      "assets/img/portfolio/branding-4.jpg",
-      "assets/img/portfolio/product-4.jpg"
+      "assets/img/chrome/in_progress.jpg"
+    ],
+    "captions":[
+      "BlockLang for Firefox is currently in development."
     ],
     "category": "Web Extension",
     "client": "BlockLang Project",
@@ -139,6 +183,6 @@
     "url": "https://blocklang.org",
     "platform": "Firefox",
     "action": "",
-    "platform_actions_title": "How to add site filter."
+    "platform_actions_title": "In Development — Stay Tuned!"
   }
 }

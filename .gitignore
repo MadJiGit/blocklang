@@ -4,6 +4,7 @@
 
 # Ignore SCSS if not used in GitHub build
 assets/scss/
+assets/img/.DS_Store
 
 # Ignore backup/unused files
 portfolio-details-original.html
@@ -11,7 +12,7 @@ forms/
 index_old.html
 index_original.html
 Readme.txt
-service-details.html
+service-details-original.html
 
 # Node.js / npm
 node_modules/

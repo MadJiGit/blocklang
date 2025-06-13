@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const platform = params.get("platform");
 
+  // console.log( "Platform:", platform);
+
   const swiperConfig = {
     loop: true,
     speed: 600,
@@ -16,21 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // console.log("platform is: ", platform);
-
   fetch("assets/data/platform-details.json")
     .then(response => response.json())
     .then(detailsMap => {
       const details = detailsMap[platform];
 
-      const imagePaths = details.images || [];
+      console.log("Platform:", platform);
+      console.log("Platform Details:", details);
 
-      // console.log(detailsMap[platform]);
-      // console.log(imagePaths);
+      const imagePaths = details.images || [];
 
       const wrapper = document.getElementById("platform-images");
       if (wrapper) {
-        wrapper.innerHTML = ''; // Clear previous content
+        wrapper.innerHTML = '';
         if (imagePaths.length > 0) {
           imagePaths.forEach((path, index) => {
             const slide = document.createElement('div');
@@ -56,9 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (details) {
-
-        console.log("details:", details);
-        console.log("Platform details loaded:", details.platform_actions_title);
         document.getElementById("platform-actions-title").textContent = details.platform_actions_title;
         document.getElementById("platform-title").textContent = details.title;
         document.getElementById("platform-description").textContent = details.description;
@@ -72,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
           urlElement.setAttribute("href", details.url);
         }
 
-        // document.getElementById("platform-current").textContent = details.platform;
         document.getElementById("platform-action").textContent = details.action;
 
         const platformCurrentElement = document.getElementById("platform-current");
