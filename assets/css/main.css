@@ -1348,3 +1348,10 @@ section,
     padding: 0 15px; /* добавяме малко вътрешни отстояния */
   }
 }
+
+@media (max-width: 767px) {
+  .header .header-toggle {
+    color: #222222; /* по-тъмен цвят за текста (иконата) */
+    background-color: #ffffff; /* или друг по-светъл фон */
+  }
+}
