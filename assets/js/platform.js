@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(detailsMap => {
             const details = detailsMap[platform];
+            console.log('Platform:', platform);
+            console.log('Details:', details);
+            console.log('Images:', details?.images);
             if (!details) {
                 console.error(`No details found for platform: ${platform}`);
                 throw new Error(`No details found for platform: ${platform}`);
@@ -34,16 +37,28 @@ document.addEventListener("DOMContentLoaded", () => {
                         const slide = document.createElement('div');
                         slide.className = 'swiper-slide';
 
-                        const img = document.createElement('img');
-                        img.src = path;
-                        img.alt = "under constructions";
-                        img.classList.add('image-border');
+                        const isVideo = path.endsWith('.mov') || path.endsWith('.mp4') || path.endsWith('.webm');
+                        
+                        if (isVideo) {
+                            const video = document.createElement('video');
+                            video.src = path;
+                            video.controls = true;
+                            video.classList.add('image-border');
+                            video.style.width = '100%';
+                            video.style.height = 'auto';
+                            slide.appendChild(video);
+                        } else {
+                            const img = document.createElement('img');
+                            img.src = path;
+                            img.alt = "under constructions";
+                            img.classList.add('image-border');
+                            slide.appendChild(img);
+                        }
 
                         const caption = document.createElement('div');
                         caption.className = 'slide-caption';
                         caption.textContent = (details.captions && details.captions[index]) || '';
 
-                        slide.appendChild(img);
                         slide.appendChild(caption);
                         wrapper.appendChild(slide);
                     });

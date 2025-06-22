@@ -1,4 +1,28 @@
 {
+  "safari-videos": {
+    "title": "videos",
+    "description": "How to use BlockLang.",
+    "image_main": "assets/videos/IMG_4402.PNG",
+    "images": [
+      "assets/videos/switch_on.mp4",
+      "assets/videos/add_filter.mp4",
+      "assets/videos/remove_filter.mp4",
+      "assets/videos/open_site.mp4"
+    ],
+    "captions":[
+      "Switch on BlockLang.",
+      "Add site or language filter.",
+      "Remove filter.",
+      "Open information site."
+    ],
+    "category": "Web Extension",
+    "client": "BlockLang Project",
+    "date": "June 2025",
+    "url": "https://blocklang.org",
+    "platform": "Videos",
+    "action": "Site",
+    "platform_actions_title": "How to use BlockLang on Safari."
+  },
   "safari-mac-install": {
     "title": "Safari on macOS",
     "description": "Install BlockLang on Safari macOS.",
