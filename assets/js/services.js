@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const appStoreLink = document.getElementById("app-store-extension-id");
 
                 if (appStoreLink) {
-                    // Задаване на линк
+                    // Set link
                     appStoreLink.setAttribute("href", details.app_store_link);
 
-                    // Задаване на изображение
+                    // Set image
                     const appStoreImage = appStoreLink.querySelector("img");
                     if (appStoreImage) {
                         appStoreImage.setAttribute("src", details.app_store_logo);

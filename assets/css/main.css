@@ -66,7 +66,7 @@ body {
     font-family: var(--default-font);
 
 
-    /*background-image: url('../img/blue-bg-large.jpg'); !* или относителен път *!*/
+    /*background-image: url('../img/blue-bg-large.jpg'); /* or relative path */*/
     /*background-size: cover;*/
     /*background-position: center;*/
     /*background-repeat: no-repeat;*/
