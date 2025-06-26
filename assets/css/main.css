@@ -1392,3 +1392,14 @@ section,
     margin: 0 auto;
     display: block;
 }
+
+/* Footer positioning for static pages */
+.portfolio-details-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.portfolio-details-page .main {
+    flex: 1;
+}
