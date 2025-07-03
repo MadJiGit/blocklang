@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>How It Works - BlockLang</title>
+    <meta content="How BlockLang filter system works - technical details" name="description">
+    <meta content="how it works, safari extension, block lang, language filter, filtering" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+<header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <div class="profile-img">
+        <img src="assets/img/logo.png" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" alt="">
+        <h1 class="sitename">BlockLang</h1>
+    </a>
+
+    <div class="social-links text-center">
+        <a href="https://x.com/BlockLang_App" class="twitter"><i class="bi bi-twitter-x"></i></a>
+<!--        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>-->
+        <a href="https://www.instagram.com/block_langapp/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@BlockLangExtension" class="youtube"><i class="bi bi-youtube"></i></a>
+<!--        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+        <ul>
+            <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+            <li><a href="index.html#about"><i class="bi bi-file-earmark-text navicon"></i> About</a></li>
+            <li class="dropdown"><a href="how-it-works.html"><i class="bi bi-code-slash navicon"></i> <span>How It Works</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="how-it-works.html#how-it-works">Technical Overview</a></li>
+                    <li><a href="how-it-works.html#languageSearch">Language Filter Explorer</a></li>
+                    <li><a href="how-it-works.html#technicalDetails">Implementation Details</a></li>
+                    <li><a href="how-it-works.html">View All Sections</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#platforms"><i class="bi bi-lightbulb navicon"></i> How To Use</a></li>
+            <li><a href="index.html#services"><i class="bi bi-download navicon"></i> Download</a></li>
+            <li><a href="privacy.html"><i class="bi bi-shield-check navicon"></i>Privacy</a></li>
+            <li><a href="terms.html"><i class="bi bi-file-earmark-text navicon"></i>Terms of Use</a></li>
+            <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+            <li><a href="credits.html"><i class="bi  bi-tags navicon"></i> Credits</a></li>
+        </ul>
+    </nav>
+    <div class="madji">
+        <img class="madji-img" src="/assets/img/madji.png" alt="">
+    </div>
+</header>
+
+<main class="main">
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+        <div class="container d-lg-flex justify-content-between align-items-center">
+            <h1 class="mb-2 mb-lg-0">How It Works</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">How It Works</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <div class="content">
+                        <div class="mb-5 text-center">
+                            <h2>How BlockLang Works</h2>
+                            <p class="lead text-muted">BlockLang is <strong>not magic</strong> – it works exactly as you configure it. You decide what to filter, and it filters exactly that.</p>
+                        </div>
+
+                        <!-- Step by Step Process -->
+                        <div class="row g-5 mb-5">
+                            <div class="col-lg-6">
+                                <div class="border-start border-primary border-4 ps-4">
+                                    <h3 class="text-primary mb-4"><i class="bi bi-1-circle-fill me-2"></i> Add Your Filters</h3>
+                                    <p class="mb-4">You simply type what you want to block:</p>
+
+                                    <div class="mb-4">
+                                        <h5 class="fw-bold mb-3">Domains:</h5>
+                                        <div class="mb-2">
+                                            <code class="bg-light p-2 rounded d-inline-block me-2">facebook.com</code>
+                                            <code class="bg-light p-2 rounded d-inline-block">cnn.com</code>
+                                        </div>
+                                        <p class="text-muted small">Block specific websites completely</p>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <h5 class="fw-bold mb-3">Wildcards:</h5>
+                                        <div class="mb-2">
+                                            <code class="bg-light p-2 rounded d-inline-block">*.ru</code>
+                                        </div>
+                                        <p class="text-muted small">Block all websites ending in .ru</p>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <h5 class="fw-bold mb-3">Languages:</h5>
+                                        <div class="mb-2">
+                                            <code class="bg-light p-2 rounded d-inline-block">language:ru</code>
+                                        </div>
+                                        <p class="text-muted small">Block all Russian language content</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="border-start border-success border-4 ps-4">
+                                    <h3 class="text-success mb-4"><i class="bi bi-2-circle-fill me-2"></i> Filtering in Action</h3>
+                                    <p class="mb-4">When you search on Google or Bing:</p>
+
+                                    <ul class="list-unstyled">
+                                        <li class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                            <div>
+                                                <strong>Extension checks each search result</strong>
+                                                <p class="text-muted small mb-0">Scans every result against your filter list</p>
+                                            </div>
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                            <div>
+                                                <strong>Hides results matching your filters</strong>
+                                                <p class="text-muted small mb-0">Removes unwanted content from view</p>
+                                            </div>
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                            <div>
+                                                <strong>Everything happens locally in your browser</strong>
+                                                <p class="text-muted small mb-0">No server communication required</p>
+                                            </div>
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                            <div>
+                                                <strong>No data leaves your device</strong>
+                                                <p class="text-muted small mb-0">Complete privacy protection</p>
+                                            </div>
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                            <div>
+                                                <strong>Works with all search engines</strong>
+                                                <p class="text-muted small mb-0">Compatible with Google, Bing, and others</p>
+                                            </div>
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-3 mt-1"></i>
+                                            <div>
+                                                <strong>Instant toggle on/off</strong>
+                                                <p class="text-muted small mb-0">Enable or disable filtering with one click</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Special Features -->
+                        <div class="row g-4 mb-5">
+                            <div class="col-lg-6">
+                                <div class="alert alert-success h-100">
+                                    <h4><i class="bi bi-toggle-on me-2"></i>Quick Russian Filter</h4>
+                                    <p class="mb-3">
+                                        <strong>Filt-Ru Button:</strong> Toggle this ON to instantly block 89+ Russian domains
+                                        (like .ru, .рф, vk.com, yandex.ru) without adding them individually.
+                                    </p>
+                                    <p class="mb-0 small">
+                                        Perfect for users who want to avoid Russian-language content but don't want to manually add dozens of filters.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="alert alert-info h-100">
+                                    <h4><i class="bi bi-shield-check me-2"></i>Complete Transparency</h4>
+                                    <p class="mb-3">
+                                        <strong>You control everything:</strong> BlockLang only hides what YOU tell it to hide.
+                                        Add <code>reddit.com</code> → Reddit results disappear.
+                                        Remove the filter → Reddit results come back.
+                                    </p>
+                                    <p class="mb-0">
+                                        <strong>Local only:</strong> No servers, no tracking, no data collection.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Examples Section -->
+                        <h3 class="text-center mb-5">Real-World Examples</h3>
+                        
+                        <!-- Example 1 -->
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-lg-10">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-4 text-center">
+                                        <h5 class="mb-4"><i class="bi bi-lightbulb text-warning me-2"></i>Block Low-Quality Sites</h5>
+                                        
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>You search for:</strong>
+                                                </div>
+                                                <code class="bg-primary text-white p-2 rounded d-block">javascript tutorial</code>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-2">
+                                                    <strong>Your filters:</strong>
+                                                </div>
+                                                <div>
+                                                    <code class="bg-light p-1 rounded d-block mb-1">w3schools.com</code>
+                                                    <code class="bg-light p-1 rounded d-block">*.ru</code>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>Result:</strong>
+                                                </div>
+                                                <div class="alert alert-success mb-0 py-2 small">
+                                                    W3Schools and all Russian sites are hidden from results
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 2 -->
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-lg-10">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-4 text-center">
+                                        <h5 class="mb-4"><i class="bi bi-newspaper text-info me-2"></i>Clean News Results</h5>
+                                        
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>You search for:</strong>
+                                                </div>
+                                                <code class="bg-info text-white p-2 rounded d-block">climate change news</code>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-2">
+                                                    <strong>Your filters:</strong>
+                                                </div>
+                                                <div>
+                                                    <code class="bg-light p-1 rounded d-block mb-1">cnn.com</code>
+                                                    <code class="bg-light p-1 rounded d-block mb-1">foxnews.com</code>
+                                                    <code class="bg-light p-1 rounded d-block">buzzfeed.com</code>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>Result:</strong>
+                                                </div>
+                                                <div class="alert alert-info mb-0 py-2 small">
+                                                    Only trusted news sources remain visible
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 3 -->
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-lg-10">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-4 text-center">
+                                        <h5 class="mb-4"><i class="bi bi-translate text-danger me-2"></i>Language-Specific Search</h5>
+                                        
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>You search for:</strong>
+                                                </div>
+                                                <code class="bg-danger text-white p-2 rounded d-block">programming course</code>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-2">
+                                                    <strong>Your filters:</strong>
+                                                </div>
+                                                <div>
+                                                    <code class="bg-light p-1 rounded d-block mb-1">language:ru</code>
+                                                    <code class="bg-light p-1 rounded d-block mb-1">language:zh</code>
+                                                    <code class="bg-light p-1 rounded d-block">language:ar</code>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>Result:</strong>
+                                                </div>
+                                                <div class="alert alert-danger mb-0 py-2 small">
+                                                    Only English content is displayed
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 4 -->
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-lg-10">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-4 text-center">
+                                        <h5 class="mb-4"><i class="bi bi-toggle-on text-success me-2"></i>Quick Russian Filter in Action</h5>
+                                        
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>You search for:</strong>
+                                                </div>
+                                                <code class="bg-success text-white p-2 rounded d-block">react components</code>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-2">
+                                                    <strong>Your setup:</strong>
+                                                </div>
+                                                <div>
+                                                    <div class="alert alert-success py-1 mb-1">
+                                                        <small><i class="bi bi-toggle-on me-1"></i>Filt-Ru: ON</small>
+                                                    </div>
+                                                    <small class="text-muted">Automatically blocks 89+ Russian domains</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 text-center">
+                                                <i class="bi bi-arrow-right text-muted fs-4"></i>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-2">
+                                                    <strong>Result:</strong>
+                                                </div>
+                                                <div class="alert alert-success mb-0 py-2 small">
+                                                    All .ru, .рф, vk.com, yandex.* sites hidden instantly
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Language Filter Explorer -->
+                        <div class="mb-5" id="languageSearch">
+                            <h3 class="text-center mb-4">Language Filter Explorer</h3>
+                            <p class="text-center text-muted mb-4">Find the language code you need for filtering. Type to search languages and get the exact filter code.</p>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3">
+                                                <label for="languageSearch" class="form-label fw-bold">Search Languages:</label>
+                                                <input type="text" class="form-control form-control-lg" id="languageSearch" placeholder="Type language name (e.g. 'Russian', 'Chinese', 'Arabic')...">
+                                            </div>
+                                            
+                                            <div id="languageResults" class="d-none">
+                                                <h6 class="text-success mb-3"><i class="bi bi-search me-2"></i>Search Results:</h6>
+                                                <div id="languageList" class="row g-2 mb-3"></div>
+                                                
+                                                <div id="selectedLanguage" class="alert alert-primary d-none">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <strong>Add this to your filters:</strong>
+                                                            <code class="ms-2 bg-white p-2 rounded" id="languageCode"></code>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="copyLanguageCode()">
+                                                            <i class="bi bi-clipboard me-1"></i>Copy
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="noResults" class="alert alert-info d-none">
+                                                <i class="bi bi-info-circle me-2"></i>No languages found. Try a different search term.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Details -->
+                        <div class="mb-5" id="technicalDetails">
+                            <h3 class="mb-4">Technical Implementation</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-cpu me-2"></i>DOM Filtering</h5>
+                                            <p class="card-text">BlockLang uses DOM-based filtering to hide search results after the page loads. This approach ensures compatibility and doesn't interfere with search engine functionality.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-hdd me-2"></i>Local Storage</h5>
+                                            <p class="card-text">All your filters and settings are stored locally on your device using browser storage. No data is sent to external servers or third parties.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-lightning me-2"></i>Performance</h5>
+                                            <p class="card-text">Filtering operations are optimized for speed. The extension processes results in milliseconds without affecting your browsing performance.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-shield-check me-2"></i>Privacy First</h5>
+                                            <p class="card-text">No tracking, no analytics, no data collection. BlockLang is designed with privacy as the top priority from the ground up.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="text-center">
+                            <div class="alert alert-primary">
+                                <h4 class="mb-3">Ready to clean up your search results?</h4>
+                                <p class="mb-3">Download BlockLang and take control of your browsing experience today.</p>
+                                <a href="index.html#services" class="btn btn-primary btn-lg">Download BlockLang</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End How It Works Section -->
+
+</main>
+
+<footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+        <div class="copyright text-center">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">BlockLang</strong> <span>All Rights Reserved</span></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="credits">
+            Developed by   <a href="https://mladenraykov.com" target="_blank"><img class="madji-img-footer" src="/assets/img/madji_logo_96.png" alt="MadJi"></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/typed.js/typed.umd.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- Language Filter Explorer Script -->
+<script src="assets/js/how-it-works.js"></script>
+
+</body>
+</html>
