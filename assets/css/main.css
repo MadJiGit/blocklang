@@ -544,7 +544,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-    background-image: url('../img/blue-bg.webp');
+    background-image: url('../img/blue-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
