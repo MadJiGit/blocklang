@@ -30,9 +30,5 @@
   "q_8": {
     "question": "Does BlockLang work on mobile devices?",
     "answer": "Yes, BlockLang is available for Safari on iOS (iPhone and iPad) through the App Store. The mobile version has the same features as the desktop version."
-  },
-  "q_9": {
-    "question": "Can I sync my filters across devices?",
-    "answer": "Yes, if you have browser sync enabled (Chrome Sync, Firefox Sync, or iCloud for Safari), your filters will automatically sync across all your devices where BlockLang is installed."
   }
 }

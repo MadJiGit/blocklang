@@ -12,6 +12,7 @@ async function loadFAQData() {
         const response = await fetch('assets/data/faq-details.json');
         const faqData = await response.json();
         renderFAQItems(faqData);
+        generateSchemaMarkup(faqData);
     } catch (error) {
         console.error('Error loading FAQ data:', error);
         // Fallback to show error message
@@ -22,6 +23,7 @@ async function loadFAQData() {
 function renderFAQItems(faqData) {
     const faqContainer = document.querySelector('.faq-container');
     const loadingDiv = document.getElementById('faq-loading');
+    const fallbackDiv = document.querySelector('.faq-fallback');
     
     if (!faqContainer) {
         console.error('FAQ container not found');
@@ -31,6 +33,11 @@ function renderFAQItems(faqData) {
     // Hide loading indicator
     if (loadingDiv) {
         loadingDiv.style.display = 'none';
+    }
+    
+    // Hide fallback content if it exists (shouldn't be visible when JS works)
+    if (fallbackDiv) {
+        fallbackDiv.style.display = 'none';
     }
 
     // Clear existing content
@@ -146,6 +153,53 @@ function showErrorMessage() {
             <strong>Unable to load FAQ content.</strong> Please try refreshing the page.
         </div>
     `;
+}
+
+// Generate JSON-LD Schema Markup for SEO
+function generateSchemaMarkup(faqData) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": []
+    };
+
+    // Convert FAQ data to schema format
+    Object.keys(faqData).forEach(key => {
+        const faq = faqData[key];
+        
+        // Skip empty questions
+        if (!faq.question || !faq.answer) {
+            return;
+        }
+
+        // Clean HTML from answer for schema (Google prefers plain text)
+        const cleanAnswer = faq.answer.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+
+        schema.mainEntity.push({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": cleanAnswer
+            }
+        });
+    });
+
+    // Create and inject schema script
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.textContent = JSON.stringify(schema, null, 2);
+    
+    // Remove existing schema if any
+    const existingSchema = document.querySelector('script[type="application/ld+json"]');
+    if (existingSchema) {
+        existingSchema.remove();
+    }
+    
+    // Add to head
+    document.head.appendChild(schemaScript);
+    
+    console.log('FAQ Schema markup generated:', schema);
 }
 
 // Helper function to add new FAQ items dynamically (for future use)
