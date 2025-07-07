@@ -243,6 +243,7 @@ h6 {
 
 .header .header-toggle:hover {
     color: var(--contrast-color);
+    background-color: #1a8dc7; /* fallback */
     background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
 }
 
@@ -1354,7 +1355,11 @@ section,
     .header .header-toggle {
         z-index: 999999 !important;
         color: #222222 !important;
-        /*background-color: #ff0000 !important; */
+        background-color: var(--accent-color) !important;
+        position: fixed !important;
+        top: 15px !important;
+        right: 15px !important;
+        display: flex !important;
         /*border: 2px solid yellow !important; */
         /*outline: 2px solid red !important; */
     }
