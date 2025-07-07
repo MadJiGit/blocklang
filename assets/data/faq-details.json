@@ -1,0 +1,38 @@
+{
+  "q_1": {
+    "question": "What is BlockLang?",
+    "answer": "BlockLang is a privacy-focused browser extension that helps you clean up your search results by filtering unwanted content. It allows you to block specific domains, languages, or sites from appearing in your Google and Bing search results."
+  },
+  "q_2": {
+    "question": "Is BlockLang safe and private?",
+    "answer": "Yes, BlockLang is completely private and secure. All filtering happens locally on your device - no data is sent to external servers. Your browsing habits, search queries, and filter preferences never leave your device."
+  },
+  "q_3": {
+    "question": "Which browsers support BlockLang?",
+    "answer": "BlockLang is available for:<ul><li><strong>Chrome</strong> - Available on Chrome Web Store</li><li><strong>Firefox</strong> - Available on Firefox Add-ons</li><li><strong>Safari</strong> - Available on Mac App Store and iOS App Store</li></ul>"
+  },
+  "q_4": {
+    "question": "Is BlockLang free?",
+    "answer": "BlockLang offers both free and Pro versions:<ul><li><strong>Free Version</strong> - Up to 5 domain filters + Quick Russian Filter</li><li><strong>Pro Version</strong> - Unlimited domain filters + all features</li></ul><p>The free version is perfect for most users who want to block a few specific sites.</p>"
+  },
+  "q_5": {
+    "question": "How do I set up filters?",
+    "answer": "Setting up filters is simple:<ol><li>Click the BlockLang extension icon in your browser</li><li>Add domains you want to block (e.g., <code>facebook.com</code>)</li><li>Use wildcards for broader filtering (e.g., <code>*.ru</code>)</li><li>Add language filters (e.g., <code>language:ru</code>)</li><li>Toggle the Quick Russian Filter for instant blocking</li></ol><p>Your filters will immediately start working on Google and Bing searches.</p>"
+  },
+  "q_6": {
+    "question": "What happens if I want to leave?",
+    "answer": "You can uninstall BlockLang at any time through your browser's extension settings. All your data is stored locally, so uninstalling will completely remove all traces of the extension from your system."
+  },
+  "q_7": {
+    "question": "Are there any hidden fees?",
+    "answer": "No, there are no hidden fees. The free version is completely free with 5 domain filters. The Pro version is a one-time purchase with no recurring fees or subscriptions."
+  },
+  "q_8": {
+    "question": "Does BlockLang work on mobile devices?",
+    "answer": "Yes, BlockLang is available for Safari on iOS (iPhone and iPad) through the App Store. The mobile version has the same features as the desktop version."
+  },
+  "q_9": {
+    "question": "Can I sync my filters across devices?",
+    "answer": "Yes, if you have browser sync enabled (Chrome Sync, Firefox Sync, or iCloud for Safari), your filters will automatically sync across all your devices where BlockLang is installed."
+  }
+}

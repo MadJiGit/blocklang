@@ -103,104 +103,22 @@
                             <p class="lead text-muted">Find answers to common questions about BlockLang browser extension</p>
                         </div>
 
-                        <!-- FAQ Accordion -->
-                        <div class="accordion" id="faqAccordion">
-                            
-                            <!-- FAQ Item 1 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faq1">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                        <i class="bi bi-question-circle me-2"></i>
-                                        What is BlockLang?
-                                    </button>
-                                </h2>
-                                <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>BlockLang is a privacy-focused browser extension that helps you clean up your search results by filtering unwanted content. It allows you to block specific domains, languages, or sites from appearing in your Google and Bing search results.</p>
+                        <!-- FAQ Cards - Dynamic Content -->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Loading state -->
+                                <div id="faq-loading" class="text-center py-5">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading FAQ...</span>
                                     </div>
+                                    <p class="mt-3 text-muted">Loading FAQ content...</p>
+                                </div>
+                                
+                                <!-- FAQ container - will be populated by JavaScript -->
+                                <div class="faq-container">
+                                    <!-- FAQ items will be dynamically loaded here -->
                                 </div>
                             </div>
-
-                            <!-- FAQ Item 2 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faq2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        <i class="bi bi-shield-check me-2"></i>
-                                        Is BlockLang safe and private?
-                                    </button>
-                                </h2>
-                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>Yes, BlockLang is completely private and secure. All filtering happens locally on your device - no data is sent to external servers. Your browsing habits, search queries, and filter preferences never leave your device.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- FAQ Item 3 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faq3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        <i class="bi bi-download me-2"></i>
-                                        Which browsers support BlockLang?
-                                    </button>
-                                </h2>
-                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>BlockLang is available for:</p>
-                                        <ul>
-                                            <li><strong>Chrome</strong> - Available on Chrome Web Store</li>
-                                            <li><strong>Firefox</strong> - Available on Firefox Add-ons</li>
-                                            <li><strong>Safari</strong> - Available on Mac App Store and iOS App Store</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- FAQ Item 4 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faq4">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                        <i class="bi bi-currency-dollar me-2"></i>
-                                        Is BlockLang free?
-                                    </button>
-                                </h2>
-                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>BlockLang offers both free and Pro versions:</p>
-                                        <ul>
-                                            <li><strong>Free Version</strong> - Up to 5 domain filters + Quick Russian Filter</li>
-                                            <li><strong>Pro Version</strong> - Unlimited domain filters + all features</li>
-                                        </ul>
-                                        <p>The free version is perfect for most users who want to block a few specific sites.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- FAQ Item 5 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faq5">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                        <i class="bi bi-gear me-2"></i>
-                                        How do I set up filters?
-                                    </button>
-                                </h2>
-                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>Setting up filters is simple:</p>
-                                        <ol>
-                                            <li>Click the BlockLang extension icon in your browser</li>
-                                            <li>Add domains you want to block (e.g., <code>facebook.com</code>)</li>
-                                            <li>Use wildcards for broader filtering (e.g., <code>*.ru</code>)</li>
-                                            <li>Add language filters (e.g., <code>language:ru</code>)</li>
-                                            <li>Toggle the Quick Russian Filter for instant blocking</li>
-                                        </ol>
-                                        <p>Your filters will immediately start working on Google and Bing searches.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Add more FAQ items as needed -->
-                            
                         </div>
                         
                         <!-- Contact Section -->
@@ -251,6 +169,9 @@
 
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<!-- FAQ Dynamic Loader -->
+<script src="assets/js/faq.js"></script>
 
 </body>
 </html>
