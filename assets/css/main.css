@@ -617,7 +617,7 @@ section,
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 32px;
-        background-image: url("../img/blue-bg-mobile.webp");
+        /*background-image: url("../img/blue-bg-mobile.webp");*/
     }
 
     .hero p {
