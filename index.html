@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Block Unwanted Websites | BlockLang Browser Extension</title>
-    <meta name="description" content="BlockLang is a browser extension for filtering unwanted websites from Google search results. Remove clickbait, fake news and irrelevant content. Available for Chrome, Firefox and Safari.">
-    <meta name="keywords" content="browser extension, search filter, block websites, chrome extension, firefox addon, safari extension">
+    <meta name="description"
+          content="BlockLang is a browser extension for filtering unwanted websites from Google search results. Remove clickbait, fake news and irrelevant content. Available for Chrome, Firefox and Safari.">
+    <meta name="keywords"
+          content="browser extension, search filter, block websites, chrome extension, firefox addon, safari extension">
     <meta name="author" content="MadJi">
 
     <meta property="og:title" content="BlockLang - Browser Extension">
@@ -15,6 +17,14 @@
     <meta property="og:url" content="https://blocklang.org">
     <meta name="robots" content="index, follow">
 
+    <link rel="canonical" href="https://www.blocklang.org/">
+
+    <script>
+        if (location.hostname === "blocklang.org") {
+            location.href = "https://www.blocklang.org" + location.pathname + location.search + location.hash;
+        }
+    </script>
+
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -22,7 +32,8 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +44,39 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "BlockLang",
+            "url": "https://www.blocklang.org",
+            "logo": "https://www.blocklang.org/assets/img/logo.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "support@blocklang.org",
+                "contactType": "customer support"
+            },
+            "sameAs": [
+                "https://x.com/BlockLang_App",
+                "https://www.instagram.com/block_langapp/",
+                "https://www.youtube.com/@BlockLangExtension"
+            ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "BlockLang",
+            "url": "https://www.blocklang.org",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.blocklang.org/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
 </head>
 
 <body class="index-page">
@@ -48,10 +92,10 @@
     </a>
 
     <div class="social-links text-center">
-<!--        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>-->
+        <!--        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>-->
         <a href="https://x.com/BlockLang_App" class="twitter"><i class="bi bi-twitter-x"></i></a>
         <a href="https://www.instagram.com/block_langapp/" class="instagram"><i class="bi bi-instagram"></i></a>
-<!--        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
+        <!--        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
         <a href="https://www.youtube.com/@BlockLangExtension" class="youtube"><i class="bi bi-youtube"></i></a>
     </div>
 
@@ -61,7 +105,8 @@
             <li><a href="#why"><i class="bi bi-heart navicon"></i> Why!</a></li>
             <li><a href="#about"><i class="bi bi-file-earmark-text navicon"></i> About</a></li>
             <li><a href="blog.html"><i class="bi bi-book-half navicon"></i> Blog</a></li>
-            <li class="dropdown"><a href="how-it-works.html"><i class="bi bi-code-slash navicon"></i> <span> How It Works</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li class="dropdown"><a href="how-it-works.html"><i class="bi bi-code-slash navicon"></i> <span> How It Works</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                     <li><a href="how-it-works.html#how-it-works"> Technical Overview</a></li>
                     <li><a href="how-it-works.html#languageSearch"> Language Filter Explorer</a></li>
@@ -73,7 +118,8 @@
             <li><a href="#platforms"><i class="bi bi-lightbulb navicon"></i> How To Use</a></li>
             <li><a href="faq.html"><i class="bi bi-question-circle navicon"></i> FAQ</a></li>
             <li><a href="privacy.html" class="active"><i class="bi bi-shield-check navicon"></i> Privacy</a></li>
-            <li><a href="terms.html" class="active"><i class="bi bi-file-earmark-text navicon"></i> Terms of Use</a></li>
+            <li><a href="terms.html" class="active"><i class="bi bi-file-earmark-text navicon"></i> Terms of Use</a>
+            </li>
             <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
             <li><a href="credits.html"><i class="bi  bi-tags navicon"></i> Credits</a></li>
         </ul>
@@ -90,7 +136,9 @@
     <section id="hero" class="hero section dark-background" data-aos="fade-up" data-aos-delay="100">
         <div class="container">
             <h2>I'm BlockLang</h2>
-            <p><span class="typed" data-typed-items="Who am I?, I'm your browsing assistant, here to clean up your search">I'm BlockLang</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+            <p><span class="typed"
+                     data-typed-items="Who am I?, I'm your browsing assistant, here to clean up your search">I'm BlockLang</span><span
+                    class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
         </div>
     </section>
     <!-- /Hero Section -->
@@ -104,7 +152,8 @@
             <h2>Why BlockLang?</h2>
             <h4>The Story Behind It All.</h4>
             <p>
-                From the team of BlockLang, we want to share the story of why we built this extension and how it can help you.
+                From the team of BlockLang, we want to share the story of why we built this extension and how it can
+                help you.
             </p>
         </div>
         <!-- End Section Title -->
@@ -119,17 +168,26 @@
                     <div class="motivation-story mt-4">
                         <h3 id="why-title" class="mb-3"><i class="bi bi-lightbulb"></i> Why We Built This</h3>
                         <p id="why-p1" class="mb-3">
-                            As people who spend a lot of time online searching for information, We were constantly frustrated by the same recurring problems. When we searched for something in Bulgarian, Google often returned results in Russian – they sound similar enough, but the content was completely irrelevant and just wasted our time.
+                            As people who spend a lot of time online searching for information, We were constantly
+                            frustrated by the same recurring problems. When we searched for something in Bulgarian,
+                            Google often returned results in Russian – they sound similar enough, but the content was
+                            completely irrelevant and just wasted our time.
                         </p>
                         <p id="why-p2" class="mb-3">
-                            The other big issue was this constant "noise" from clickbait sites and fake news that cluttered up our search results, making it really frustrating to find quality, reliable information. We wanted something simple and discreet that would filter this out without getting in my way.
+                            The other big issue was this constant "noise" from clickbait sites and fake news that
+                            cluttered up our search results, making it really frustrating to find quality, reliable
+                            information. We wanted something simple and discreet that would filter this out without
+                            getting in my way.
                         </p>
                         <p id="why-p3" class="mb-3">
-                            So we decided to build a browser extension to solve our own problems. We started with a Chrome version, just to see if the idea worked. Once we saw how much it helped us, we expanded it to Safari for macOS and iOS – for people like us who use Apple devices.
+                            So we decided to build a browser extension to solve our own problems. We started with a
+                            Chrome version, just to see if the idea worked. Once we saw how much it helped us, we
+                            expanded it to Safari for macOS and iOS – for people like us who use Apple devices.
                         </p>
                     </div>
                     <p id="why-p4" class="py-3">
-                        Whether you're doing research, learning something new, or just browsing – BlockLang lets you take control of your search results. Minimal, effective, and made with privacy in mind.
+                        Whether you're doing research, learning something new, or just browsing – BlockLang lets you
+                        take control of your search results. Minimal, effective, and made with privacy in mind.
                     </p>
                 </div>
             </div>
@@ -145,45 +203,57 @@
         <div class="container section-title">
             <h2>About</h2>
             <p>
-                BlockLang is a simple browser extension designed to filter unwanted content and remove distracting or low-quality websites from your search results. Whether you're researching, working, or just browsing — BlockLang helps you stay focused by keeping irrelevant links out of sight.
+                BlockLang is a simple browser extension designed to filter unwanted content and remove distracting or
+                low-quality websites from your search results. Whether you're researching, working, or just browsing —
+                BlockLang helps you stay focused by keeping irrelevant links out of sight.
             </p>
         </div>
         <!-- End Section Title -->
 
         <div class="container">
             <div class="row gy-4 justify-content-center">
-<!--                <div class="col-lg-4">-->
-<!--                    <img src="assets/img/logo.png" class="img-fluid" alt="BlockLang Logo">-->
-<!--                </div>-->
+                <!--                <div class="col-lg-4">-->
+                <!--                    <img src="assets/img/logo.png" class="img-fluid" alt="BlockLang Logo">-->
+                <!--                </div>-->
                 <div class="col-lg-8 content">
                     <h2>Search Result Filter &amp; Privacy Tool</h2>
                     <p class="fst-italic py-3">
-                        BlockLang helps you clean your search results by hiding distracting or unwanted websites — so you can focus on what matters.
+                        BlockLang helps you clean your search results by hiding distracting or unwanted websites — so
+                        you can focus on what matters.
                     </p>
                     <div class="row">
                         <div class="col-lg-6">
                             <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Extension Name:</strong> <span>BlockLang</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://blocklang.org</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Platform:</strong> <span>Chrome, Firefox, Safari (iOS)</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Developed by:</strong> <span><a href="https://mladenraykov.com" target="_blank">MadJi</a></span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Extension Name:</strong>
+                                    <span>BlockLang</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://blocklang.org</span>
+                                </li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Platform:</strong> <span>Chrome, Firefox, Safari (iOS)</span>
+                                </li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Developed by:</strong> <span><a
+                                        href="https://mladenraykov.com" target="_blank">MadJi</a></span></li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Version:</strong> <span>1.0.6</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Version:</strong> <span>1.0.6</span>
+                                </li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>License:</strong> <span>MIT</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Contact:</strong> <span>support@blocklang.org</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Status:</strong> <span>Active</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Contact:</strong> <span>support@blocklang.org</span>
+                                </li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Status:</strong> <span>Active</span>
+                                </li>
                             </ul>
                         </div>
                         <div class="alert alert-info" role="alert">
                             <i class="bi bi-info-circle"></i>
-                            <strong>The result?</strong> A clean, focused search experience that lets you actually find what you're looking for without the distractions.
+                            <strong>The result?</strong> A clean, focused search experience that lets you actually find
+                            what you're looking for without the distractions.
                         </div>
                     </div>
                     <p class="py-3">
-                        Whether you're doing research, learning something new, or just browsing – BlockLang lets you take control of your search results. Minimal, effective, and made with privacy in mind.
+                        Whether you're doing research, learning something new, or just browsing – BlockLang lets you
+                        take control of your search results. Minimal, effective, and made with privacy in mind.
                     </p>
                 </div>
             </div>
@@ -212,7 +282,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex">
                     <div class="icon flex-shrink-0"><i class="bi bi-browser-safari"></i></div>
                     <div>
-                        <h4 class="title"><a href="service-details.html?platform=safari" class="stretched-link">Safari</a></h4>
+                        <h4 class="title"><a href="service-details.html?platform=safari"
+                                             class="stretched-link">Safari</a></h4>
                         <p class="description">Apple AppStore</p>
                     </div>
                 </div>
@@ -221,7 +292,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex">
                     <div class="icon flex-shrink-0"><i class="bi bi-browser-chrome"></i></div>
                     <div>
-                        <h4 class="title"><a href="service-details.html?platform=chrome" class="stretched-link">Chrome</a></h4>
+                        <h4 class="title"><a href="service-details.html?platform=chrome"
+                                             class="stretched-link">Chrome</a></h4>
                         <p class="description">Chrome AppStore</p>
                     </div>
                 </div>
@@ -230,7 +302,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex">
                     <div class="icon flex-shrink-0"><i class="bi bi-browser-firefox"></i></div>
                     <div>
-                        <h4 class="title"><a href="service-details.html?platform=firefox" class="stretched-link">Firefox</a></h4>
+                        <h4 class="title"><a href="service-details.html?platform=firefox"
+                                             class="stretched-link">Firefox</a></h4>
                         <p class="description">Firefox AppStore</p>
                     </div>
                 </div>
@@ -268,15 +341,17 @@
 
                 <div class="row gy-4 isotope-container">
 
-                <!-- Safari macOS section-->
+                    <!-- Safari macOS section-->
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-videos">
                         <div class="portfolio-content h-100">
                             <img src="assets/videos/main_1.png" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Videos</h4>
                                 <p>How to use BlockLang.</p>
-                                <a href="assets/videos/main_1.png" title="Videos" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=safari-videos" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/videos/main_1.png" title="Videos" data-gallery="portfolio-gallery-app"
+                                   class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=safari-videos" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div>
@@ -288,8 +363,11 @@
                             <div class="portfolio-info">
                                 <h4>Safari macOS</h4>
                                 <p>Add site filter on Safari macOS.</p>
-                                <a href="assets/img/safari_macOS/install.jpg" title="Safari macOS" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=safari-mac-install" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/safari_macOS/install.jpg" title="Safari macOS"
+                                   data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=safari-mac-install" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div>
@@ -300,8 +378,11 @@
                             <div class="portfolio-info">
                                 <h4>Safari macOS</h4>
                                 <p>Add site filter on Safari macOS.</p>
-                                <a href="assets/img/safari_macOS/site.jpg" title="Safari macOS" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=safari-mac-site" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/safari_macOS/site.jpg" title="Safari macOS"
+                                   data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=safari-mac-site" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div>
@@ -313,8 +394,11 @@
                             <div class="portfolio-info">
                                 <h4>Safari macOS</h4>
                                 <p>Add language filter on Safari macOS.</p>
-                                <a href="assets/img/safari_macOS/lang.jpg" title="Safari macOS" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=safari-mac-lang" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/safari_macOS/lang.jpg" title="Safari macOS"
+                                   data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=safari-mac-lang" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div>
@@ -327,8 +411,11 @@
                             <div class="portfolio-info">
                                 <h4>Safari iPhone</h4>
                                 <p>Install BlockLang on Safari iPhone.</p>
-                                <a href="assets/img/safari_iOS/install.jpg" title="Safari iOS" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=safari-ios-install" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/safari_iOS/install.jpg" title="Safari iOS"
+                                   data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=safari-ios-install" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -339,8 +426,11 @@
                             <div class="portfolio-info">
                                 <h4>Safari iPad</h4>
                                 <p>Add site filter on Safari iPad.</p>
-                                <a href="assets/img/safari_iOS/site.jpg" title="Safari iOS" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=safari-ipad-site" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/safari_iOS/site.jpg" title="Safari iOS"
+                                   data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=safari-ipad-site" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -352,8 +442,10 @@
                             <div class="portfolio-info">
                                 <h4>Chrome</h4>
                                 <p>Install BlockLang on Chrome.</p>
-                                <a href="assets/img/chrome.jpg" title="Chrome" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=chrome-install" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/chrome.jpg" title="Chrome" data-gallery="portfolio-gallery-branding"
+                                   class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=chrome-install" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -365,8 +457,11 @@
                             <div class="portfolio-info">
                                 <h4>Firefox</h4>
                                 <p>Install BlockLang on Firefox.</p>
-                                <a href="assets/img/firefox.jpg" title="Firefox" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="platform-details.html?platform=firefox-install" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a href="assets/img/firefox.jpg" title="Firefox"
+                                   data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="platform-details.html?platform=firefox-install" title="More Details"
+                                   class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -386,7 +481,8 @@
         <!-- Section Title -->
         <div class="container section-title">
             <h2>Contact</h2>
-            <p>If you have questions, feedback, or suggestions — don’t hesitate to reach out. We’d love to hear from you!</p>
+            <p>If you have questions, feedback, or suggestions — don’t hesitate to reach out. We’d love to hear from
+                you!</p>
         </div>
         <!-- End Section Title -->
 
@@ -394,54 +490,55 @@
 
             <div class="row gy-4">
 
-<!--                <div class="col-lg-5">-->
+                <!--                <div class="col-lg-5">-->
 
-<!--                    <div class="info-wrap">-->
-<!--                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">-->
-<!--                            <i class="bi bi-envelope flex-shrink-0"></i>-->
-<!--                            <div>-->
-<!--                                <h3>Email Us</h3>-->
-<!--                                <p>contact@blocklang.org</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                    <div class="info-wrap">-->
+                <!--                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">-->
+                <!--                            <i class="bi bi-envelope flex-shrink-0"></i>-->
+                <!--                            <div>-->
+                <!--                                <h3>Email Us</h3>-->
+                <!--                                <p>contact@blocklang.org</p>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
-                    <form action="https://formsubmit.co/contact@blocklang.org" method="POST" class="php-email-form">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="box">
-                        <input type="hidden" name="_subject" value="New message from BlockLang!">
-                        <div class="row gy-4">
-                            <div class="col-md-6">
-                                <label for="name-field" class="pb-2">Your Name</label>
-                                <input type="text" name="name" id="name-field" class="form-control" required>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="email-field" class="pb-2">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email-field" required>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="subject-field" class="pb-2">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject-field" required>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="message-field" class="pb-2">Message</label>
-                                <textarea class="form-control" name="message" rows="7" id="message-field" required></textarea>
-                            </div>
-
-                            <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                                
-                                <button type="submit">Send Message</button>
-                            </div>
+                <form action="https://formsubmit.co/contact@blocklang.org" method="POST" class="php-email-form">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="box">
+                    <input type="hidden" name="_subject" value="New message from BlockLang!">
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            <label for="name-field" class="pb-2">Your Name</label>
+                            <input type="text" name="name" id="name-field" class="form-control" required>
                         </div>
-                    </form>
-                    <!-- End Contact Form -->
+
+                        <div class="col-md-6">
+                            <label for="email-field" class="pb-2">Your Email</label>
+                            <input type="email" class="form-control" name="email" id="email-field" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="subject-field" class="pb-2">Subject</label>
+                            <input type="text" class="form-control" name="subject" id="subject-field" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="message-field" class="pb-2">Message</label>
+                            <textarea class="form-control" name="message" rows="7" id="message-field"
+                                      required></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End Contact Form -->
 
             </div>
 
@@ -454,18 +551,22 @@
 <footer id="footer" class="footer position-relative light-background">
     <div class="container">
         <div class="copyright text-center">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">BlockLang</strong> <span>All Rights Reserved</span></p>
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">BlockLang</strong>
+                <span>All Rights Reserved</span></p>
         </div>
     </div>
     <div class="container">
         <div class="credits">
-            Developed by   <a href="https://mladenraykov.com" target="_blank"><img class="madji-img-footer" src="/assets/img/madji_logo_96.png" alt="MadJi"></a>
+            Developed by <a href="https://mladenraykov.com" target="_blank"><img class="madji-img-footer"
+                                                                                 src="/assets/img/madji_logo_96.png"
+                                                                                 alt="MadJi"></a>
         </div>
     </div>
 </footer>
 
 <!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
 <!-- Preloader -->
 <div id="preloader"></div>

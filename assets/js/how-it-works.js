@@ -40,7 +40,7 @@ const languages = [
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('languageSearch');
+    const searchInput = document.getElementById('languageSearchInput');
     const resultsDiv = document.getElementById('languageResults');
     const languageListDiv = document.getElementById('languageList');
     const selectedLanguageDiv = document.getElementById('selectedLanguage');
