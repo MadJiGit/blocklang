@@ -11,6 +11,17 @@
           name="keywords">
 
     <link rel="canonical" href="https://www.blocklang.org/blog.html">
+    <meta name="theme-color" content="#2d2d2d">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <script>
+        const isWrongHost = location.hostname === "blocklang.org";
+        const isLighthouse = navigator.userAgent.includes("Chrome-Lighthouse");
+
+        if (isWrongHost && !isLighthouse) {
+            location.href = "https://www.blocklang.org" + location.pathname + location.search + location.hash;
+        }
+    </script>
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
