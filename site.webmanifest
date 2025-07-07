@@ -1,0 +1,27 @@
+{
+  "name": "BlockLang",
+  "short_name": "BlockLang",
+  "description": "Block unwanted websites and languages from your search results. Private, fast, and simple.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2d2d2d",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/madji_128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
