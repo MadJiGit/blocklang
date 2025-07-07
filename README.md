@@ -62,7 +62,7 @@ The website is hosted via GitHub Pages and automatically deploys from the main b
 
 ## Contact
 
-- **Website**: [blocklang.org](https://blocklang.org)
+- **Website**: [blocklang.org](https://www.blocklang.org)
 - **Email**: contact@blocklang.org
 - **Support**: Available through website contact form
 

@@ -13,8 +13,8 @@
 
     <meta property="og:title" content="BlockLang - Browser Extension">
     <meta property="og:description" content="Filter unwanted websites from search results">
-    <meta property="og:image" content="https://blocklang.org/assets/img/logo.png">
-    <meta property="og:url" content="https://blocklang.org">
+    <meta property="og:image" content="https://www.blocklang.org/assets/img/logo.png">
+    <meta property="og:url" content="https://www.blocklang.org">
     <meta name="robots" content="index, follow">
 
     <!-- Twitter Card -->
@@ -109,10 +109,12 @@
 
     <div class="social-links text-center">
         <!--        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>-->
-        <a href="https://x.com/BlockLang_App" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.instagram.com/block_langapp/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://x.com/BlockLang_App" class="twitter" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/block_langapp/" class="instagram" aria-label="Instagram"><i
+                class="bi bi-instagram"></i></a>
         <!--        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
-        <a href="https://www.youtube.com/@BlockLangExtension" class="youtube"><i class="bi bi-youtube"></i></a>
+        <a href="https://www.youtube.com/@BlockLangExtension" class="youtube" aria-label="YouTube"><i
+                class="bi bi-youtube"></i></a>
     </div>
 
     <nav id="navmenu" class="navmenu">
@@ -166,7 +168,7 @@
         <!-- Section Title -->
         <div class="container section-title">
             <h2>Why BlockLang?</h2>
-            <h4>The Story Behind It All.</h4>
+            <h3>The Story Behind It All.</h3>
             <p>
                 From the team of BlockLang, we want to share the story of why we built this extension and how it can
                 help you.
@@ -242,7 +244,7 @@
                             <ul>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Extension Name:</strong>
                                     <span>BlockLang</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://blocklang.org</span>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://www.blocklang.org</span>
                                 </li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Platform:</strong> <span>Chrome, Firefox, Safari (iOS)</span>
                                 </li>
@@ -298,8 +300,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex">
                     <div class="icon flex-shrink-0"><i class="bi bi-browser-safari"></i></div>
                     <div>
-                        <h4 class="title"><a href="service-details.html?platform=safari"
-                                             class="stretched-link">Safari</a></h4>
+                        <h3 class="title"><a href="service-details.html?platform=safari"
+                                             class="stretched-link">Safari</a></h3>
                         <p class="description">Apple AppStore</p>
                     </div>
                 </div>
@@ -308,8 +310,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex">
                     <div class="icon flex-shrink-0"><i class="bi bi-browser-chrome"></i></div>
                     <div>
-                        <h4 class="title"><a href="service-details.html?platform=chrome"
-                                             class="stretched-link">Chrome</a></h4>
+                        <h3 class="title"><a href="service-details.html?platform=chrome"
+                                             class="stretched-link">Chrome</a></h3>
                         <p class="description">Chrome AppStore</p>
                     </div>
                 </div>
@@ -318,8 +320,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex">
                     <div class="icon flex-shrink-0"><i class="bi bi-browser-firefox"></i></div>
                     <div>
-                        <h4 class="title"><a href="service-details.html?platform=firefox"
-                                             class="stretched-link">Firefox</a></h4>
+                        <h3 class="title"><a href="service-details.html?platform=firefox"
+                                             class="stretched-link">Firefox</a></h3>
                         <p class="description">Firefox AppStore</p>
                     </div>
                 </div>
@@ -360,11 +362,16 @@
                     <!-- Safari macOS section-->
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-videos">
                         <div class="portfolio-content h-100">
-                            <img src="assets/videos/main_1.png" class="img-fluid" alt="">
+                            <picture>
+                                <source srcset="assets/videos/main_1_mobile.webp" media="(max-width: 768px)">
+                                <source srcset="assets/videos/main_1.webp" type="image/webp">
+                                <img src="assets/videos/main_1.webp" class="img-fluid" alt="BlockLang Video Preview"
+                                     loading="lazy" width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Videos</h4>
+                                <h3>Videos</h3>
                                 <p>How to use BlockLang.</p>
-                                <a href="assets/videos/main_1.png" title="Videos" data-gallery="portfolio-gallery-app"
+                                <a href="assets/videos/main_1.webp" title="Videos" data-gallery="portfolio-gallery-app"
                                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=safari-videos" title="More Details"
                                    class="details-link"><i class="bi bi-link-45deg"></i></a>
@@ -375,11 +382,17 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-safari-mac">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/safari_macOS/install.jpg" class="img-fluid" alt="">
+                            <!--                            <img src="assets/img/safari_macOS/install.webp" class="img-fluid" alt="">-->
+                            <picture>
+                                <source srcset="assets/img/safari_macOS/install.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/safari_macOS/install.webp" type="image/webp">
+                                <img src="assets/img/safari_macOS/install.webp" class="img-fluid"
+                                     alt="Safari macOS Install" loading="lazy" width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Safari macOS</h4>
+                                <h3>Safari macOS</h3>
                                 <p>Add site filter on Safari macOS.</p>
-                                <a href="assets/img/safari_macOS/install.jpg" title="Safari macOS"
+                                <a href="assets/img/safari_macOS/install.webp" title="Safari macOS"
                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=safari-mac-install" title="More Details"
@@ -390,11 +403,16 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-safari-mac">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/safari_macOS/site.jpg" class="img-fluid" alt="">
+                            <picture>
+                                <source srcset="assets/img/safari_macOS/site.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/safari_macOS/site.webp" type="image/webp">
+                                <img src="assets/img/safari_macOS/site.webp" class="img-fluid" alt="Safari Add Site"
+                                     loading="lazy" width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Safari macOS</h4>
+                                <h3>Safari macOS</h3>
                                 <p>Add site filter on Safari macOS.</p>
-                                <a href="assets/img/safari_macOS/site.jpg" title="Safari macOS"
+                                <a href="assets/img/safari_macOS/site.webp" title="Safari macOS"
                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=safari-mac-site" title="More Details"
@@ -406,11 +424,16 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-safari-mac">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/safari_macOS/lang.jpg" class="img-fluid" alt="">
+                            <picture>
+                                <source srcset="assets/img/safari_macOS/lang.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/safari_macOS/lang.webp" type="image/webp">
+                                <img src="assets/img/safari_macOS/lang.webp" class="img-fluid" alt="Safari Add Language"
+                                     loading="lazy" width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Safari macOS</h4>
+                                <h3>Safari macOS</h3>
                                 <p>Add language filter on Safari macOS.</p>
-                                <a href="assets/img/safari_macOS/lang.jpg" title="Safari macOS"
+                                <a href="assets/img/safari_macOS/lang.webp" title="Safari macOS"
                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=safari-mac-lang" title="More Details"
@@ -423,11 +446,16 @@
                     <!-- Safari iOS section-->
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-safari-ios">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/safari_iOS/install.jpg" class="img-fluid" alt="">
+                            <picture>
+                                <source srcset="assets/img/safari_iOS/install.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/safari_iOS/install.webp" type="image/webp">
+                                <img src="assets/img/safari_iOS/install.webp" class="img-fluid" alt="Safari iOS Install"
+                                     loading="lazy" width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Safari iPhone</h4>
+                                <h3>Safari iPhone</h3>
                                 <p>Install BlockLang on Safari iPhone.</p>
-                                <a href="assets/img/safari_iOS/install.jpg" title="Safari iOS"
+                                <a href="assets/img/safari_iOS/install.webp" title="Safari iOS"
                                    data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=safari-ios-install" title="More Details"
@@ -438,11 +466,16 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-safari-ios">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/safari_iOS/site.jpg" class="img-fluid" alt="">
+                            <picture>
+                                <source srcset="assets/img/safari_iOS/site.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/safari_iOS/site.webp" type="image/webp">
+                                <img src="assets/img/safari_iOS/site.webp" class="img-fluid" alt="Safari iOS Add Site"
+                                     loading="lazy" width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Safari iPad</h4>
+                                <h3>Safari iPad</h3>
                                 <p>Add site filter on Safari iPad.</p>
-                                <a href="assets/img/safari_iOS/site.jpg" title="Safari iOS"
+                                <a href="assets/img/safari_iOS/site.webp" title="Safari iOS"
                                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=safari-ipad-site" title="More Details"
@@ -454,11 +487,18 @@
                     <!-- Chrome section-->
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-chrome">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/chrome.jpg" class="img-fluid" alt="">
+                            <!--                            <img src="assets/img/chrome.webp" class="img-fluid" alt="">-->
+                            <picture>
+                                <source srcset="assets/img/chrome.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/chrome.webp" type="image/webp">
+                                <img src="assets/img/chrome.webp" class="img-fluid" alt="Chrome Install" loading="lazy"
+                                     width="960">
+                            </picture>
                             <div class="portfolio-info">
-                                <h4>Chrome</h4>
+                                <h3>Chrome</h3>
                                 <p>Install BlockLang on Chrome.</p>
-                                <a href="assets/img/chrome.jpg" title="Chrome" data-gallery="portfolio-gallery-branding"
+                                <a href="assets/img/chrome.webp" title="Chrome"
+                                   data-gallery="portfolio-gallery-branding"
                                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=chrome-install" title="More Details"
                                    class="details-link"><i class="bi bi-link-45deg"></i></a>
@@ -469,11 +509,18 @@
                     <!-- Firefox section-->
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-firefox">
                         <div class="portfolio-content h-100">
-                            <img src="assets/img/firefox.jpg" class="img-fluid" alt="">
+                            <!--                            <img src="assets/img/firefox.webp" class="img-fluid" alt="">                            -->
+                            <picture>
+                                <source srcset="assets/img/firefox.webp" media="(max-width: 768px)">
+                                <source srcset="assets/img/firefox.webp" type="image/webp">
+                                <img src="assets/img/firefox.webp" class="img-fluid" alt="Firefox Install" loading="lazy"
+                                     width="960">
+                            </picture>
+
                             <div class="portfolio-info">
-                                <h4>Firefox</h4>
+                                <h3>Firefox</h3>
                                 <p>Install BlockLang on Firefox.</p>
-                                <a href="assets/img/firefox.jpg" title="Firefox"
+                                <a href="assets/img/firefox.webp" title="Firefox"
                                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="platform-details.html?platform=firefox-install" title="More Details"
@@ -486,7 +533,6 @@
                 <!-- End Portfolio Container -->
 
             </div>
-
         </div>
 
     </section><!-- /Portfolio Section -->
@@ -573,7 +619,7 @@
     </div>
     <div class="container">
         <div class="credits">
-            Developed by <a href="https://mladenraykov.com" target="_blank"><img class="madji-img-footer"
+            Developed by <a href="https://mladenraykov.com" c"><img class="madji-img-footer"
                                                                                  src="/assets/img/madji_logo_96.png"
                                                                                  alt="MadJi"></a>
         </div>

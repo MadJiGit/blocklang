@@ -5,7 +5,7 @@
     "app_store_link": "https://apps.apple.com/app/id6747637233",
     "app_store_logo": "assets/img/logos/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",
     "alt": "Download on the App Store",
-    "image_main": "assets/img/safari_mac.jpg"
+    "image_main": "assets/img/safari_mac.webp"
   },
 
   "chrome": {
@@ -23,6 +23,6 @@
     "app_store_link": "https://addons.mozilla.org/en-GB/firefox/addon/search-language-filter/",
     "app_store_logo": "assets/img/logos/firefox_logo_64.png",
     "alt": "Get it on Firefox Add-ons",
-    "image_main": "assets/img/firefox.jpg"
+    "image_main": "assets/img/firefox.webp"
   }
 }

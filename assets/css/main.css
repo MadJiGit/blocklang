@@ -64,13 +64,6 @@ body {
     color: var(--default-color);
     background-color: var(--background-color);
     font-family: var(--default-font);
-
-
-    /*background-image: url('../img/blue-bg-large.jpg'); /* or relative path */
-    /*background-size: cover;*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-attachment: fixed;*/
 }
 
 a {
@@ -551,7 +544,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-    background-image: url('../img/blue-bg.jpg');
+    background-image: url('../img/blue-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -624,6 +617,7 @@ section,
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 32px;
+        background-image: url("../img/blue-bg-mobile.webp");
     }
 
     .hero p {

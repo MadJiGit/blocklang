@@ -2,7 +2,7 @@
   "safari-videos": {
     "title": "videos",
     "description": "How to use BlockLang.",
-    "image_main": "assets/videos/IMG_4402.PNG",
+    "image_main": "assets/videos/IMG_4402.webp",
     "images": [
       "assets/videos/switch_on.mp4",
       "assets/videos/add_filter.mp4",
@@ -18,7 +18,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Videos",
     "action": "Site",
     "platform_actions_title": "How to use BlockLang on Safari."
@@ -26,13 +26,13 @@
   "safari-mac-install": {
     "title": "Safari on macOS",
     "description": "Install BlockLang on Safari macOS.",
-    "image_main": "assets/img/safari_macOS/install.jpg",
+    "image_main": "assets/img/safari_macOS/install.webp",
     "images": [
-        "assets/img/safari_macOS_install/safari_macOS_install_1.png",
-        "assets/img/safari_macOS_install/safari_macOS_install_2.png",
-        "assets/img/safari_macOS_install/safari_macOS_install_3.png",
-        "assets/img/safari_macOS_install/safari_macOS_install_4.png",
-        "assets/img/safari_macOS_install/safari_macOS_install_5.png"
+        "assets/img/safari_macOS_install/safari_macOS_install_1.webp",
+        "assets/img/safari_macOS_install/safari_macOS_install_2.webp",
+        "assets/img/safari_macOS_install/safari_macOS_install_3.webp",
+        "assets/img/safari_macOS_install/safari_macOS_install_4.webp",
+        "assets/img/safari_macOS_install/safari_macOS_install_5.webp"
       ],
     "captions":[
       "Click ont the Apple icon in the top left corner of your screen.",
@@ -44,7 +44,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Safari macOS",
     "action": "Install",
     "platform_actions_title": "How to install BlockLang on Safari for macOS"
@@ -52,14 +52,14 @@
   "safari-mac-lang": {
     "title": "Safari on macOS",
     "description": "Add language filter on Safari macOS.",
-    "image_main": "assets/img/safari_macOS/lang.jpg",
+    "image_main": "assets/img/safari_macOS/lang.webp",
     "images":[
-        "assets/img/safari_macOS_lang/safari_macOS_lang_1.png",
-        "assets/img/safari_macOS_lang/safari_macOS_lang_2.png",
-        "assets/img/safari_macOS_lang/safari_macOS_lang_3.png",
-        "assets/img/safari_macOS_lang/safari_macOS_lang_4.png",
-        "assets/img/safari_macOS_lang/safari_macOS_lang_5.png",
-        "assets/img/safari_macOS_lang/safari_macOS_lang_6.png"
+        "assets/img/safari_macOS_lang/safari_macOS_lang_1.webp",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_2.webp",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_3.webp",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_4.webp",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_5.webp",
+        "assets/img/safari_macOS_lang/safari_macOS_lang_6.webp"
       ],
     "captions":[
       "Click ont the Apple icon in the top left corner of your screen.",
@@ -71,7 +71,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Safari macOS",
     "action": "Language",
     "platform_actions_title": "How to add language filter."
@@ -80,17 +80,17 @@
   "safari-mac-site": {
     "title": "Safari on macOS",
     "description": "Add site filter on Safari macOS.",
-    "image_main": "assets/img/safari_macOS/site.jpg",
+    "image_main": "assets/img/safari_macOS/site.webp",
     "images": [
-        "assets/img/safari_macOS_site/safari_macOS_cnn_1.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_2.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_3.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_4.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_5.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_6.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_7.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_8.png",
-        "assets/img/safari_macOS_site/safari_macOS_cnn_9.png"
+        "assets/img/safari_macOS_site/safari_macOS_cnn_1.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_2.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_3.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_4.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_5.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_6.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_7.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_8.webp",
+        "assets/img/safari_macOS_site/safari_macOS_cnn_9.webp"
       ],
     "captions":[
       "Find the BlockLang icon in the toolbar.",
@@ -106,7 +106,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Safari macOS",
     "action": "Site",
     "platform_actions_title": "How to add site filter."
@@ -116,16 +116,16 @@
   "safari-ios-install": {
     "title": "Safari on iPhone",
     "description": "A guide to using the BlockLang extension on Safari for iPhone.",
-    "image_main": "assets/img/safari_iOS/install.jpg",
+    "image_main": "assets/img/safari_iOS/install.webp",
     "images": [
-      "assets/img/safari_iOS_iPhone/1.png",
-      "assets/img/safari_iOS_iPhone/2.png",
-      "assets/img/safari_iOS_iPhone/3.png",
-      "assets/img/safari_iOS_iPhone/4.png",
-      "assets/img/safari_iOS_iPhone/5.png",
-      "assets/img/safari_iOS_iPhone/6.png",
-      "assets/img/safari_iOS_iPhone/7.png",
-      "assets/img/safari_iOS_iPhone/8.png"
+      "assets/img/safari_iOS_iPhone/1.webp",
+      "assets/img/safari_iOS_iPhone/2.webp",
+      "assets/img/safari_iOS_iPhone/3.webp",
+      "assets/img/safari_iOS_iPhone/4.webp",
+      "assets/img/safari_iOS_iPhone/5.webp",
+      "assets/img/safari_iOS_iPhone/6.webp",
+      "assets/img/safari_iOS_iPhone/7.webp",
+      "assets/img/safari_iOS_iPhone/8.webp"
     ],
     "captions":[
       "Open the App.",
@@ -140,7 +140,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Safari iPhone",
     "action": "Install",
     "platform_actions_title": "How to install BlockLang on Safari for iOS."
@@ -149,15 +149,15 @@
   "safari-ipad-site": {
     "title": "Safari on iPad",
     "description": "A guide to using the BlockLang extension on Safari for iPad.",
-    "image_main": "assets/img/safari_iOS/site.jpg",
+    "image_main": "assets/img/safari_iOS/site.webp",
     "images": [
-      "assets/img/safari_iOS_iPad/1.png",
-      "assets/img/safari_iOS_iPad/2.png",
-      "assets/img/safari_iOS_iPad/3.png",
-      "assets/img/safari_iOS_iPad/4.png",
-      "assets/img/safari_iOS_iPad/5.png",
-      "assets/img/safari_iOS_iPad/6.png",
-      "assets/img/safari_iOS_iPad/7.png"
+      "assets/img/safari_iOS_iPad/1.webp",
+      "assets/img/safari_iOS_iPad/2.webp",
+      "assets/img/safari_iOS_iPad/3.webp",
+      "assets/img/safari_iOS_iPad/4.webp",
+      "assets/img/safari_iOS_iPad/5.webp",
+      "assets/img/safari_iOS_iPad/6.webp",
+      "assets/img/safari_iOS_iPad/7.webp"
     ],
     "captions":[
       "Dark Mode",
@@ -171,7 +171,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Safari iPad",
     "action": "Site",
     "platform_actions_title": "How to add site filter."
@@ -180,9 +180,9 @@
   "safari-ios-lang": {
     "title": "Safari on iOS",
     "description": "A guide to using the BlockLang extension on Safari for iPhone and iPad.",
-    "image_main": "assets/img/safari_iOS/lang.jpg",
+    "image_main": "assets/img/safari_iOS/lang.webp",
     "images": [
-      "assets/img/chrome/in_progress.jpg"
+      "assets/img/chrome/in_progress.webp"
     ],
     "captions":[
       "In Development — Stay Tuned!"
@@ -190,7 +190,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Safari iOS",
     "action": "Language",
     "platform_actions_title": "How to add site filter."
@@ -203,13 +203,13 @@
     "description": "A guide to using the BlockLang extension on Google Chrome.",
     "image_main": "assets/img/chrome.jpg",
     "images": [
-      "assets/img/chrome/1.png",
-      "assets/img/chrome/2.png",
-      "assets/img/chrome/3.png",
-      "assets/img/chrome/4.png",
-      "assets/img/chrome/5.png",
-      "assets/img/chrome/6.png",
-      "assets/img/chrome/7.png"
+      "assets/img/chrome/1.webp",
+      "assets/img/chrome/2.webp",
+      "assets/img/chrome/3.webp",
+      "assets/img/chrome/4.webp",
+      "assets/img/chrome/5.webp",
+      "assets/img/chrome/6.webp",
+      "assets/img/chrome/7.webp"
     ],
     "captions":[
       "Open extensions.",
@@ -223,7 +223,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Chrome",
     "action": "",
     "platform_actions_title": "In Development — Stay Tuned!"
@@ -233,16 +233,16 @@
   "firefox-install": {
     "title": "Firefox",
     "description": "A guide to using the BlockLang extension on Mozilla Firefox.",
-    "image_main": "assets/img/firefox.jpg",
+    "image_main": "assets/img/firefox.webp",
     "images": [
-      "assets/img/firefox/1.png",
-      "assets/img/firefox/2.png",
-      "assets/img/firefox/3.png",
-      "assets/img/firefox/4.png",
-      "assets/img/firefox/5.png",
-      "assets/img/firefox/6.png",
-      "assets/img/firefox/7.png",
-      "assets/img/firefox/8.png"
+      "assets/img/firefox/1.webp",
+      "assets/img/firefox/2.webp",
+      "assets/img/firefox/3.webp",
+      "assets/img/firefox/4.webp",
+      "assets/img/firefox/5.webp",
+      "assets/img/firefox/6.webp",
+      "assets/img/firefox/7.webp",
+      "assets/img/firefox/8.webp"
     ],
     "captions":[
       "Click the BlockLang icon.",
@@ -257,7 +257,7 @@
     "category": "Web Extension",
     "client": "BlockLang Project",
     "date": "June 2025",
-    "url": "https://blocklang.org",
+    "url": "https://www.blocklang.org",
     "platform": "Firefox",
     "action": "",
     "platform_actions_title": "In Development — Stay Tuned!"
