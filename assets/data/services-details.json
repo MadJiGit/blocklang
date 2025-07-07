@@ -5,7 +5,7 @@
     "app_store_link": "https://apps.apple.com/app/id6747637233",
     "app_store_logo": "assets/img/logos/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",
     "alt": "Download on the App Store",
-    "image_main": "assets/img/safari_mac.webp"
+    "image_main": "assets/img/safari_macOS/install.webp"
   },
 
   "chrome": {
@@ -14,7 +14,7 @@
     "app_store_link": "https://chromewebstore.google.com/detail/jhaaififdgohacmbigmellnhiihiidee?utm_source=item-share-cb",
     "app_store_logo": "assets/img/logos/UV4C4ybeBTsZt43U4xis.png",
     "alt": "Available in the Chrome Web Store",
-    "image_main": "assets/img/chrome.jpg"
+    "image_main": "assets/img/chrome.webp"
   },
 
   "firefox": {
