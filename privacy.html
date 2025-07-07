@@ -13,10 +13,13 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <script>
-        const isWrongHost = location.hostname === "blocklang.org";
-        const isLighthouse = navigator.userAgent.includes("Chrome-Lighthouse");
+        const shouldRedirect =
+            location.hostname === "blocklang.org" &&
+            !navigator.userAgent.includes("Chrome-Lighthouse") &&
+            !sessionStorage.getItem("blocklang_redirected");
 
-        if (isWrongHost && !isLighthouse) {
+        if (shouldRedirect) {
+            sessionStorage.setItem("blocklang_redirected", "1");
             location.href = "https://www.blocklang.org" + location.pathname + location.search + location.hash;
         }
     </script>

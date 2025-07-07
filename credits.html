@@ -12,11 +12,15 @@
     <link rel="canonical" href="https://www.blocklang.org/credits.html">
     <meta name="theme-color" content="#2d2d2d">
     <link rel="manifest" href="/site.webmanifest">
-    <script>
-        const isWrongHost = location.hostname === "blocklang.org";
-        const isLighthouse = navigator.userAgent.includes("Chrome-Lighthouse");
 
-        if (isWrongHost && !isLighthouse) {
+    <script>
+        const shouldRedirect =
+            location.hostname === "blocklang.org" &&
+            !navigator.userAgent.includes("Chrome-Lighthouse") &&
+            !sessionStorage.getItem("blocklang_redirected");
+
+        if (shouldRedirect) {
+            sessionStorage.setItem("blocklang_redirected", "1");
             location.href = "https://www.blocklang.org" + location.pathname + location.search + location.hash;
         }
     </script>
