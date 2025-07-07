@@ -9,11 +9,11 @@
   },
   "q_3": {
     "question": "Which browsers support BlockLang?",
-    "answer": "BlockLang is available for:<ul><li><strong>Chrome</strong> - Available on Chrome Web Store</li><li><strong>Firefox</strong> - Available on Firefox Add-ons</li><li><strong>Safari</strong> - Available on Mac App Store and iOS App Store</li></ul>"
+    "answer": "BlockLang is available for:<ul><li><strong>Chrome</strong> - Available on <a href=\"https://chromewebstore.google.com/detail/jhaaififdgohacmbigmellnhiihiidee?utm_source=item-share-cb\" target=\"_blank\" rel=\"noopener\">Chrome Web Store</a></li><li><strong>Firefox</strong> - Available on <a href=\"https://addons.mozilla.org/en-GB/firefox/addon/search-language-filter/\" target=\"_blank\" rel=\"noopener\">Firefox Add-ons</a></li><li><strong>Safari</strong> - Available on <a href=\"https://apps.apple.com/app/id6747637233\" target=\"_blank\" rel=\"noopener\">Apple AppStore</a></li></ul>"
   },
   "q_4": {
     "question": "Is BlockLang free?",
-    "answer": "BlockLang offers both free and Pro versions:<ul><li><strong>Free Version</strong> - Up to 5 domain filters + Quick Russian Filter</li><li><strong>Pro Version</strong> - Unlimited domain filters + all features</li></ul><p>The free version is perfect for most users who want to block a few specific sites.</p>"
+    "answer": "BlockLang pricing varies by platform:<ul><li><strong>Chrome & Firefox</strong> - Completely free with all features</li><li><strong>Safari (iOS/macOS)</strong> - Free version (5 domain filters) + Pro version (unlimited filters)</li></ul><p>The Chrome and Firefox versions have no limitations, while Safari offers both free and premium tiers.</p>"
   },
   "q_5": {
     "question": "How do I set up filters?",
