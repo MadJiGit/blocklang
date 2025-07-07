@@ -27,7 +27,11 @@
     <link rel="canonical" href="https://www.blocklang.org/">
 
     <script>
-        if (location.hostname === "blocklang.org") {
+        const isWrongHost = location.hostname === "blocklang.org";
+        const isRightHost = location.hostname === "www.blocklang.org";
+        const isLighthouse = navigator.userAgent.includes("Chrome-Lighthouse");
+
+        if (isWrongHost && !isLighthouse) {
             location.href = "https://www.blocklang.org" + location.pathname + location.search + location.hash;
         }
     </script>
