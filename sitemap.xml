@@ -27,4 +27,19 @@
     <url>
         <loc>https://www.blocklang.org/how-it-works.html</loc>
     </url>
+    <url>
+        <loc>https://www.blocklang.org/chrome-extension.html</loc>
+    </url>
+    <url>
+        <loc>https://www.blocklang.org/firefox-extension.html</loc>
+    </url>
+    <url>
+        <loc>https://www.blocklang.org/safari-extension.html</loc>
+    </url>
+    <url>
+        <loc>https://www.blocklang.org/url-filtering.html</loc>
+    </url>
+    <url>
+        <loc>https://www.blocklang.org/language-blocking.html</loc>
+    </url>
 </urlset>
