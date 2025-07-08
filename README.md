@@ -1,5 +1,7 @@
 # BlockLang Website
 
+**Official site:** [https://www.blocklang.org](https://www.blocklang.org)
+
 This repository contains the official website for BlockLang - a privacy-focused browser extension that helps you clean up your search results by filtering unwanted content.
 
 ## About BlockLang
