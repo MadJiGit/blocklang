@@ -213,4 +213,30 @@
 
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
+    
+    /**
+     * Create mobile menu toggle button
+     */
+    if (window.innerWidth <= 1199) {
+        const mobileToggle = document.createElement('div');
+        mobileToggle.className = 'mobile-menu-toggle';
+        document.body.appendChild(mobileToggle);
+        
+        mobileToggle.addEventListener('click', function() {
+            const header = document.querySelector('#header');
+            const originalToggle = document.querySelector('.header-toggle');
+            
+            if (header) {
+                header.classList.toggle('header-show');
+            }
+            
+            if (originalToggle) {
+                originalToggle.classList.toggle('bi-list');
+                originalToggle.classList.toggle('bi-x');
+            }
+            
+            // Toggle hamburger to X animation
+            mobileToggle.classList.toggle('active');
+        });
+    }
 })();

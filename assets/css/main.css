@@ -223,27 +223,67 @@ h6 {
     left: 0;
 }
 
-.header .header-toggle {
-    color: var(--contrast-color);
-    background-color: var(--accent-color);
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
+/* New working mobile button */
+.mobile-menu-toggle {
+    display: none;
     position: fixed;
     top: 15px;
     right: 15px;
     z-index: 9999;
-    transition: background-color 0.3s;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-.header .header-toggle:hover {
-    color: var(--contrast-color);
-    background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+.mobile-menu-toggle:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.mobile-menu-toggle:before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: #ffffff;
+    position: relative;
+    top: -6px;
+    box-shadow: 
+        0 6px 0 #ffffff,
+        0 12px 0 #ffffff;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active:before {
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 #ffffff;
+    top: -1px;
+}
+
+.mobile-menu-toggle.active:after {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (max-width: 1199px) {
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1222,7 +1262,6 @@ section,
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     margin-bottom: 20px;
 }
-
 .service-details .services-list a {
     display: block;
     line-height: 1;
@@ -1344,21 +1383,34 @@ section,
     position: relative;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
     .contact-mail {
         width: 100% !important;
         margin: 0 auto;
         padding: 0 15px;
     }
 
-    .header .header-toggle {
+    .header-toggle {
         z-index: 999999 !important;
-        color: #222222 !important;
-        /*background-color: #ff0000 !important; */
-        /*border: 2px solid yellow !important; */
-        /*outline: 2px solid red !important; */
+        color: var(--contrast-color) !important;
+        background-color: var(--accent-color) !important;
+        position: fixed !important;
+        top: 15px !important;
+        right: 15px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 40px !important;
+        height: 40px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        font-size: 22px !important;
     }
+}
 
+
+@media (max-width: 767px) {
     .madji {
         margin-top: 10px;
         padding: 0 0 0 0;
