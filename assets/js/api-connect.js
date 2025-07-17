@@ -20,7 +20,8 @@ document.getElementById('domainForm').addEventListener('submit', async function(
 
     try {
         // Use your deployed Vercel API URL
-        const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha';
+        // const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha';
+        const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/v1/domain-check';
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
