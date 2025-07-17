@@ -8,3 +8,15 @@
 
 </body>
 </html>
+
+<form id="domainForm">
+    <label for="domainInput">Enter domain:</label>
+    <input type="text" id="domainInput" name="domain" required>
+    <div class="g-recaptcha" data-sitekey="6LdXe4YrAAAAABGykU_JS8lV40VOEzuYm1f7dJNe"></div>
+    <button type="submit">Check</button>
+</form>
+
+<div id="result"></div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="assets/js/api-connect.js"></script>
