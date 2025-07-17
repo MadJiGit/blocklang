@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loop: true,
         speed: 600,
         autoplay: {
-            delay: 5000
+            delay: 15000
         },
         slidesPerView: "auto",
         pagination: {

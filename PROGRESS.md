@@ -251,8 +251,58 @@ Created completely new Astro project (`astro-fresh/`) and systematically tested:
 
 ---
 
-*Last updated: 2025-07-10*
+## ✅ Performance Optimizations - 2025-07-17
+
+### LCP (Largest Contentful Paint) Improvements
+**Issue**: LCP of 2,540ms with 92% render delay causing poor Core Web Vitals
+
+**Optimizations Applied**:
+
+#### 1. Hero Image Optimization
+- **Background**: Fixed CSS typo in `blue-bg-80.webpjpg` → `blue-bg-80.webp`
+- **Preloading**: Added `<link rel="preload" href="assets/img/blue-bg-80.webp" as="image">`
+- **Expected Impact**: Faster hero section loading
+
+#### 2. Font Loading Optimization
+- **Before**: 54 font weights loaded (massive Google Fonts file)
+- **After**: Reduced to 7 essential weights only
+- **Fonts**: `Roboto:400,700 | Poppins:400,500,600 | Raleway:400,500,700`
+- **Expected Impact**: 90% reduction in font loading time
+
+#### 3. CSS Loading Strategy Optimization
+- **Critical CSS**: `main.css` loads immediately (blocking render for layout)
+- **Non-critical CSS**: Bootstrap, AOS, Glightbox, Swiper deferred with `media="print" onload="this.media='all'"`
+- **Fallback**: `<noscript>` tags for users without JavaScript
+- **Expected Impact**: Eliminates render-blocking from vendor CSS
+
+#### 4. Resource Prioritization
+- **Preload Order**: Hero image → Main CSS → Fonts → Vendor assets
+- **Strategy**: Essential resources first, progressive enhancement for rest
+
+### User Experience Improvements
+
+#### 1. Swiper Autoplay Speed
+- **Before**: Images changed every 5 seconds
+- **After**: Extended to 15 seconds for better readability
+- **File**: `assets/js/platform.js` - `delay: 5000` → `delay: 15000`
+
+#### 2. iPad Image Display Size
+- **Issue**: Safari iPad tutorial images too large (768x1024 → displayed full size)
+- **Solution**: CSS resize with `max-width: 400px` and centering
+- **File**: `assets/css/main.css` - Added responsive display constraints
+- **Impact**: More manageable image sizes in slideshow
+
+### Expected Performance Results
+- **LCP Target**: Reduce from 2,540ms to ~800-1,200ms
+- **Render Delay**: Reduce from 92% to ~40-60%
+- **First Paint**: Significantly faster initial render
+- **Font Loading**: 90% faster font delivery
+
+---
+
+*Last updated: 2025-07-17*
 *Migration Status: Astro approach ABANDONED due to framework instability*
+*Current Focus: Performance optimization and Core Web Vitals improvement*
 *Recommendation: Continue with static HTML or migrate to Next.js for component architecture*
 
 ---

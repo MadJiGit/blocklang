@@ -118,14 +118,14 @@
     "description": "A guide to using the BlockLang extension on Safari for iPhone.",
     "image_main": "assets/img/safari_iOS/install.webp",
     "images": [
-      "assets/img/safari_iOS_iPhone/1.webp",
-      "assets/img/safari_iOS_iPhone/2.webp",
-      "assets/img/safari_iOS_iPhone/3.webp",
-      "assets/img/safari_iOS_iPhone/4.webp",
-      "assets/img/safari_iOS_iPhone/5.webp",
-      "assets/img/safari_iOS_iPhone/6.webp",
-      "assets/img/safari_iOS_iPhone/7.webp",
-      "assets/img/safari_iOS_iPhone/8.webp"
+      "assets/img/safari_iOS_iPhone/IMG_4402_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4403_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4404_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4405_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4406_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4407_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4408_60.webp",
+      "assets/img/safari_iOS_iPhone/IMG_4409_60.webp"
     ],
     "captions":[
       "Open the App.",
@@ -151,13 +151,13 @@
     "description": "A guide to using the BlockLang extension on Safari for iPad.",
     "image_main": "assets/img/safari_iOS/site.webp",
     "images": [
-      "assets/img/safari_iOS_iPad/1.webp",
-      "assets/img/safari_iOS_iPad/2.webp",
-      "assets/img/safari_iOS_iPad/3.webp",
-      "assets/img/safari_iOS_iPad/4.webp",
-      "assets/img/safari_iOS_iPad/5.webp",
-      "assets/img/safari_iOS_iPad/6.webp",
-      "assets/img/safari_iOS_iPad/7.webp"
+      "assets/img/safari_iOS_iPad/iPad_1_60.webp",
+      "assets/img/safari_iOS_iPad/iPad_2_60.webp",
+      "assets/img/safari_iOS_iPad/iPad_3_60.webp",
+      "assets/img/safari_iOS_iPad/iPad_4_60.webp",
+      "assets/img/safari_iOS_iPad/iPad_6_60.webp",
+      "assets/img/safari_iOS_iPad/iPad_7_60.webp",
+      "assets/img/safari_iOS_iPad/iPad_8_60.webp"
     ],
     "captions":[
       "Dark Mode",

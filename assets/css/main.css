@@ -584,7 +584,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-    background-image: url('../img/blue-bg.jpg');
+    background-image: url('../img/blue-bg-80.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -657,7 +657,6 @@ section,
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 32px;
-        /*background-image: url("../img/blue-bg-mobile.webp");*/
     }
 
     .hero p {
@@ -1197,7 +1196,10 @@ section,
 # Portfolio Details Section
 --------------------------------------------------------------*/
 .portfolio-details .portfolio-details-slider img {
-    width: 100%;
+    width: auto;
+    max-height: 512px;
+    margin: 0 auto;
+    display: block;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
