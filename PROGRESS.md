@@ -251,6 +251,22 @@ Created completely new Astro project (`astro-fresh/`) and systematically tested:
 
 ---
 
+
+## 🌐 Public Site Checker Page - Future Implementation
+
+A public-facing tool for checking domain trustworthiness could serve both as a security utility and a promotional entry point for BlockLang. The proposed features include:
+
+- ✅ Simple input form for manual domain checking
+- 🔐 reCAPTCHA protection (v2 checkbox or v3 score-based)
+- 📊 Display of trust score, WHOIS data, and SSL analysis
+- 🧠 Optional content analysis results (if full_url is provided)
+- 💬 Explanation of why a domain is flagged (detected patterns, risk level)
+- 💼 CTA links to install browser extensions (Chrome, Firefox, Safari)
+- 🧪 Bulk check for logged-in users (limited per day)
+- 💳 Pro features: usage history, export reports, extended API access
+- 🔗 Sharable result URLs (e.g. blocklang.org/check?domain=example.com)
+- 📈 Integrate analytics to monitor usage and performance
+
 ## ✅ Performance Optimizations - 2025-07-17
 
 ### LCP (Largest Contentful Paint) Improvements
