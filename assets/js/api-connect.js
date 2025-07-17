@@ -18,10 +18,26 @@ document.getElementById('domainForm').addEventListener('submit', async function(
         return;
     }
 
+    /*
+
+    curl -i -X OPTIONS -H "Origin: http://127.0.0.1:8001" \
+    -H 'Access-Control-Request-Method: POST' \
+    -H 'Access-Control-Request-Headers: Content-Type, Authorization' \
+    "https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha"
+
+
+    curl -i -X OPTIONS \
+  -H "Origin: https://www.blocklang.org" \
+  -H "Access-Control-Request-Method: POST" \
+  -H "Access-Control-Request-Headers: Content-Type, Authorization" \
+  "https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha"
+     */
+
     try {
         // Use your deployed Vercel API URL
         // const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha';
-        const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha';
+        // const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/captcha';
+        const apiUrl = 'https://blocklang-few5985p1-madjis-projects.vercel.app/api/captcha';
         // const apiUrl = 'http://127.0.0.1:3000/api/captcha';
         const response = await fetch(apiUrl, {
             method: 'POST',
