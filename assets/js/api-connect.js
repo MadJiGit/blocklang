@@ -20,7 +20,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
 
     try {
         // Use your deployed Vercel API URL
-        const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/check';
+        const apiUrl = 'https://blocklang-5cz9b2su1-madjis-projects.vercel.app/api/domain-checker';
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
