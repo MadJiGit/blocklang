@@ -1,4 +1,19 @@
 {
+  "rewrites": [
+    { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/service-details", "destination": "/service-details.html" },
+    { "source": "/platform-details", "destination": "/platform-details.html" },
+    { "source": "/credits", "destination": "/credits.html" },
+    { "source": "/how-it-works", "destination": "/how-it-works.html" },
+    { "source": "/chrome-extension", "destination": "/chrome-extension.html" },
+    { "source": "/firefox-extension", "destination": "/firefox-extension.html" },
+    { "source": "/safari-extension", "destination": "/safari-extension.html" },
+    { "source": "/url-filtering", "destination": "/url-filtering.html" },
+    { "source": "/language-blocking", "destination": "/language-blocking.html" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
