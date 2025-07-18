@@ -277,8 +277,8 @@ A public-facing tool for checking domain trustworthiness has been successfully i
 
 ### 🚧 **Current Status:**
 - ✅ **Local Development**: 100% working with all features
-- ⚠️ **Production Deployment**: CORS issues preventing Vercel deployment
-- 🔄 **Next Steps**: Resolve hosting/CORS issues or consider alternative deployment
+- ✅ **Production Deployment**: **CORS ISSUES RESOLVED** - API fully functional on Vercel
+- ✅ **Full Integration**: Ready for browser extension integration
 
 ### 📋 **Pending Features (Future Enhancement):**
 - 💼 CTA links to install browser extensions (Chrome, Firefox, Safari)
@@ -334,11 +334,47 @@ A public-facing tool for checking domain trustworthiness has been successfully i
 - **First Paint**: Significantly faster initial render
 - **Font Loading**: 90% faster font delivery
 
+## 🎯 BlockLang API Integration Success - 2025-07-17
+
+### ✅ **CORS Problem RESOLVED**
+After extensive debugging, successfully resolved CORS issues preventing browser extension integration:
+
+**Root Cause Identified**:
+- Multiple syntax errors in Express.js middleware
+- Winston logger incompatibility with Vercel serverless functions
+- Missing endpoint registration in API info
+- **Wrong deployment URL** used during testing (classic mistake!)
+
+**Solutions Implemented**:
+1. **Fixed Express.js Syntax**: Corrected CORS middleware variable scope issues
+2. **Vercel-Compatible Logging**: Modified Winston to use console.log in production
+3. **Specific OPTIONS Handler**: Added dedicated handler for `/api/captcha` preflight requests  
+4. **CORS Headers in POST**: Ensured headers set for actual API requests
+5. **Endpoint Registration**: Added `/api/captcha` to API info endpoint list
+
+**Final Testing Results**:
+- ✅ **OPTIONS Preflight**: Returns correct CORS headers
+- ✅ **POST Requests**: API responds with proper `access-control-allow-origin`
+- ✅ **reCAPTCHA Validation**: Working as expected (403 for invalid tokens)
+- ✅ **Domain Analysis**: Full trust scoring and content analysis functional
+
+**API Deployment**:
+- **URL**: `https://blocklang-few5985p1-madjis-projects.vercel.app/api/captcha`
+- **Status**: Production ready
+- **Integration**: Ready for browser extension connection
+
+### 🚀 **Next Steps**
+1. Update browser extension API endpoint URLs
+2. Test full integration flow (extension → API → response)
+3. Deploy updated extension versions
+4. Monitor API performance and usage
+
 ---
 
 *Last updated: 2025-07-17*
 *Migration Status: Astro approach ABANDONED due to framework instability*
-*Current Focus: Performance optimization and Core Web Vitals improvement*
+*Current Focus: Performance optimization and BlockLang API integration*
+*API Status: ✅ PRODUCTION READY with resolved CORS issues*
 *Recommendation: Continue with static HTML or migrate to Next.js for component architecture*
 
 ---
