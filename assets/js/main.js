@@ -175,9 +175,10 @@
 
     /**
      * Correct scrolling position upon page load for URLs containing hash links.
+     * Skip auto-scrolling for hero section to prevent unwanted scroll behavior
      */
     window.addEventListener('load', function (e) {
-        if (window.location.hash) {
+        if (window.location.hash && window.location.hash !== '#hero') {
             if (document.querySelector(window.location.hash)) {
                 setTimeout(() => {
                     let section = document.querySelector(window.location.hash);
@@ -188,6 +189,12 @@
                     });
                 }, 100);
             }
+        } else if (window.location.hash === '#hero' || window.location.pathname === '/') {
+            // Ensure homepage starts at the top
+            window.scrollTo({
+                top: 0,
+                behavior: 'auto'
+            });
         }
     });
 
