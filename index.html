@@ -590,10 +590,7 @@
                 <!--                    </div>-->
                 <!--                </div>-->
 
-                <form action="https://formsubmit.co/contact@blocklang.org" method="POST" class="php-email-form">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="box">
-                    <input type="hidden" name="_subject" value="New message from BlockLang!">
+                <form id="contact-form" class="php-email-form" novalidate>
                     <div class="row gy-4">
                         <div class="col-md-6">
                             <label for="name-field" class="pb-2">Your Name</label>
@@ -617,11 +614,24 @@
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                            <div id="form-loading" class="loading d-none">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Sending...</span>
+                                </div>
+                                <p class="mt-2">Sending your message...</p>
+                            </div>
+                            <div id="form-error" class="alert alert-danger d-none" role="alert">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                <span id="error-text"></span>
+                            </div>
+                            <div id="form-success" class="alert alert-success d-none" role="alert">
+                                <i class="bi bi-check-circle me-2"></i>
+                                <span id="success-text"></span>
+                            </div>
 
-                            <button type="submit">Send Message</button>
+                            <button type="submit" id="submit-btn" class="btn btn-primary">
+                                <i class="bi bi-envelope me-2"></i>Send Message
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -672,6 +682,9 @@
 
 <!-- Main JS File -->
 <script src="assets/js/main.js?v=1752038904" defer></script>
+
+<!-- Contact Form JS -->
+<script src="assets/js/contact.js"></script>
 
 <!-- Why Section JS -->
 <script src="assets/js/why.js"></script>

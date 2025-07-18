@@ -1,0 +1,111 @@
+/**
+ * Contact Form Handler
+ * Handles form submission via AJAX to Vercel API
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const loadingDiv = document.getElementById('form-loading');
+    const errorDiv = document.getElementById('form-error');
+    const successDiv = document.getElementById('form-success');
+    const errorText = document.getElementById('error-text');
+    const successText = document.getElementById('success-text');
+
+    if (!form) {
+        console.log('Contact form not found on this page');
+        return;
+    }
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+
+        // Basic validation
+        if (!data.name || !data.email || !data.subject || !data.message) {
+            showError('Please fill in all required fields.');
+            return;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showError('Please enter a valid email address.');
+            return;
+        }
+
+        try {
+            // Show loading state
+            showLoading();
+
+            // Send to BlockLang API
+            const response = await fetch('https://blocklang-few5985p1-madjis-projects.vercel.app/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showSuccess(result.message);
+                form.reset(); // Clear the form
+            } else {
+                showError(result.message || 'Something went wrong. Please try again.');
+            }
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showError('Network error. Please check your connection and try again.');
+        } finally {
+            hideLoading();
+        }
+    });
+
+    function showLoading() {
+        loadingDiv.classList.remove('d-none');
+        errorDiv.classList.add('d-none');
+        successDiv.classList.add('d-none');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
+    }
+
+    function hideLoading() {
+        loadingDiv.classList.add('d-none');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="bi bi-envelope me-2"></i>Send Message';
+    }
+
+    function showError(message) {
+        errorText.textContent = message;
+        errorDiv.classList.remove('d-none');
+        successDiv.classList.add('d-none');
+        
+        // Scroll to error message
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showSuccess(message) {
+        successText.textContent = message;
+        successDiv.classList.remove('d-none');
+        errorDiv.classList.add('d-none');
+        
+        // Scroll to success message
+        successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+            successDiv.classList.add('d-none');
+        }, 5000);
+    }
+});
