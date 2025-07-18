@@ -35,13 +35,18 @@ function renderBlogPosts(blogData) {
         return;
     }
 
-    // Hide loading indicator
+    // Hide loading indicator smoothly to prevent layout shift
     if (loadingDiv) {
-        loadingDiv.style.display = 'none';
+        loadingDiv.style.opacity = '0';
+        loadingDiv.style.visibility = 'hidden';
+        loadingDiv.style.position = 'absolute';
+        loadingDiv.style.height = '0';
+        loadingDiv.style.overflow = 'hidden';
     }
 
-    // Clear existing content
+    // Clear existing content and ensure container maintains height
     blogContainer.innerHTML = '';
+    blogContainer.style.minHeight = '800px'; // Maintain consistent height
 
     // Sort posts by date (newest first)
     const sortedPosts = Object.entries(blogData)
@@ -90,9 +95,11 @@ function createBlogPost(post, postId) {
     title.textContent = post.title;
     cardBody.appendChild(title);
 
-    // Meta information
+    // Meta information with Read More button
     const metaDiv = document.createElement('div');
-    metaDiv.className = 'blog-meta mb-3 text-muted small';
+    metaDiv.className = 'blog-meta mb-3 text-muted small d-flex justify-content-between align-items-center';
+    
+    const metaLeft = document.createElement('div');
     
     const dateSpan = document.createElement('span');
     dateSpan.innerHTML = `<i class="bi bi-calendar3 me-1"></i>${formatDate(post.date)}`;
@@ -100,8 +107,17 @@ function createBlogPost(post, postId) {
     const authorSpan = document.createElement('span');
     authorSpan.innerHTML = `<i class="bi bi-person me-1 ms-3"></i>${post.author}`;
     
-    metaDiv.appendChild(dateSpan);
-    metaDiv.appendChild(authorSpan);
+    metaLeft.appendChild(dateSpan);
+    metaLeft.appendChild(authorSpan);
+    
+    // Read more button (moved to top right)
+    const readMoreBtn = document.createElement('button');
+    readMoreBtn.className = 'btn btn-outline-primary btn-sm';
+    readMoreBtn.innerHTML = '<i class="bi bi-book-open me-2"></i>Read More';
+    readMoreBtn.onclick = () => expandPost(postId, post, readMoreBtn);
+    
+    metaDiv.appendChild(metaLeft);
+    metaDiv.appendChild(readMoreBtn);
     cardBody.appendChild(metaDiv);
 
     // Excerpt
@@ -135,12 +151,7 @@ function createBlogPost(post, postId) {
         cardBody.appendChild(tagsDiv);
     }
 
-    // Read more button
-    const readMoreBtn = document.createElement('button');
-    readMoreBtn.className = 'btn btn-outline-primary';
-    readMoreBtn.innerHTML = '<i class="bi bi-book-open me-2"></i>Read More';
-    readMoreBtn.onclick = () => expandPost(postId, post, readMoreBtn);
-    cardBody.appendChild(readMoreBtn);
+    // Read more button is now at the top with meta info
 
     // Full content (hidden initially)
     const fullContent = document.createElement('div');
@@ -160,17 +171,17 @@ function expandPost(postId, post, button) {
     const contentPreview = postElement.querySelector('.content-preview');
     
     if (fullContent.classList.contains('d-none')) {
-        // Expand
+        // Expand - button stays in same position at top
         fullContent.classList.remove('d-none');
         contentPreview.style.display = 'none';
         button.innerHTML = '<i class="bi bi-chevron-up me-2"></i>Show Less';
-        button.className = 'btn btn-outline-secondary';
+        button.className = 'btn btn-outline-secondary btn-sm';
     } else {
         // Collapse
         fullContent.classList.add('d-none');
         contentPreview.style.display = 'block';
         button.innerHTML = '<i class="bi bi-book-open me-2"></i>Read More';
-        button.className = 'btn btn-outline-primary';
+        button.className = 'btn btn-outline-primary btn-sm';
     }
 }
 
@@ -203,13 +214,21 @@ function showFallbackContent() {
     const blogContainer = document.querySelector('.blog-container');
     const loadingDiv = document.getElementById('blog-loading');
     
+    // Hide loading indicator smoothly to prevent layout shift
     if (loadingDiv) {
-        loadingDiv.style.display = 'none';
+        loadingDiv.style.opacity = '0';
+        loadingDiv.style.visibility = 'hidden';
+        loadingDiv.style.position = 'absolute';
+        loadingDiv.style.height = '0';
+        loadingDiv.style.overflow = 'hidden';
     }
     
     if (!blogContainer) {
         return;
     }
+    
+    // Maintain consistent height for fallback content
+    blogContainer.style.minHeight = '800px';
 
     // Show static content from noscript section
     blogContainer.innerHTML = `

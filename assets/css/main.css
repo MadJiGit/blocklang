@@ -710,22 +710,17 @@ section,
 .portfolio-item img {
     width: 100%;
     height: auto;
-    aspect-ratio: 16/9; /* Reserve consistent aspect ratio */
+    aspect-ratio: 4/3; /* Consistent 4:3 aspect ratio for all items */
     object-fit: cover;
 }
 
-/* Reserve space for video preview images */
-.portfolio-content picture img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-}
-
-/* Fix browser extension install images */
+/* Ensure ALL portfolio items have consistent aspect ratio */
+.portfolio-item.filter-videos img,
 .portfolio-item.filter-chrome img,
 .portfolio-item.filter-firefox img,
 .portfolio-item.filter-safari-mac img,
 .portfolio-item.filter-safari-ios img {
-    aspect-ratio: 4/3; /* Browser screenshots typically 4:3 */
+    aspect-ratio: 4/3; /* Consistent 4:3 aspect ratio */
     object-fit: cover;
 }
 
@@ -1520,17 +1515,42 @@ section,
 /* CLS fix: Reserve space for dynamic blog content */
 .blog-container {
     min-height: 800px; /* Reserve space to prevent layout shift */
+    /* Ensure smooth transition from loading to content */
+    transition: none;
+    contain: layout; /* Prevent layout recalculation */
 }
 
 /* Fix loading state to match final content height */
 #blog-loading {
-    height: 600px; /* Match expected content height */
+    height: 800px; /* Match blog-container height exactly */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Ensure no layout shift when hidden */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Blog section wrapper - consistent height */
+.blog-posts-section {
+    min-height: 900px; /* Reserve space for entire blog section */
+    contain: layout style; /* Optimize layout performance */
 }
 
 /* Prevent blog cards from having variable heights */
 .blog-post .card {
     min-height: 300px; /* Consistent card heights */
+    margin-bottom: 30px; /* Consistent spacing */
+}
+
+/* Blog posts grid container */
+.blog-posts-grid {
+    min-height: 700px; /* Reserve space for blog grid */
+}
+
+/* Individual blog post items */
+.blog-item {
+    min-height: 250px; /* Consistent item heights */
+    margin-bottom: 20px;
 }

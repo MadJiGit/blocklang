@@ -59,4 +59,9 @@ build/
 # Unnecessary tracked files
 composer.json
 
+package.json
+server.js
+package-lock.json
+DEV-SERVER.md
+
 
