@@ -9,12 +9,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadBlogData() {
     try {
-        const response = await fetch('assets/data/blog-details.json');
+        // Add timeout to prevent infinite loading
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+        
+        const response = await fetch('assets/data/blog-details.json', {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        
         const blogData = await response.json();
         renderBlogPosts(blogData);
     } catch (error) {
         console.error('Error loading blog data:', error);
-        showErrorMessage();
+        showFallbackContent();
     }
 }
 
@@ -188,6 +196,49 @@ function showErrorMessage() {
             <i class="bi bi-exclamation-triangle me-2"></i>
             <strong>Unable to load blog content.</strong> Please try refreshing the page.
         </div>
+    `;
+}
+
+function showFallbackContent() {
+    const blogContainer = document.querySelector('.blog-container');
+    const loadingDiv = document.getElementById('blog-loading');
+    
+    if (loadingDiv) {
+        loadingDiv.style.display = 'none';
+    }
+    
+    if (!blogContainer) {
+        return;
+    }
+
+    // Show static content from noscript section
+    blogContainer.innerHTML = `
+        <article class="blog-post mb-5">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary mb-2">Featured</span>
+                    <h2 class="card-title mb-3">Welcome to BlockLang Blog</h2>
+                    <div class="blog-meta mb-3 text-muted small">
+                        <span><i class="bi bi-calendar3 me-1"></i>December 1, 2024</span>
+                        <span><i class="bi bi-person me-1 ms-3"></i>BlockLang Team</span>
+                    </div>
+                    <p class="card-text text-muted mb-3">Learn about our journey building a privacy-focused browser extension and our mission to clean up the web.</p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="blog-post mb-5">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="card-title mb-3">5 Tips for Effective Search Filtering</h2>
+                    <div class="blog-meta mb-3 text-muted small">
+                        <span><i class="bi bi-calendar3 me-1"></i>November 15, 2024</span>
+                        <span><i class="bi bi-person me-1 ms-3"></i>BlockLang Team</span>
+                    </div>
+                    <p class="card-text text-muted mb-3">Master the art of search filtering with these practical tips for using BlockLang more effectively.</p>
+                </div>
+            </div>
+        </article>
     `;
 }
 

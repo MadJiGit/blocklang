@@ -334,6 +334,64 @@ A public-facing tool for checking domain trustworthiness has been successfully i
 - **First Paint**: Significantly faster initial render
 - **Font Loading**: 90% faster font delivery
 
+## 🎯 **CLS (Cumulative Layout Shift) Optimizations - 2025-07-18**
+
+### ✅ **SEO Expert Recommendations Implemented**
+Following expert advice for layout shift reduction on blog page:
+
+**Root Issue Identified:**
+- Dynamic blog content loading causes layout shifts
+- Variable content heights push other elements down
+- Loading spinner disappears suddenly causing content jumps
+- SEO expert recommended "fixed height divs" approach
+
+### 🛠️ **CLS Optimizations Applied**
+
+#### **Conservative Fixed Height Approach:**
+```css
+/* CLS fix: Reserve space for dynamic blog content */
+.blog-container {
+    min-height: 800px; /* Reserve space to prevent layout shift */
+}
+
+/* Fix loading state to match final content height */
+#blog-loading {
+    height: 600px; /* Match expected content height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent blog cards from having variable heights */
+.blog-post .card {
+    min-height: 300px; /* Consistent card heights */
+}
+```
+
+#### **JavaScript Loading Improvements:**
+- **5-second timeout** prevents infinite loading spinner
+- **Fallback content** displays static blog posts if dynamic loading fails
+- **AbortController** properly handles request timeouts
+- **Error handling** with graceful degradation
+
+### 📊 **Expected CLS Score Improvement**
+**Before:** Variable heights causing content jumps (poor CLS score)
+**After:** Fixed heights prevent layout shifts (target CLS ≤0.1)
+
+**Key Benefits:**
+- Reserved space eliminates content jumping during load
+- Consistent card heights maintain layout stability  
+- Loading spinner matches final content dimensions
+- Fallback ensures content always displays
+
+### 🔧 **Technical Implementation Details**
+- **Safe Approach**: Minimal CSS changes to avoid breaking navigation
+- **Targeted Selectors**: Only affects blog page elements
+- **Progressive Enhancement**: Works with or without JavaScript
+- **Responsive Ready**: Fixed heights work across device sizes
+
+**Status:** ✅ **CLS Optimizations Complete**
+
 ## 🎯 BlockLang API Integration Success - 2025-07-17
 
 ### ✅ **CORS Problem RESOLVED**

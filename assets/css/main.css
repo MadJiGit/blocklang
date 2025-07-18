@@ -68,7 +68,7 @@ body {
 
 a {
     color: var(--accent-color);
-    text-decoration: none;
+    text-decoration: none !important;
     transition: 0.3s;
 }
 
@@ -316,6 +316,7 @@ h6 {
     white-space: nowrap;
     transition: 0.3s;
     width: 100%;
+    text-decoration: none !important;
 }
 
 .navmenu a .navicon,
@@ -1454,4 +1455,22 @@ section,
 
 .portfolio-details-page .main {
     flex: 1;
+}
+
+/* CLS fix: Reserve space for dynamic blog content */
+.blog-container {
+    min-height: 800px; /* Reserve space to prevent layout shift */
+}
+
+/* Fix loading state to match final content height */
+#blog-loading {
+    height: 600px; /* Match expected content height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent blog cards from having variable heights */
+.blog-post .card {
+    min-height: 300px; /* Consistent card heights */
 }
