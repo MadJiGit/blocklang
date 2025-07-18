@@ -670,6 +670,66 @@ section,
 }
 
 /*--------------------------------------------------------------
+# CLS (Cumulative Layout Shift) Optimizations
+--------------------------------------------------------------*/
+
+/* Fix typed cursor layout shifts */
+.typed-cursor {
+    display: inline;
+    /* Prevent cursor blinking from causing layout shifts */
+    vertical-align: baseline;
+    /* Keep cursor properly aligned with text */
+    line-height: inherit;
+    opacity: 1;
+}
+
+/* Fix img-fluid layout shifts by reserving space */
+.img-fluid {
+    /* Ensure images have dimensions to prevent layout shifts */
+    height: auto;
+    max-width: 100%;
+}
+
+/* Specific fixes for hero section images */
+.hero .profile-img img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Fix logo images in about section */
+.about .content img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1; /* Reserve square space for logo */
+}
+
+/* Fix portfolio/gallery images to prevent layout shifts */
+.portfolio-content img,
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Reserve consistent aspect ratio */
+    object-fit: cover;
+}
+
+/* Reserve space for video preview images */
+.portfolio-content picture img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* Fix browser extension install images */
+.portfolio-item.filter-chrome img,
+.portfolio-item.filter-firefox img,
+.portfolio-item.filter-safari-mac img,
+.portfolio-item.filter-safari-ios img {
+    aspect-ratio: 4/3; /* Browser screenshots typically 4:3 */
+    object-fit: cover;
+}
+
+/*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
 .about .content h2 {
