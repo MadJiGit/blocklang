@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showLoading();
 
             // Send to BlockLang API
-            const response = await fetch('https://blocklang-few5985p1-madjis-projects.vercel.app/api/contact', {
+            const response = await fetch('https://api.blocklang.org/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
