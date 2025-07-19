@@ -55,13 +55,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(data)
             });
 
+            if (!response.ok) {
+                // Handle HTTP errors (404, 500, etc.) with user-friendly message
+                showError('Our contact form is temporarily unavailable.<br>Please use contact@blocklang.org.<br>Sorry for the inconvenience.');
+                return;
+            }
+
             const result = await response.json();
 
             if (result.success) {
                 showSuccess(result.message);
                 form.reset(); // Clear the form
             } else {
-                showError(result.message || 'Something went wrong. Please try again.');
+                // Only show API error messages for validation errors (400 status)
+                if (response.status === 400) {
+                    showError(result.message || 'Please check your input and try again.');
+                } else {
+                    showError('Our contact form is temporarily unavailable.<br>Please use contact@blocklang.org.<br>Sorry for the inconvenience.');
+                }
             }
 
         } catch (error) {
@@ -87,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showError(message) {
-        errorText.textContent = message;
+        errorText.innerHTML = message;
         errorDiv.classList.remove('d-none');
         successDiv.classList.add('d-none');
         
