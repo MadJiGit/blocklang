@@ -19,8 +19,8 @@ document.getElementById('domainForm').addEventListener('submit', async function(
     }
 
     try {
-        // Use your deployed Vercel API URL
-        const apiUrl = 'https://blocklang-few5985p1-madjis-projects.vercel.app/api/captcha';
+        // Use your custom API domain
+        const apiUrl = 'https://api.blocklang.org/api/captcha';
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -42,7 +42,20 @@ document.getElementById('domainForm').addEventListener('submit', async function(
     } catch (error) {
         console.error('API Error:', error);
         resultDiv.className = 'result-error';
-        resultDiv.innerHTML = `❌ Error: ${error.message}`;
+        
+        // User-friendly error messages
+        let userMessage;
+        if (error.message.includes('Failed to fetch') || error.message.includes('fetch')) {
+            userMessage = '❌ Connection problem. Please check your internet connection and try again.';
+        } else if (error.message.includes('Server error: 5')) {
+            userMessage = '❌ Our security checker is temporarily busy. Please try again in a moment.';
+        } else if (error.message.includes('Server error: 4')) {
+            userMessage = '❌ Please check your domain format and try again.';
+        } else {
+            userMessage = '❌ Unable to check domain security right now. Please try again later.';
+        }
+        
+        resultDiv.innerHTML = userMessage;
     } finally {
         grecaptcha.reset();
         checkBtn.disabled = false;
