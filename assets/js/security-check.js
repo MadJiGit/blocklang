@@ -20,7 +20,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
 
     try {
         // Use your custom API domain
-        const apiUrl = 'https://api.blocklang.org/api/captcha';
+        const apiUrl = 'https://api.blocklang.org/api/web';
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
