@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const successDiv = document.getElementById('form-success');
     const errorText = document.getElementById('error-text');
     const successText = document.getElementById('success-text');
+    
+    // Time-based validation - record when page loads
+    const pageLoadTime = Date.now();
 
     if (!form) {
         console.log('Contact form not found on this page');
@@ -26,8 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
             name: formData.get('name'),
             email: formData.get('email'),
             subject: formData.get('subject'),
-            message: formData.get('message')
+            message: formData.get('message'),
+            website: formData.get('website') // Honeypot field
         };
+
+        // Time-based validation - humans need at least 5 seconds to fill the form
+        const submitTime = Date.now();
+        const timeSpent = submitTime - pageLoadTime;
+        if (timeSpent < 5000) { // Less than 5 seconds
+            showError('Please take a moment to review your message.');
+            return;
+        }
+
+        // Checkbox validation
+        const humanCheck = formData.get('human-check');
+        if (!humanCheck) {
+            showError('Please confirm that you are not a robot.');
+            return;
+        }
 
         // Basic validation
         if (!data.name || !data.email || !data.subject || !data.message) {

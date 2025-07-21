@@ -614,6 +614,22 @@
                                       required></textarea>
                         </div>
 
+                        <!-- Honeypot field - invisible to users, visible to bots -->
+                        <div class="col-md-12" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+                            <label for="website-field">Website</label>
+                            <input type="text" name="website" id="website-field" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <!-- Anti-bot checkbox -->
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="human-check" name="human-check" required>
+                                <label class="form-check-label" for="human-check">
+                                    I confirm that I'm sending this message as a real person and not automated software
+                                </label>
+                            </div>
+                        </div>
+
                         <div class="col-md-12 text-center">
                             <div id="form-loading" class="loading d-none">
                                 <div class="spinner-border text-primary" role="status">
