@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(detailsMap => {
             const details = detailsMap[platform];
-            console.log('Platform:', platform);
-            console.log('Details:', details);
-            console.log('Images:', details?.images);
+            // console.log('Platform:', platform);
+            // console.log('Details:', details);
+            // console.log('Images:', details?.images);
             if (!details) {
                 console.error(`No details found for platform: ${platform}`);
                 throw new Error(`No details found for platform: ${platform}`);
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 new Swiper(".init-swiper", swiperConfig);
             } else {
-                console.log("NO WRAPPER");
+                // console.log("NO WRAPPER");
             }
 
             if (details) {

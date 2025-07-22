@@ -3,7 +3,7 @@
     "title": "Safari",
     "description": "Install BlockLang on Safari.",
     "app_store_link": "https://apps.apple.com/app/id6747637233",
-    "app_store_logo": "assets/img/logos/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",
+    "app_store_logo": "assets/img/logos/apple-store.svg",
     "alt": "Download on the App Store",
     "image_main": "assets/img/safari_macOS/install.webp"
   },
@@ -12,7 +12,7 @@
     "title": "Chrome",
     "description": "Install BlockLang on Google Chrome.",
     "app_store_link": "https://chromewebstore.google.com/detail/jhaaififdgohacmbigmellnhiihiidee?utm_source=item-share-cb",
-    "app_store_logo": "assets/img/logos/UV4C4ybeBTsZt43U4xis.png",
+    "app_store_logo": "assets/img/logos/chrome-store.png",
     "alt": "Available in the Chrome Web Store",
     "image_main": "assets/img/chrome.webp"
   },
@@ -21,7 +21,7 @@
     "title": "Firefox",
     "description": "Install BlockLang on Mozilla Firefox.",
     "app_store_link": "https://addons.mozilla.org/en-GB/firefox/addon/search-language-filter/",
-    "app_store_logo": "assets/img/logos/firefox_logo_64.png",
+    "app_store_logo": "assets/img/logos/firefox-store.png",
     "alt": "Get it on Firefox Add-ons",
     "image_main": "assets/img/firefox.webp"
   }

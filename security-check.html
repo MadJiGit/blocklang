@@ -3,33 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Check | BlockLang</title>
+    <title>Website Security Scanner | BlockLang</title>
+    <meta name="description" content="Check any website for security threats, phishing attempts, and scam indicators. Free online tool with instant results and browser extension protection.">
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/security-check.css">
 </head>
 <body>
-    <div class="container">
-        <div class="back-button">
-            <a href="/">Go to BlockLang</a>
+    <!-- Minimal BlockLang Header -->
+    <header class="bl-header">
+        <div class="bl-header-content">
+            <div class="bl-logo">
+                <a href="/">
+                    <img src="assets/img/favicon.png" alt="BlockLang" class="bl-logo-icon">
+                    <span class="bl-logo-text">BlockLang</span>
+                </a>
+            </div>
+            <nav class="bl-nav">
+                <a href="/safari-extension" class="bl-nav-link">Safari</a>
+                <a href="/chrome-extension" class="bl-nav-link">Chrome</a>
+                <a href="/firefox-extension" class="bl-nav-link">Firefox</a>
+            </nav>
         </div>
-        <h1>🛡️ Security Check</h1>
-        
-        <form id="domainForm">
-            <div class="form-group">
-                <label for="domainInput">Enter website to check:</label>
-                <input type="text" id="domainInput" name="domain" placeholder="example.com" autocomplete="url" required>
-            </div>
-            
-            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LdXe4YrAAAAABGykU_JS8lV40VOEzuYm1f7dJNe"></div>
-            </div>
-            
-            <button type="submit" id="checkBtn">Check Website Security</button>
-        </form>
+    </header>
 
-        <div id="result"></div>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">🛡️ Website Security Scanner</h1>
+            <p class="hero-subtitle">Check any website for phishing, scams, and security threats in seconds</p>
+        </div>
     </div>
+
+    <!-- Main Scanner Section -->
+    <div class="scanner-container">
+        <div class="scanner-card">
+            <form id="domainForm" class="scanner-form">
+                <div class="form-group">
+                    <label for="domainInput" class="form-label">Enter website URL to scan:</label>
+                    <div class="input-group">
+                        <input type="text" id="domainInput" name="domain" placeholder="example.com or https://example.com" autocomplete="url" required class="form-input">
+                        <button type="submit" id="checkBtn" class="scan-button">
+                            <span class="scan-text">Scan Now</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group recaptcha-group">
+                    <div class="g-recaptcha" data-sitekey="6LdXe4YrAAAAABGykU_JS8lV40VOEzuYm1f7dJNe"></div>
+                </div>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <!-- Extension Promotion Section -->
+    <div class="promo-section">
+        <div class="promo-content">
+            <div class="promo-header">
+                <h2 class="promo-title">Want Continuous Protection?</h2>
+                <p class="promo-subtitle">Get our browser extension for real-time security warnings while you browse, from official web stores</p>
+                <div class="store-badges">
+                    <a href="https://apps.apple.com/app/id6747637233" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/img/logos/apple-store.svg" alt="Download on the App Store">
+                    </a>
+                    <a href="https://chromewebstore.google.com/detail/jhaaififdgohacmbigmellnhiihiidee" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/img/logos/chrome-store-469.png" alt="Available on Chrome Web Store">
+                    </a>
+                    <a href="https://addons.mozilla.org/en-GB/firefox/addon/search-language-filter/" target="_blank" rel="noopener noreferrer">
+<!--                        <img src="assets/img/logos/firefox-store-128.png" alt="Available on Firefox Add-ons">-->
+                        <img src="assets/img/firefox-icon.png" alt="Available on Firefox Add-ons">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Extension Cards Grid -->
+            <div class="extension-grid">
+                <a href="/service-details?platform=safari" class="extension-card safari-card">
+                    <div class="extension-icon">
+                        <img src="assets/img/safari-icon.png" alt="Safari" class="browser-icon">
+                    </div>
+                    <div class="extension-info">
+                        <h3>Safari Extension</h3>
+                        <p> Secure browsing for Mac & iOS</p>
+                        <span class="install-text">Free Install →</span>
+                    </div>
+                </a>
+
+                <a href="/service-details?platform=chrome" class="extension-card chrome-card">
+                    <div class="extension-icon">
+<!--                        <div class="icon flex-shrink-0"><i class="bi bi-browser-chrome"></i></div>-->
+                        <img src="assets/img/chrome-icon.png" alt="Chrome"  class="browser-icon">
+                    </div>
+                    <div class="extension-info">
+                        <h3>Chrome Extension</h3>
+                        <p> Real-time protection while browsing</p>
+                        <span class="install-text">Free Install →</span>
+                    </div>
+                </a>
+                
+                <a href="/service-details?platform=firefox" class="extension-card firefox-card">
+                    <div class="extension-icon">
+                        <img src="assets/img/firefox-icon.png" alt="Firefox" class="browser-icon">
+                    </div>
+                    <div class="extension-info">
+                        <h3>Firefox Extension</h3>
+                        <p> Block scams before they load</p>
+                        <span class="install-text">Free Install →</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="promo-features">
+                <div class="feature">
+<!--                    <span class="feature-icon">•</span>-->
+                    <span class="feature-text">Instant warnings</span>
+                </div>
+                    <span class="feature-icon">•</span>
+                <div class="feature">
+                    <span class="feature-text">Privacy focused</span>
+                </div>
+                    <span class="feature-icon">•</span>
+                <div class="feature">
+                    <span class="feature-text">100% free</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bl-footer">
+        <div class="bl-footer-content">
+            <p>&copy; 2025 BlockLang. Protecting users from online threats.</p>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="assets/js/security-check.js"></script>
