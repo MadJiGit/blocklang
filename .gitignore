@@ -63,3 +63,8 @@ package.json
 server.js
 package-lock.json
 
+/deploy.js
+/DEPLOYMENT.md
+/REPORT_VERIFICATION_FLOW.md
+/assets/js/security-check.dev.js
+/assets/js/security-check.prod.js
