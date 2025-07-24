@@ -150,11 +150,11 @@
 
                         <div class="mb-5">
                             <h3>Overview</h3>
-                            <p>BlockLang is a lightweight and privacy-friendly browser extension that helps you clean up
-                                your search results on Google and Bing by filtering out unwanted languages, domains, or
-                                sites. The extension works by automatically appending exclusion filters (like <code>-site:</code>
-                                or <code>-lang:</code>) to your search queries, giving you complete control over the
-                                types of results you see. It's fully customizable, 100% offline, and includes no
+                            <p>BlockLang is a lightweight and privacy-friendly browser extension that helps you filter
+                                your search results on Google and Bing by removing unwanted languages, domains, or
+                                sites. The extension also includes optional security protection to warn users about
+                                potentially dangerous websites (scams, phishing, malware). It gives you complete control over the types of results
+                                you see through customizable filters. It's designed with privacy in mind and includes no
                                 tracking whatsoever.</p>
                         </div>
 
@@ -179,6 +179,8 @@
                                 <li><i class="bi bi-x-circle text-danger me-2"></i><strong>User Analytics:</strong> We
                                     do not use analytics services that track individual users
                                 </li>
+                                <li><i class="bi bi-x-circle text-danger me-2"></i><strong>Data Sales:</strong> We do not sell, rent, or share your data with third parties for marketing purposes
+                                </li>
                             </ul>
 
                             <h4 class="mt-4 mb-3">Data We DO Collect</h4>
@@ -195,7 +197,7 @@
                                     Status:</strong> Whether you have purchased the Pro version (stored locally and in
                                     Apple's systems for Safari version)
                                 </li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i><strong>Scam Protection Domain Checks:</strong> When scam protection is enabled, the extension sends the domain name (only) of visited websites to the BlockLang API to retrieve a trust score. No full URLs, personal data, or user identifiers are sent. This information is not stored and is used solely to determine whether to show a warning.
+                                <li><i class="bi bi-check-circle text-success me-2"></i><strong>Security Protection Domain Checks:</strong> When security protection is enabled, the extension sends website domain names to the BlockLang API to check for scam, phishing, and malware threats. No personal data or user identifiers are sent. Domain checks are processed in real-time and are not stored on our servers.
                                 </li>
                             </ul>
                         </div>
@@ -207,20 +209,30 @@
                                     All user preferences and custom filters are stored locally on your device using your
                                     browser's built-in storage mechanisms
                                 </li>
-                                <li><i class="bi bi-cloud-check text-info me-2"></i><strong>Browser Sync:</strong> If
-                                    enabled in your browser settings, your preferences may sync across your devices
-                                    through your browser's secure sync service (Chrome Sync, Firefox Sync, iCloud for
-                                    Safari)
+                                <li><i class="bi bi-cloud-slash text-warning me-2"></i><strong>No Cross-Device Sync:</strong> Extension settings and filters remain on each device separately - no automatic syncing across devices
                                 </li>
-                                <li><i class="bi bi-server text-secondary me-2"></i><strong>No Third-Party
-                                    Servers:</strong> We do not operate servers that store your data
+                                <li><i class="bi bi-server text-secondary me-2"></i><strong>No Data Storage:</strong> We do not operate servers that store your personal data or browsing information
                                 </li>
-                                <li><i class="bi bi-wifi-off text-success me-2"></i><strong>100% Offline:</strong> The
-                                    extension works completely offline with no background communication
+                                <li><i class="bi bi-wifi-off text-success me-2"></i><strong>Minimal Network Usage:</strong> Core filtering works completely offline. Optional security protection feature requires internet connection for real-time domain safety checks
+                                </li>
+                                <li><i class="bi bi-clock text-info me-2"></i><strong>No Data Retention:</strong> Security checks are processed instantly without storing domain names or check results
                                 </li>
                                 <li><i class="bi bi-apple text-dark me-2"></i><strong>Apple App Store:</strong>
                                     Subscription information is handled securely by Apple's App Store systems (Safari
                                     version only)
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h3>Network Communication</h3>
+                            <p>BlockLang connects to remote servers only in these specific cases:</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-arrow-down-circle text-primary me-2"></i><strong>Extension Updates:</strong> Automatic updates are handled by your browser's extension store (Chrome Web Store, Firefox AMO, Apple App Store)
+                                </li>
+                                <li><i class="bi bi-shield-exclamation text-warning me-2"></i><strong>Security Checks:</strong> When security protection is enabled, domain names are sent to BlockLang API over encrypted HTTPS connections
+                                </li>
+                                <li><i class="bi bi-x-circle text-danger me-2"></i><strong>No Telemetry:</strong> We do not send usage statistics, crash reports, or any analytics data
                                 </li>
                             </ul>
                         </div>
