@@ -1,30 +1,5 @@
 // Smart security-check with automatic environment detection
 // Works in both development and production safely
-
-// Check for URL parameters on page load
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const reportParam = urlParams.get('report');
-    const domainParam = urlParams.get('domain');
-    
-    if (reportParam === 'true' && domainParam) {
-        // Auto-populate domain input
-        const domainInput = document.getElementById('domainInput');
-        if (domainInput) {
-            domainInput.value = domainParam;
-            
-            // Auto-submit the form to check the domain
-            const domainForm = document.getElementById('domainForm');
-            if (domainForm) {
-                // Small delay to ensure page is fully loaded
-                setTimeout(() => {
-                    domainForm.dispatchEvent(new Event('submit'));
-                }, 500);
-            }
-        }
-    }
-});
-
 document.getElementById('domainForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const domain = document.getElementById('domainInput').value;
@@ -287,22 +262,6 @@ function displayResults(data) {
     if (reportToggle && inlineForm) {
         currentDomain = data.domain;
         currentScore = data.trust_score;
-        
-        // Check if we came from a report URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const reportParam = urlParams.get('report');
-        
-        if (reportParam === 'true') {
-            // Auto-open the report form since user came here to report an issue
-            setTimeout(() => {
-                inlineForm.style.display = 'block';
-                reportToggle.textContent = 'Hide form';
-                reportToggle.classList.add('active');
-                
-                // Scroll to the report form for better visibility
-                inlineForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 1000); // Wait for results to display
-        }
         
         reportToggle.addEventListener('click', (e) => {
             e.preventDefault();
