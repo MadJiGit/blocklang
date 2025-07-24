@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
             email: formData.get('email'),
             subject: formData.get('subject'),
             message: formData.get('message'),
-            website: formData.get('website') // Honeypot field
+            website: formData.get('website'), // Honeypot field
+            'human-check': formData.get('human-check') // Anti-bot checkbox
         };
 
         // Time-based validation - humans need at least 5 seconds to fill the form
