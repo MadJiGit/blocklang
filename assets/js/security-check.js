@@ -155,31 +155,10 @@ function displayResultsRegular(data) {
                     <li><strong>Country:</strong> ${data.whois.country || 'Unknown'}</li>
                     <li><strong>Domain Age:</strong> ${data.whois.age_days ? `${data.whois.age_days} days` : 'Unknown'}</li>
                 </ul>
-            </div>
             
             <div class="results-column">
-                <h4>SSL Certificate</h4>
-                <ul>
-                    <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
-                </ul>
-            </div>
-        </div>`;
-
-
-    // Add content analysis if available
-    if (data.content_analysis && data.content_analysis.content_fetched) {
-        html += `
-            <div class="results-content">
-                <div class="results-column">
-                    <h4>Content Analysis</h4>
-                    <ul>
-                        <li><strong>Content Risk Level:</strong> ${data.content_analysis.risk_level.toUpperCase()}</li>
-                    </ul>
-                </div>`;
-        html += `<div class="results-column"></div>`;
-        html += `</div>`;
-    }
-
+                <h4>Google Web Risk Analysis</h4>`;
+    
     // Add Web Risk analysis (show even if API failed)
     if (data.web_risk) {
         let threatStatus, threatColor, threatIcon;
@@ -198,18 +177,44 @@ function displayResultsRegular(data) {
         }
 
         html += `
-            <div class="results-content">
-                <div class="results-column">
-                    <h4>Google Web Risk Analysis</h4>
-                    <ul>
-                        <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
-                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types && data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
-                        <li><strong>Last Checked:</strong> ${data.web_risk.checked_at ? new Date(data.web_risk.checked_at).toLocaleString() : 'Never'}</li>
-                        <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
-                    </ul>
-                </div>
-            </div>`;
+                <ul>
+                    <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
+                    <li><strong>Threat Types:</strong> ${data.web_risk.threat_types && data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
+                    <li><strong>Last Checked:</strong> ${data.web_risk.checked_at ? new Date(data.web_risk.checked_at).toLocaleString() : 'Never'}</li>
+                    <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
+                </ul>`;
+    } else {
+        html += `<ul><li>No Web Risk data available</li></ul>`;
     }
+    
+    html += `
+            </div>
+        </div>`;
+
+    // Add content analysis and SSL certificate (second row)
+    html += `
+        <div class="results-content">
+            <div class="results-column">
+                <h4>Content Analysis</h4>
+                <ul>`;
+    
+    if (data.content_analysis && data.content_analysis.content_fetched) {
+        html += `<li><strong>Content Risk Level:</strong> ${data.content_analysis.risk_level.toUpperCase()}</li>`;
+    } else {
+        html += `<li>No content analysis data available</li>`;
+    }
+    
+    html += `
+                </ul>
+            </div>
+            
+            <div class="results-column">
+                <h4>SSL Certificate</h4>
+                <ul>
+                    <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
+                </ul>
+            </div>
+        </div>`;
 
     // Add report button and inline form
     html += `
