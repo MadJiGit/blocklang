@@ -196,14 +196,17 @@ function displayResults(data) {
     if (data.web_risk) {
         let threatStatus, threatColor, threatIcon;
         
-        if (!data.web_risk.success) {
-            threatStatus = 'API UNAVAILABLE';
-            threatColor = 'color: #f39c12;';
-            threatIcon = '⚠️';
-        } else {
+        // Prioritize actual threat detection data over API status
+        if (data.web_risk.is_threat !== undefined && data.web_risk.is_threat !== null) {
+            // We have valid threat detection data (from cache or live API)
             threatStatus = data.web_risk.is_threat ? 'THREAT DETECTED' : 'SAFE';
             threatColor = data.web_risk.is_threat ? 'color: #e74c3c;' : 'color: #27ae60;';
             threatIcon = data.web_risk.is_threat ? '⚠️' : '✅';
+        } else {
+            // No valid threat data available
+            threatStatus = 'API UNAVAILABLE';
+            threatColor = 'color: #f39c12;';
+            threatIcon = '⚠️';
         }
         
         html += `
