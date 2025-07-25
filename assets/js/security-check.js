@@ -64,7 +64,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
                 recaptchaToken: recaptchaResponse 
             })
         });
-        
+
         const data = await response.json();
         
         if (!response.ok) {
@@ -174,6 +174,35 @@ function displayResults(data) {
         }
         
         html += `</div>`;
+    }
+    
+    // Add Web Risk analysis if available
+    if (data.web_risk && data.web_risk.success) {
+        const threatStatus = data.web_risk.is_threat ? 'THREAT DETECTED' : 'SAFE';
+        const threatColor = data.web_risk.is_threat ? 'color: #e74c3c;' : 'color: #27ae60;';
+        const threatIcon = data.web_risk.is_threat ? '⚠️' : '✅';
+        
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Google Web Risk Analysis</h4>
+                    <ul>
+                        <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
+                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
+                        <li><strong>Last Checked:</strong> ${new Date(data.web_risk.checked_at).toLocaleString()}</li>
+                        <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Web Risk Details</h4>
+                    <ul>
+                        <li><strong>Google Database:</strong> ${data.web_risk.success ? 'Connected' : 'Unavailable'}</li>
+                        <li><strong>Protection Level:</strong> Commercial API</li>
+                        <li><strong>Coverage:</strong> Malware, Phishing, Unwanted Software</li>
+                        <li><strong>Confidence:</strong> High (Google verified)</li>
+                    </ul>
+                </div>
+            </div>`;
     }
     
     // Add visitor stats and cache info
