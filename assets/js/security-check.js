@@ -87,7 +87,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
             userMessage = '❌ Unable to check domain security right now. Please try again later.';
         }
         
-        resultDiv.innerHTML = userMessage;
+        showErrorMessage(userMessage);
     } finally {
         grecaptcha.reset();
         checkBtn.disabled = false;
@@ -95,12 +95,22 @@ document.getElementById('domainForm').addEventListener('submit', async function(
 });
 
 function displayResults(data) {
+    // PRO user detection (future feature)
+    const isPro = false; // TODO: Implement PRO user detection
+    
+    if (isPro) {
+        displayResultsPro(data);
+        return;
+    }
+    
+    // Regular user display
+    displayResultsRegular(data);
+}
+
+function displayResultsRegular(data) {
     const resultDiv = document.getElementById('result');
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
-    
-    // PRO user detection (future feature)
-    const isPro = false; // TODO: Implement PRO user detection
     
     // Progressive Green System: Score-based styling (60+ = green territory)
     let className = 'result-dangerous';
@@ -378,6 +388,318 @@ function displayResults(data) {
     const submitBtn = document.getElementById('submitReport');
     
     if (reportToggle && inlineForm) {
+        currentDomain = data.domain;
+        currentScore = data.trust_score;
+        
+        reportToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (inlineForm.style.display === 'none') {
+                inlineForm.style.display = 'block';
+                reportToggle.textContent = 'Hide form';
+                reportToggle.classList.add('active');
+            } else {
+                inlineForm.style.display = 'none';
+                reportToggle.textContent = 'Report issue';
+                reportToggle.classList.remove('active');
+                clearReportForm();
+            }
+        });
+        
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                inlineForm.style.display = 'none';
+                reportToggle.textContent = 'Report issue';
+                reportToggle.classList.remove('active');
+                clearReportForm();
+            });
+        }
+        
+        if (submitBtn) {
+            submitBtn.addEventListener('click', handleReportSubmit);
+        }
+    }
+}
+
+function displayResultsPro(data) {
+    const resultDiv = document.getElementById('result');
+    const riskLevel = data.risk_level;
+    const trustScore = data.trust_score;
+    
+    // Progressive Green System: Score-based styling (60+ = green territory)
+    let className = 'result-dangerous';
+    let scoreDescription = 'Very Dangerous';
+    
+    if (trustScore >= 81) {
+        className = 'result-excellent';
+        scoreDescription = 'Very Trustworthy';
+    } else if (trustScore >= 71) {
+        className = 'result-trustworthy';
+        scoreDescription = 'Trustworthy';
+    } else if (trustScore >= 61) {
+        className = 'result-safe';
+        scoreDescription = 'Likely Safe';
+    } else if (trustScore >= 41) {
+        className = 'result-neutral';
+        scoreDescription = 'Needs Attention';
+    } else if (trustScore >= 21) {
+        className = 'result-risky';
+        scoreDescription = 'Risky';
+    } else {
+        className = 'result-dangerous';
+        scoreDescription = 'Very Dangerous';
+    }
+    
+    resultDiv.className = className;
+    
+    let html = `
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h3>Domain: ${data.domain}</h3>
+            <p style="font-size: 20px; margin: 10px 0; font-weight: 600;"><strong>Trust Score:</strong> ${trustScore}/100</p>
+            <p style="font-size: 16px; margin: 5px 0;"><strong>Assessment:</strong> ${scoreDescription}</p>
+        </div>
+        
+        <!-- PRO: Full WHOIS + Complete SSL Certificate -->
+        <div class="results-content">
+            <div class="results-column">
+                <h4>WHOIS Information</h4>
+                <ul>
+                    <li><strong>Creation Date:</strong> ${data.whois.creation_date || 'Unknown'}</li>
+                    <li><strong>Registrar:</strong> ${data.whois.registrar || 'Unknown'}</li>
+                    <li><strong>Country:</strong> ${data.whois.country || 'Unknown'}</li>
+                    <li><strong>Domain Age:</strong> ${data.whois.age_days ? `${data.whois.age_days} days` : 'Unknown'}</li>
+                </ul>
+            </div>
+            
+            <div class="results-column">
+                <h4>SSL Certificate (Complete)</h4>
+                <ul>
+                    <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
+                    <li><strong>Issuer:</strong> ${data.ssl.issuer || 'Unknown'}</li>
+                    <li><strong>Expires:</strong> ${data.ssl.expires || 'Unknown'}</li>
+                    <li><strong>Days Remaining:</strong> ${data.ssl.days_remaining || 'Unknown'}</li>
+                    <li><strong>Grade:</strong> ${data.ssl.grade || 'Not Available'}</li>
+                    <li><strong>Labs Score:</strong> ${data.ssl.labs_score || 'Not Available'}</li>
+                </ul>
+            </div>
+        </div>`;
+    
+    // PRO: Complete Content Analysis + Detected Patterns
+    if (data.content_analysis && data.content_analysis.content_fetched) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Content Analysis (Complete)</h4>
+                    <ul>
+                        <li><strong>Content Risk Level:</strong> ${data.content_analysis.risk_level.toUpperCase()}</li>
+                        <li><strong>Content Risk Score:</strong> ${data.content_analysis.total_score}</li>
+                        <li><strong>Urgency Score:</strong> ${data.content_analysis.urgency_score}</li>
+                        <li><strong>Payment Risk:</strong> ${data.content_analysis.payment_risk}</li>
+                        <li><strong>Social Engineering:</strong> ${data.content_analysis.social_engineering}</li>
+                    </ul>
+                </div>`;
+        
+        if (data.content_analysis.detected_patterns.length > 0) {
+            html += `
+                <div class="results-column">
+                    <h4>Detected Patterns</h4>
+                    <ul>`;
+            data.content_analysis.detected_patterns.forEach(pattern => {
+                html += `<li>${pattern}</li>`;
+            });
+            html += `</ul>
+                </div>`;
+        } else {
+            html += `
+                <div class="results-column">
+                    <h4>Detected Patterns</h4>
+                    <ul><li>No suspicious patterns detected</li></ul>
+                </div>`;
+        }
+        
+        html += `</div>`;
+    }
+    
+    // PRO: Complete Web Risk Analysis + Technical Details
+    if (data.web_risk) {
+        let threatStatus, threatColor, threatIcon;
+        
+        // Prioritize actual threat detection data over API status
+        if (data.web_risk.is_threat !== undefined && data.web_risk.is_threat !== null) {
+            threatStatus = data.web_risk.is_threat ? 'THREAT DETECTED' : 'SAFE';
+            threatColor = data.web_risk.is_threat ? 'color: #e74c3c;' : 'color: #27ae60;';
+            threatIcon = data.web_risk.is_threat ? '⚠️' : '✅';
+        } else {
+            threatStatus = 'API UNAVAILABLE';
+            threatColor = 'color: #f39c12;';
+            threatIcon = '⚠️';
+        }
+        
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Google Web Risk Analysis</h4>
+                    <ul>
+                        <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
+                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types && data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
+                        <li><strong>Last Checked:</strong> ${data.web_risk.checked_at ? new Date(data.web_risk.checked_at).toLocaleString() : 'Never'}</li>
+                        <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Technical Web Risk Details</h4>
+                    <ul>
+                        <li><strong>Google Database:</strong> ${data.web_risk.success ? 'Connected' : 'Unavailable'}</li>
+                        <li><strong>Protection Level:</strong> Commercial API</li>
+                        <li><strong>Coverage:</strong> Malware, Phishing, Unwanted Software</li>
+                        <li><strong>Confidence:</strong> ${data.web_risk.success ? 'High (Google verified)' : 'Limited (API offline)'}</li>
+                    </ul>
+                </div>
+            </div>`;
+    }
+    
+    // PRO: Visitor Statistics + Scan Information
+    html += `
+        <div class="results-content">
+            <div class="results-column">`;
+    
+    if (data.visitor_stats) {
+        html += `
+                <h4>Visitor Statistics</h4>
+                <ul>
+                    <li><strong>Visit Count:</strong> ${data.visitor_stats.visit_count}</li>
+                    <li><strong>Last Check:</strong> ${data.visitor_stats.last_check ? new Date(data.visitor_stats.last_check).toLocaleDateString() : 'Unknown'}</li>
+                </ul>`;
+    } else {
+        html += `
+                <h4>Visitor Statistics</h4>
+                <ul>
+                    <li><strong>Visit Count:</strong> No data available</li>
+                    <li><strong>Last Check:</strong> Unknown</li>
+                </ul>`;
+    }
+    
+    html += `
+            </div>
+            <div class="results-column">
+                <h4>Scan Information</h4>
+                <ul>
+                    <li><strong>Cached:</strong> ${data.cached ? 'Yes' : 'No'}</li>
+                    <li><strong>Scan Time:</strong> ${new Date(data.timestamp).toLocaleString()}</li>
+                </ul>
+            </div>
+        </div>`;
+    
+    // PRO: Trust Score Explanation + Score Details
+    if (data.factors && data.factors.length > 0) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Trust Score Explanation</h4>
+                    <ul>`;
+        
+        data.factors.forEach(factor => {
+            html += `<li>${factor}</li>`;
+        });
+        
+        html += `
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Score Details</h4>
+                    <ul>
+                        <li><strong>Final Score:</strong> ${data.trust_score}/100</li>
+                        <li><strong>Risk Level:</strong> ${data.risk_level.toUpperCase()}</li>
+                        <li><strong>Algorithm:</strong> WHOIS + SSL + Content + Web Risk</li>
+                        <li><strong>Factors Count:</strong> ${data.factors.length} evaluated</li>
+                    </ul>
+                </div>
+            </div>`;
+    }
+    
+    // PRO: Request Information + Technical Details
+    if (data.client_info) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Request Information</h4>
+                    <ul>
+                        <li><strong>Source:</strong> ${data.client_info.source}</li>
+                        <li><strong>Browser:</strong> ${data.client_info.browser}</li>
+                        <li><strong>Platform:</strong> ${data.client_info.platform}</li>
+                        <li><strong>Client ID:</strong> ${data.client_info.combo_id}</li>
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Technical Details</h4>
+                    <ul>
+                        <li><strong>API Endpoint:</strong> /api/web</li>
+                        <li><strong>Response Time:</strong> ~2-3 seconds</li>
+                        <li><strong>Data Sources:</strong> WHOIS, SSL Labs, Content Analysis</li>
+                        <li><strong>Cache Status:</strong> ${data.cached ? 'Hit' : 'Miss'}</li>
+                    </ul>
+                </div>
+            </div>`;
+    }
+    
+    // Report form (same for both regular and PRO users)
+    html += `
+        <div class="feedback-section">
+            <div class="feedback-toggle">
+                <p class="feedback-text">Is this result incorrect?</p>
+                <button id="reportToggle" class="report-link">Report issue</button>
+            </div>
+            
+            <div id="inlineReportForm" class="inline-report-form" style="display: none;">
+                <div class="form-header">
+                    <h4>Report Incorrect Result</h4>
+                    <p>Help us improve our security detection. What's wrong with this result?</p>
+                </div>
+                
+                <div class="feedback-options">
+                    <label class="radio-option">
+                        <input type="radio" name="issueType" value="false_positive">
+                        <span>This safe site was marked as dangerous (false positive)</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="issueType" value="false_negative">
+                        <span>This dangerous site was marked as safe (false negative)</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="issueType" value="other">
+                        <span>Other issue with the analysis</span>
+                    </label>
+                </div>
+                
+                <div class="form-row">
+                    <label for="userEmail">Your Email (for verification):</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="userEmail" placeholder="your@email.com" required autocomplete="email">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <label for="userComment">Additional Details (optional):</label>
+                    <textarea id="userComment" placeholder="Please describe the issue in more detail..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="cancelReport" class="btn-secondary">Cancel</button>
+                    <button type="button" id="submitReport" class="btn-primary">Submit Report</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    resultDiv.innerHTML = html;
+    
+    // Add click handler for report toggle (same logic as regular)
+    const reportToggle = document.getElementById('reportToggle');
+    const inlineForm = document.getElementById('inlineReportForm');
+    const cancelBtn = document.getElementById('cancelReport');
+    const submitBtn = document.getElementById('submitReport');
+    
+    if (reportToggle) {
         currentDomain = data.domain;
         currentScore = data.trust_score;
         
