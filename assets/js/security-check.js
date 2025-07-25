@@ -28,8 +28,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
         // Production: require reCAPTCHA
         recaptchaResponse = grecaptcha.getResponse();
         if (!recaptchaResponse) {
-            resultDiv.className = 'result-error';
-            resultDiv.innerHTML = '❌ Please complete the reCAPTCHA verification.';
+            showErrorMessage('Please complete the reCAPTCHA verification to continue.');
             checkBtn.disabled = false;
             return;
         }
@@ -41,8 +40,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
         // Unknown environment: require reCAPTCHA for safety
         recaptchaResponse = grecaptcha.getResponse();
         if (!recaptchaResponse) {
-            resultDiv.className = 'result-error';
-            resultDiv.innerHTML = '❌ Please complete the reCAPTCHA verification.';
+            showErrorMessage('Please complete the reCAPTCHA verification to continue.');
             checkBtn.disabled = false;
             return;
         }
