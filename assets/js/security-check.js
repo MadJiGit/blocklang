@@ -2,6 +2,8 @@
 // Works in both development and production safely
 document.getElementById('domainForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    console.log('Form submitted - timestamp:', new Date().toISOString());
+    alert('Form submission #' + Math.random() + ' at ' + new Date().toISOString());
     const domain = document.getElementById('domainInput').value;
     const resultDiv = document.getElementById('result');
     const checkBtn = document.getElementById('checkBtn');
@@ -73,6 +75,8 @@ document.getElementById('domainForm').addEventListener('submit', async function(
         displayResults(data);
         
     } catch (error) {
+        console.error('Caught error:', error);
+        alert('Error caught: ' + error.message + '\nStack: ' + error.stack);
         resultDiv.className = 'result-error';
         
         // User-friendly error messages
