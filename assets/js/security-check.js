@@ -176,11 +176,19 @@ function displayResults(data) {
         html += `</div>`;
     }
     
-    // Add Web Risk analysis if available
-    if (data.web_risk && data.web_risk.success) {
-        const threatStatus = data.web_risk.is_threat ? 'THREAT DETECTED' : 'SAFE';
-        const threatColor = data.web_risk.is_threat ? 'color: #e74c3c;' : 'color: #27ae60;';
-        const threatIcon = data.web_risk.is_threat ? '⚠️' : '✅';
+    // Add Web Risk analysis (show even if API failed)
+    if (data.web_risk) {
+        let threatStatus, threatColor, threatIcon;
+        
+        if (!data.web_risk.success) {
+            threatStatus = 'API UNAVAILABLE';
+            threatColor = 'color: #f39c12;';
+            threatIcon = '⚠️';
+        } else {
+            threatStatus = data.web_risk.is_threat ? 'THREAT DETECTED' : 'SAFE';
+            threatColor = data.web_risk.is_threat ? 'color: #e74c3c;' : 'color: #27ae60;';
+            threatIcon = data.web_risk.is_threat ? '⚠️' : '✅';
+        }
         
         html += `
             <div class="results-content">
@@ -188,8 +196,8 @@ function displayResults(data) {
                     <h4>Google Web Risk Analysis</h4>
                     <ul>
                         <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
-                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
-                        <li><strong>Last Checked:</strong> ${new Date(data.web_risk.checked_at).toLocaleString()}</li>
+                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types && data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
+                        <li><strong>Last Checked:</strong> ${data.web_risk.checked_at ? new Date(data.web_risk.checked_at).toLocaleString() : 'Never'}</li>
                         <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
                     </ul>
                 </div>
@@ -199,7 +207,7 @@ function displayResults(data) {
                         <li><strong>Google Database:</strong> ${data.web_risk.success ? 'Connected' : 'Unavailable'}</li>
                         <li><strong>Protection Level:</strong> Commercial API</li>
                         <li><strong>Coverage:</strong> Malware, Phishing, Unwanted Software</li>
-                        <li><strong>Confidence:</strong> High (Google verified)</li>
+                        <li><strong>Confidence:</strong> ${data.web_risk.success ? 'High (Google verified)' : 'Limited (API offline)'}</li>
                     </ul>
                 </div>
             </div>`;
@@ -208,14 +216,21 @@ function displayResults(data) {
     // Add visitor stats and cache info
     html += `
         <div class="results-content">
-            <div class="results-column">`; 
+            <div class="results-column">`;
     
     if (data.visitor_stats) {
         html += `
                 <h4>Visitor Statistics</h4>
                 <ul>
                     <li><strong>Visit Count:</strong> ${data.visitor_stats.visit_count}</li>
-                    <li><strong>Last Visited:</strong> ${new Date(data.visitor_stats.last_visited).toLocaleDateString()}</li>
+                    <li><strong>Last Check:</strong> ${data.visitor_stats.last_check ? new Date(data.visitor_stats.last_check).toLocaleDateString() : 'Unknown'}</li>
+                </ul>`;
+    } else {
+        html += `
+                <h4>Visitor Statistics</h4>
+                <ul>
+                    <li><strong>Visit Count:</strong> No data available</li>
+                    <li><strong>Last Check:</strong> Unknown</li>
                 </ul>`;
     }
     
@@ -229,6 +244,58 @@ function displayResults(data) {
                 </ul>
             </div>
         </div>`;
+    
+    // Add trust score factors explanation if available
+    if (data.factors && data.factors.length > 0) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Trust Score Explanation</h4>
+                    <ul>`;
+        
+        data.factors.forEach(factor => {
+            html += `<li>${factor}</li>`;
+        });
+        
+        html += `
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Score Details</h4>
+                    <ul>
+                        <li><strong>Final Score:</strong> ${data.trust_score}/100</li>
+                        <li><strong>Risk Level:</strong> ${data.risk_level.toUpperCase()}</li>
+                        <li><strong>Algorithm:</strong> WHOIS + SSL + Content + Web Risk</li>
+                        <li><strong>Factors Count:</strong> ${data.factors.length} evaluated</li>
+                    </ul>
+                </div>
+            </div>`;
+    }
+    
+    // Add client info if available
+    if (data.client_info) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Request Information</h4>
+                    <ul>
+                        <li><strong>Source:</strong> ${data.client_info.source}</li>
+                        <li><strong>Browser:</strong> ${data.client_info.browser}</li>
+                        <li><strong>Platform:</strong> ${data.client_info.platform}</li>
+                        <li><strong>Client ID:</strong> ${data.client_info.combo_id}</li>
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Technical Details</h4>
+                    <ul>
+                        <li><strong>API Endpoint:</strong> /api/web</li>
+                        <li><strong>Response Time:</strong> ~2-3 seconds</li>
+                        <li><strong>Data Sources:</strong> WHOIS, SSL Labs, Content Analysis</li>
+                        <li><strong>Cache Status:</strong> ${data.cached ? 'Hit' : 'Miss'}</li>
+                    </ul>
+                </div>
+            </div>`;
+    }
     
     // Add report button and inline form
     html += `
