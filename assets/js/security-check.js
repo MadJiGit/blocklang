@@ -155,6 +155,7 @@ function displayResultsRegular(data) {
                     <li><strong>Country:</strong> ${data.whois.country || 'Unknown'}</li>
                     <li><strong>Domain Age:</strong> ${data.whois.age_days ? `${data.whois.age_days} days` : 'Unknown'}</li>
                 </ul>
+            </div>
             
             <div class="results-column">
                 <h4>Google Web Risk Analysis</h4>`;
