@@ -97,6 +97,8 @@ document.getElementById('domainForm').addEventListener('submit', async function(
 function displayResults(data) {
     // PRO user detection (future feature)
     const isPro = false; // TODO: Implement PRO user detection
+
+    alert('Response received: ' + JSON.stringify(data));
     
     if (isPro) {
         displayResultsPro(data);
