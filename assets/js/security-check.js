@@ -1,13 +1,13 @@
 // Smart security-check with automatic environment detection
 // Works in both development and production safely
-document.getElementById('domainForm').addEventListener('submit', async function(e) {
+document.getElementById('domainForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     console.log('Form submitted - timestamp:', new Date().toISOString());
     alert('Form submission #' + Math.random() + ' at ' + new Date().toISOString());
     const domain = document.getElementById('domainInput').value;
     const resultDiv = document.getElementById('result');
     const checkBtn = document.getElementById('checkBtn');
-    
+
     // Show loading state
     resultDiv.style.display = 'block';
     resultDiv.className = 'loading';
@@ -17,15 +17,15 @@ document.getElementById('domainForm').addEventListener('submit', async function(
     // Smart reCAPTCHA handling
     const isProduction = window.location.hostname === 'blocklang.org' || window.location.hostname === 'www.blocklang.org';
     const isDev = !isProduction && (
-        window.location.hostname === 'localhost' || 
+        window.location.hostname === 'localhost' ||
         window.location.hostname === '127.0.0.1' ||
         window.location.hostname.startsWith('192.168.') ||
         window.location.hostname.startsWith('10.') ||
         window.location.hostname.includes('172.')
     );
-    
+
     let recaptchaResponse = '';
-    
+
     if (isProduction) {
         // Production: require reCAPTCHA
         recaptchaResponse = grecaptcha.getResponse();
@@ -51,34 +51,34 @@ document.getElementById('domainForm').addEventListener('submit', async function(
     try {
         // Smart API endpoint selection
         const apiUrl = isDev ? '/api/web' : 'https://api.blocklang.org/api/web';
-        
+
         if (isDev) {
             console.log('🔧 DEV MODE: Using local API endpoint:', apiUrl);
         }
-        
+
         const response = await fetch(apiUrl, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                domain: domain.trim(), 
-                recaptchaToken: recaptchaResponse 
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                domain: domain.trim(),
+                recaptchaToken: recaptchaResponse
             })
         });
 
         const data = await response.json();
-        
+
         if (!response.ok) {
             throw new Error(data.message || `Server error: ${response.status}`);
         }
 
         // Format and display results
         displayResults(data);
-        
+
     } catch (error) {
         console.error('Caught error:', error);
         alert('Error caught: ' + error.message + '\nStack: ' + error.stack);
         resultDiv.className = 'result-error';
-        
+
         // User-friendly error messages
         let userMessage;
         if (error.message.includes('Failed to fetch') || error.message.includes('fetch')) {
@@ -90,7 +90,7 @@ document.getElementById('domainForm').addEventListener('submit', async function(
         } else {
             userMessage = '❌ Unable to check domain security right now. Please try again later.';
         }
-        
+
         showErrorMessage(userMessage);
     } finally {
         grecaptcha.reset();
@@ -103,25 +103,25 @@ function displayResults(data) {
     const isPro = false; // TODO: Implement PRO user detection
 
     alert('Response received: ' + JSON.stringify(data));
-    
+
     if (isPro) {
         displayResultsPro(data);
         return;
     }
-    
+
     // Regular user display
-    displayResultsRegular(data);
+    displayResultsRegular(data, isPro);
 }
 
 function displayResultsRegular(data) {
     const resultDiv = document.getElementById('result');
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
-    
+
     // Progressive Green System: Score-based styling (60+ = green territory)
     let className = 'result-dangerous';
     let scoreDescription = 'Very Dangerous';
-    
+
     if (trustScore >= 81) {
         className = 'result-excellent';
         scoreDescription = 'Very Trustworthy';
@@ -141,9 +141,9 @@ function displayResultsRegular(data) {
         className = 'result-dangerous';
         scoreDescription = 'Very Dangerous';
     }
-    
+
     resultDiv.className = className;
-    
+
     let html = `
         <div style="text-align: center; margin-bottom: 20px;">
             <h3>Domain: ${data.domain}</h3>
@@ -166,15 +166,11 @@ function displayResultsRegular(data) {
                 <h4>SSL Certificate</h4>
                 <ul>
                     <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
-                    ${isPro ? `
-                    <li><strong>Issuer:</strong> ${data.ssl.issuer || 'Unknown'}</li>
-                    <li><strong>Expires:</strong> ${data.ssl.expires || 'Unknown'}</li>
-                    <li><strong>Days Remaining:</strong> ${data.ssl.days_remaining || 'Unknown'}</li>` : ''}
                 </ul>
             </div>
-        </div>
-    `;
-    
+        </div>`;
+
+
     // Add content analysis if available
     if (data.content_analysis && data.content_analysis.content_fetched) {
         html += `
@@ -183,35 +179,16 @@ function displayResultsRegular(data) {
                     <h4>Content Analysis</h4>
                     <ul>
                         <li><strong>Content Risk Level:</strong> ${data.content_analysis.risk_level.toUpperCase()}</li>
-                        ${isPro ? `
-                        <li><strong>Content Risk Score:</strong> ${data.content_analysis.total_score}</li>
-                        <li><strong>Urgency Score:</strong> ${data.content_analysis.urgency_score}</li>
-                        <li><strong>Payment Risk:</strong> ${data.content_analysis.payment_risk}</li>
-                        <li><strong>Social Engineering:</strong> ${data.content_analysis.social_engineering}</li>` : ''}
                     </ul>
                 </div>`;
-        
-        if (isPro && data.content_analysis.detected_patterns.length > 0) {
-            html += `
-                <div class="results-column">
-                    <h4>Detected Patterns</h4>
-                    <ul>`;
-            data.content_analysis.detected_patterns.forEach(pattern => {
-                html += `<li>${pattern}</li>`;
-            });
-            html += `</ul>
-                </div>`;
-        } else {
-            html += `<div class="results-column"></div>`;
-        }
-        
+        html += `<div class="results-column"></div>`;
         html += `</div>`;
     }
-    
+
     // Add Web Risk analysis (show even if API failed)
     if (data.web_risk) {
         let threatStatus, threatColor, threatIcon;
-        
+
         // Prioritize actual threat detection data over API status
         if (data.web_risk.is_threat !== undefined && data.web_risk.is_threat !== null) {
             // We have valid threat detection data (from cache or live API)
@@ -224,7 +201,7 @@ function displayResultsRegular(data) {
             threatColor = 'color: #f39c12;';
             threatIcon = '⚠️';
         }
-        
+
         html += `
             <div class="results-content">
                 <div class="results-column">
@@ -236,105 +213,9 @@ function displayResultsRegular(data) {
                         <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
                     </ul>
                 </div>
-                ${isPro ? `
-                <div class="results-column">
-                    <h4>Web Risk Details</h4>
-                    <ul>
-                        <li><strong>Google Database:</strong> ${data.web_risk.success ? 'Connected' : 'Unavailable'}</li>
-                        <li><strong>Protection Level:</strong> Commercial API</li>
-                        <li><strong>Coverage:</strong> Malware, Phishing, Unwanted Software</li>
-                        <li><strong>Confidence:</strong> ${data.web_risk.success ? 'High (Google verified)' : 'Limited (API offline)'}</li>
-                    </ul>
-                </div>` : ''}
             </div>`;
     }
-    
-    // Add visitor stats and cache info (PRO USERS ONLY)
-    if (isPro) {
-        html += `
-            <div class="results-content">
-                <div class="results-column">`;
-        
-        if (data.visitor_stats) {
-            html += `
-                    <h4>Visitor Statistics</h4>
-                    <ul>
-                        <li><strong>Visit Count:</strong> ${data.visitor_stats.visit_count}</li>
-                        <li><strong>Last Check:</strong> ${data.visitor_stats.last_check ? new Date(data.visitor_stats.last_check).toLocaleDateString() : 'Unknown'}</li>
-                    </ul>`;
-        } else {
-            html += `
-                    <h4>Visitor Statistics</h4>
-                    <ul>
-                        <li><strong>Visit Count:</strong> No data available</li>
-                        <li><strong>Last Check:</strong> Unknown</li>
-                    </ul>`;
-        }
-        
-        html += `
-                </div>
-                <div class="results-column">
-                    <h4>Scan Information</h4>
-                    <ul>
-                        <li><strong>Cached:</strong> ${data.cached ? 'Yes' : 'No'}</li>
-                        <li><strong>Scan Time:</strong> ${new Date(data.timestamp).toLocaleString()}</li>
-                    </ul>
-                </div>
-            </div>`;
-    }
-    
-    // Add trust score factors explanation if available (PRO USERS ONLY)
-    if (isPro && data.factors && data.factors.length > 0) {
-        html += `
-            <div class="results-content">
-                <div class="results-column">
-                    <h4>Trust Score Explanation</h4>
-                    <ul>`;
-        
-        data.factors.forEach(factor => {
-            html += `<li>${factor}</li>`;
-        });
-        
-        html += `
-                    </ul>
-                </div>
-                <div class="results-column">
-                    <h4>Score Details</h4>
-                    <ul>
-                        <li><strong>Final Score:</strong> ${data.trust_score}/100</li>
-                        <li><strong>Risk Level:</strong> ${data.risk_level.toUpperCase()}</li>
-                        <li><strong>Algorithm:</strong> WHOIS + SSL + Content + Web Risk</li>
-                        <li><strong>Factors Count:</strong> ${data.factors.length} evaluated</li>
-                    </ul>
-                </div>
-            </div>`;
-    }
-    
-    // Add client info if available (PRO USERS ONLY)
-    if (isPro && data.client_info) {
-        html += `
-            <div class="results-content">
-                <div class="results-column">
-                    <h4>Request Information</h4>
-                    <ul>
-                        <li><strong>Source:</strong> ${data.client_info.source}</li>
-                        <li><strong>Browser:</strong> ${data.client_info.browser}</li>
-                        <li><strong>Platform:</strong> ${data.client_info.platform}</li>
-                        <li><strong>Client ID:</strong> ${data.client_info.combo_id}</li>
-                    </ul>
-                </div>
-                <div class="results-column">
-                    <h4>Technical Details</h4>
-                    <ul>
-                        <li><strong>API Endpoint:</strong> /api/web</li>
-                        <li><strong>Response Time:</strong> ~2-3 seconds</li>
-                        <li><strong>Data Sources:</strong> WHOIS, SSL Labs, Content Analysis</li>
-                        <li><strong>Cache Status:</strong> ${data.cached ? 'Hit' : 'Miss'}</li>
-                    </ul>
-                </div>
-            </div>`;
-    }
-    
+
     // Add report button and inline form
     html += `
         <div class="feedback-section">
@@ -384,19 +265,19 @@ function displayResultsRegular(data) {
             </div>
         </div>
     `;
-    
+
     resultDiv.innerHTML = html;
-    
+
     // Add click handler for report toggle
     const reportToggle = document.getElementById('reportToggle');
     const inlineForm = document.getElementById('inlineReportForm');
     const cancelBtn = document.getElementById('cancelReport');
     const submitBtn = document.getElementById('submitReport');
-    
+
     if (reportToggle && inlineForm) {
         currentDomain = data.domain;
         currentScore = data.trust_score;
-        
+
         reportToggle.addEventListener('click', (e) => {
             e.preventDefault();
             if (inlineForm.style.display === 'none') {
@@ -410,7 +291,7 @@ function displayResultsRegular(data) {
                 clearReportForm();
             }
         });
-        
+
         if (cancelBtn) {
             cancelBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -420,7 +301,7 @@ function displayResultsRegular(data) {
                 clearReportForm();
             });
         }
-        
+
         if (submitBtn) {
             submitBtn.addEventListener('click', handleReportSubmit);
         }
@@ -431,11 +312,11 @@ function displayResultsPro(data) {
     const resultDiv = document.getElementById('result');
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
-    
+
     // Progressive Green System: Score-based styling (60+ = green territory)
     let className = 'result-dangerous';
     let scoreDescription = 'Very Dangerous';
-    
+
     if (trustScore >= 81) {
         className = 'result-excellent';
         scoreDescription = 'Very Trustworthy';
@@ -455,9 +336,9 @@ function displayResultsPro(data) {
         className = 'result-dangerous';
         scoreDescription = 'Very Dangerous';
     }
-    
+
     resultDiv.className = className;
-    
+
     let html = `
         <div style="text-align: center; margin-bottom: 20px;">
             <h3>Domain: ${data.domain}</h3>
@@ -489,7 +370,7 @@ function displayResultsPro(data) {
                 </ul>
             </div>
         </div>`;
-    
+
     // PRO: Complete Content Analysis + Detected Patterns
     if (data.content_analysis && data.content_analysis.content_fetched) {
         html += `
@@ -504,7 +385,7 @@ function displayResultsPro(data) {
                         <li><strong>Social Engineering:</strong> ${data.content_analysis.social_engineering}</li>
                     </ul>
                 </div>`;
-        
+
         if (data.content_analysis.detected_patterns.length > 0) {
             html += `
                 <div class="results-column">
@@ -522,14 +403,14 @@ function displayResultsPro(data) {
                     <ul><li>No suspicious patterns detected</li></ul>
                 </div>`;
         }
-        
+
         html += `</div>`;
     }
-    
+
     // PRO: Complete Web Risk Analysis + Technical Details
     if (data.web_risk) {
         let threatStatus, threatColor, threatIcon;
-        
+
         // Prioritize actual threat detection data over API status
         if (data.web_risk.is_threat !== undefined && data.web_risk.is_threat !== null) {
             threatStatus = data.web_risk.is_threat ? 'THREAT DETECTED' : 'SAFE';
@@ -540,7 +421,7 @@ function displayResultsPro(data) {
             threatColor = 'color: #f39c12;';
             threatIcon = '⚠️';
         }
-        
+
         html += `
             <div class="results-content">
                 <div class="results-column">
@@ -563,12 +444,12 @@ function displayResultsPro(data) {
                 </div>
             </div>`;
     }
-    
+
     // PRO: Visitor Statistics + Scan Information
     html += `
         <div class="results-content">
             <div class="results-column">`;
-    
+
     if (data.visitor_stats) {
         html += `
                 <h4>Visitor Statistics</h4>
@@ -584,7 +465,7 @@ function displayResultsPro(data) {
                     <li><strong>Last Check:</strong> Unknown</li>
                 </ul>`;
     }
-    
+
     html += `
             </div>
             <div class="results-column">
@@ -595,7 +476,7 @@ function displayResultsPro(data) {
                 </ul>
             </div>
         </div>`;
-    
+
     // PRO: Trust Score Explanation + Score Details
     if (data.factors && data.factors.length > 0) {
         html += `
@@ -603,11 +484,11 @@ function displayResultsPro(data) {
                 <div class="results-column">
                     <h4>Trust Score Explanation</h4>
                     <ul>`;
-        
+
         data.factors.forEach(factor => {
             html += `<li>${factor}</li>`;
         });
-        
+
         html += `
                     </ul>
                 </div>
@@ -622,7 +503,7 @@ function displayResultsPro(data) {
                 </div>
             </div>`;
     }
-    
+
     // PRO: Request Information + Technical Details
     if (data.client_info) {
         html += `
@@ -647,7 +528,7 @@ function displayResultsPro(data) {
                 </div>
             </div>`;
     }
-    
+
     // Report form (same for both regular and PRO users)
     html += `
         <div class="feedback-section">
@@ -696,19 +577,19 @@ function displayResultsPro(data) {
             </div>
         </div>
     `;
-    
+
     resultDiv.innerHTML = html;
-    
+
     // Add click handler for report toggle (same logic as regular)
     const reportToggle = document.getElementById('reportToggle');
     const inlineForm = document.getElementById('inlineReportForm');
     const cancelBtn = document.getElementById('cancelReport');
     const submitBtn = document.getElementById('submitReport');
-    
+
     if (reportToggle) {
         currentDomain = data.domain;
         currentScore = data.trust_score;
-        
+
         reportToggle.addEventListener('click', (e) => {
             e.preventDefault();
             if (inlineForm.style.display === 'none') {
@@ -722,7 +603,7 @@ function displayResultsPro(data) {
                 clearReportForm();
             }
         });
-        
+
         if (cancelBtn) {
             cancelBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -732,7 +613,7 @@ function displayResultsPro(data) {
                 clearReportForm();
             });
         }
-        
+
         if (submitBtn) {
             submitBtn.addEventListener('click', handleReportSubmit);
         }
@@ -767,21 +648,21 @@ function showToast(message, type) {
     if (existingToast) {
         existingToast.remove();
     }
-    
+
     // Create toast element
     const toast = document.createElement('div');
     toast.id = 'toast';
     toast.className = `toast toast-${type}`;
     toast.innerHTML = message;
-    
+
     // Add to page
     document.body.appendChild(toast);
-    
+
     // Show with animation
     setTimeout(() => {
         toast.classList.add('show');
     }, 100);
-    
+
     // Auto hide after 5 seconds
     setTimeout(() => {
         if (toast) {
@@ -799,24 +680,24 @@ function showToast(message, type) {
 async function handleReportSubmit() {
     const selectedType = document.querySelector('input[name="issueType"]:checked');
     const userEmail = document.getElementById('userEmail').value.trim();
-    
+
     if (!selectedType) {
         showErrorMessage('Please select an issue type');
         return;
     }
-    
+
     if (!userEmail) {
         showErrorMessage('Please enter your email address');
         return;
     }
-    
+
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(userEmail)) {
         showErrorMessage('Please enter a valid email address');
         return;
     }
-    
+
     const reportData = {
         domain: currentDomain,
         issue_type: selectedType.value,
@@ -824,7 +705,7 @@ async function handleReportSubmit() {
         comment: document.getElementById('userComment').value.trim(),
         current_score: currentScore
     };
-    
+
     try {
         const response = await fetch('https://api.blocklang.org/api/report-scam', {
             method: 'POST',
@@ -833,7 +714,7 @@ async function handleReportSubmit() {
             },
             body: JSON.stringify(reportData)
         });
-        
+
         if (response.ok) {
             showSuccessMessage('Thank you! We sent a verification email to ' + userEmail + '. Please check your inbox and click the link to confirm your report.');
             // Hide form and reset
