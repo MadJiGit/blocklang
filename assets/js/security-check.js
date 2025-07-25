@@ -3,7 +3,6 @@
 document.getElementById('domainForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     console.log('Form submitted - timestamp:', new Date().toISOString());
-    alert('Form submission #' + Math.random() + ' at ' + new Date().toISOString());
     const domain = document.getElementById('domainInput').value;
     const resultDiv = document.getElementById('result');
     const checkBtn = document.getElementById('checkBtn');
@@ -75,8 +74,6 @@ document.getElementById('domainForm').addEventListener('submit', async function 
         displayResults(data);
 
     } catch (error) {
-        console.error('Caught error:', error);
-        alert('Error caught: ' + error.message + '\nStack: ' + error.stack);
         resultDiv.className = 'result-error';
 
         // User-friendly error messages
@@ -102,15 +99,13 @@ function displayResults(data) {
     // PRO user detection (future feature)
     const isPro = false; // TODO: Implement PRO user detection
 
-    alert('Response received: ' + JSON.stringify(data));
-
     if (isPro) {
         displayResultsPro(data);
         return;
     }
 
     // Regular user display
-    displayResultsRegular(data, isPro);
+    displayResultsRegular(data);
 }
 
 function displayResultsRegular(data) {
@@ -162,16 +157,11 @@ function displayResultsRegular(data) {
                 </ul>
             </div>
             
-            <div class="results-content">
-                <div class="results-column">
-                    <h4>Google Web Risk Analysis</h4>
-                    <ul>
-                        <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
-                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types && data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
-                        <li><strong>Last Checked:</strong> ${data.web_risk.checked_at ? new Date(data.web_risk.checked_at).toLocaleString() : 'Never'}</li>
-                        <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
-                    </ul>
-                </div>
+            <div class="results-column">
+                <h4>SSL Certificate</h4>
+                <ul>
+                    <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
+                </ul>
             </div>
         </div>`;
 
@@ -208,11 +198,16 @@ function displayResultsRegular(data) {
         }
 
         html += `
-            <div class="results-column">
-                <h4>SSL Certificate</h4>
-                <ul>
-                    <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
-                </ul>
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>Google Web Risk Analysis</h4>
+                    <ul>
+                        <li><strong>Status:</strong> <span style="${threatColor}">${threatIcon} ${threatStatus}</span></li>
+                        <li><strong>Threat Types:</strong> ${data.web_risk.threat_types && data.web_risk.threat_types.length > 0 ? data.web_risk.threat_types.join(', ') : 'None detected'}</li>
+                        <li><strong>Last Checked:</strong> ${data.web_risk.checked_at ? new Date(data.web_risk.checked_at).toLocaleString() : 'Never'}</li>
+                        <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
+                    </ul>
+                </div>
             </div>`;
     }
 
