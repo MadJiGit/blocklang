@@ -214,7 +214,7 @@ function displayResults(data) {
                         <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
                     </ul>
                 </div>
-                <div class="results-column">
+                <div class="results-column" style="display: none;">
                     <h4>Web Risk Details</h4>
                     <ul>
                         <li><strong>Google Database:</strong> ${data.web_risk.success ? 'Connected' : 'Unavailable'}</li>
@@ -226,9 +226,9 @@ function displayResults(data) {
             </div>`;
     }
     
-    // Add visitor stats and cache info
+    // Add visitor stats and cache info (HIDDEN - UX improvement)
     html += `
-        <div class="results-content">
+        <div class="results-content" style="display: none;">
             <div class="results-column">`;
     
     if (data.visitor_stats) {
@@ -258,10 +258,10 @@ function displayResults(data) {
             </div>
         </div>`;
     
-    // Add trust score factors explanation if available
+    // Add trust score factors explanation if available (HIDDEN - UX improvement)
     if (data.factors && data.factors.length > 0) {
         html += `
-            <div class="results-content">
+            <div class="results-content" style="display: none;">
                 <div class="results-column">
                     <h4>Trust Score Explanation</h4>
                     <ul>`;
@@ -285,10 +285,10 @@ function displayResults(data) {
             </div>`;
     }
     
-    // Add client info if available
+    // Add client info if available (HIDDEN - UX improvement)
     if (data.client_info) {
         html += `
-            <div class="results-content">
+            <div class="results-content" style="display: none;">
                 <div class="results-column">
                     <h4>Request Information</h4>
                     <ul>
