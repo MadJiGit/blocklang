@@ -2,7 +2,6 @@
 // Works in both development and production safely
 document.getElementById('domainForm').addEventListener('submit', async function (e) {
     e.preventDefault();
-    console.log('Form submitted - timestamp:', new Date().toISOString());
     const domain = document.getElementById('domainInput').value;
     const resultDiv = document.getElementById('result');
     const checkBtn = document.getElementById('checkBtn');
