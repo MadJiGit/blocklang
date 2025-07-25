@@ -101,6 +101,9 @@ function displayResults(data) {
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
     
+    // PRO user detection (future feature)
+    const isPro = false; // TODO: Implement PRO user detection
+    
     // Progressive Green System: Score-based styling (60+ = green territory)
     let className = 'result-dangerous';
     let scoreDescription = 'Very Dangerous';
@@ -149,9 +152,10 @@ function displayResults(data) {
                 <h4>SSL Certificate</h4>
                 <ul>
                     <li><strong>Valid:</strong> ${data.ssl.valid ? 'Yes' : 'No'}</li>
+                    ${isPro ? `
                     <li><strong>Issuer:</strong> ${data.ssl.issuer || 'Unknown'}</li>
                     <li><strong>Expires:</strong> ${data.ssl.expires || 'Unknown'}</li>
-                    <li><strong>Days Remaining:</strong> ${data.ssl.days_remaining || 'Unknown'}</li>
+                    <li><strong>Days Remaining:</strong> ${data.ssl.days_remaining || 'Unknown'}</li>` : ''}
                 </ul>
             </div>
         </div>
@@ -164,15 +168,16 @@ function displayResults(data) {
                 <div class="results-column">
                     <h4>Content Analysis</h4>
                     <ul>
-                        <li><strong>Content Risk Score:</strong> ${data.content_analysis.total_score}</li>
                         <li><strong>Content Risk Level:</strong> ${data.content_analysis.risk_level.toUpperCase()}</li>
+                        ${isPro ? `
+                        <li><strong>Content Risk Score:</strong> ${data.content_analysis.total_score}</li>
                         <li><strong>Urgency Score:</strong> ${data.content_analysis.urgency_score}</li>
                         <li><strong>Payment Risk:</strong> ${data.content_analysis.payment_risk}</li>
-                        <li><strong>Social Engineering:</strong> ${data.content_analysis.social_engineering}</li>
+                        <li><strong>Social Engineering:</strong> ${data.content_analysis.social_engineering}</li>` : ''}
                     </ul>
                 </div>`;
         
-        if (data.content_analysis.detected_patterns.length > 0) {
+        if (isPro && data.content_analysis.detected_patterns.length > 0) {
             html += `
                 <div class="results-column">
                     <h4>Detected Patterns</h4>
@@ -214,7 +219,8 @@ function displayResults(data) {
                         <li><strong>Data Source:</strong> ${data.web_risk.from_cache ? 'Cached' : 'Live check'}</li>
                     </ul>
                 </div>
-                <div class="results-column" style="display: none;">
+                ${isPro ? `
+                <div class="results-column">
                     <h4>Web Risk Details</h4>
                     <ul>
                         <li><strong>Google Database:</strong> ${data.web_risk.success ? 'Connected' : 'Unavailable'}</li>
@@ -222,46 +228,48 @@ function displayResults(data) {
                         <li><strong>Coverage:</strong> Malware, Phishing, Unwanted Software</li>
                         <li><strong>Confidence:</strong> ${data.web_risk.success ? 'High (Google verified)' : 'Limited (API offline)'}</li>
                     </ul>
+                </div>` : ''}
+            </div>`;
+    }
+    
+    // Add visitor stats and cache info (PRO USERS ONLY)
+    if (isPro) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">`;
+        
+        if (data.visitor_stats) {
+            html += `
+                    <h4>Visitor Statistics</h4>
+                    <ul>
+                        <li><strong>Visit Count:</strong> ${data.visitor_stats.visit_count}</li>
+                        <li><strong>Last Check:</strong> ${data.visitor_stats.last_check ? new Date(data.visitor_stats.last_check).toLocaleDateString() : 'Unknown'}</li>
+                    </ul>`;
+        } else {
+            html += `
+                    <h4>Visitor Statistics</h4>
+                    <ul>
+                        <li><strong>Visit Count:</strong> No data available</li>
+                        <li><strong>Last Check:</strong> Unknown</li>
+                    </ul>`;
+        }
+        
+        html += `
+                </div>
+                <div class="results-column">
+                    <h4>Scan Information</h4>
+                    <ul>
+                        <li><strong>Cached:</strong> ${data.cached ? 'Yes' : 'No'}</li>
+                        <li><strong>Scan Time:</strong> ${new Date(data.timestamp).toLocaleString()}</li>
+                    </ul>
                 </div>
             </div>`;
     }
     
-    // Add visitor stats and cache info (HIDDEN - UX improvement)
-    html += `
-        <div class="results-content" style="display: none;">
-            <div class="results-column">`;
-    
-    if (data.visitor_stats) {
+    // Add trust score factors explanation if available (PRO USERS ONLY)
+    if (isPro && data.factors && data.factors.length > 0) {
         html += `
-                <h4>Visitor Statistics</h4>
-                <ul>
-                    <li><strong>Visit Count:</strong> ${data.visitor_stats.visit_count}</li>
-                    <li><strong>Last Check:</strong> ${data.visitor_stats.last_check ? new Date(data.visitor_stats.last_check).toLocaleDateString() : 'Unknown'}</li>
-                </ul>`;
-    } else {
-        html += `
-                <h4>Visitor Statistics</h4>
-                <ul>
-                    <li><strong>Visit Count:</strong> No data available</li>
-                    <li><strong>Last Check:</strong> Unknown</li>
-                </ul>`;
-    }
-    
-    html += `
-            </div>
-            <div class="results-column">
-                <h4>Scan Information</h4>
-                <ul>
-                    <li><strong>Cached:</strong> ${data.cached ? 'Yes' : 'No'}</li>
-                    <li><strong>Scan Time:</strong> ${new Date(data.timestamp).toLocaleString()}</li>
-                </ul>
-            </div>
-        </div>`;
-    
-    // Add trust score factors explanation if available (HIDDEN - UX improvement)
-    if (data.factors && data.factors.length > 0) {
-        html += `
-            <div class="results-content" style="display: none;">
+            <div class="results-content">
                 <div class="results-column">
                     <h4>Trust Score Explanation</h4>
                     <ul>`;
@@ -285,10 +293,10 @@ function displayResults(data) {
             </div>`;
     }
     
-    // Add client info if available (HIDDEN - UX improvement)
-    if (data.client_info) {
+    // Add client info if available (PRO USERS ONLY)
+    if (isPro && data.client_info) {
         html += `
-            <div class="results-content" style="display: none;">
+            <div class="results-content">
                 <div class="results-column">
                     <h4>Request Information</h4>
                     <ul>
@@ -509,7 +517,14 @@ async function handleReportSubmit() {
                 clearReportForm();
             }
         } else {
-            showErrorMessage('Failed to submit report. Please try again later.');
+            // Parse API error message for better user experience
+            try {
+                const errorData = await response.json();
+                const errorMessage = errorData.message || 'Failed to submit report. Please try again later.';
+                showErrorMessage(errorMessage);
+            } catch (parseError) {
+                showErrorMessage('Failed to submit report. Please try again later.');
+            }
         }
     } catch (error) {
         showErrorMessage('Network error. Please check your connection and try again.');
