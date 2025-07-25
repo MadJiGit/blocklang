@@ -192,29 +192,51 @@ body {
 }
 
 #result.loading,
-#result.result-success,
-#result.result-error,
-#result.result-warning {
+#result.result-excellent,
+#result.result-trustworthy,
+#result.result-safe,
+#result.result-neutral,
+#result.result-risky,
+#result.result-dangerous {
     display: block;
     padding: 30px 40px;
 }
 
-.result-success {
+/* Progressive Green System: 60+ points = Green territory */
+.result-excellent {
     background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-    border-left: 4px solid #10b981;
+    border-left: 4px solid #059669;
     color: #065f46;
 }
 
-.result-error {
+.result-trustworthy {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    border-left: 4px solid #16a34a;
+    color: #14532d;
+}
+
+.result-safe {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-left: 4px solid #22c55e;
+    color: #166534;
+}
+
+.result-neutral {
+    background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+    border-left: 4px solid #eab308;
+    color: #92400e;
+}
+
+.result-risky {
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+    border-left: 4px solid #ea580c;
+    color: #9a3412;
+}
+
+.result-dangerous {
     background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
     border-left: 4px solid #ef4444;
     color: #991b1b;
-}
-
-.result-warning {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border-left: 4px solid #f59e0b;
-    color: #92400e;
 }
 
 .loading {
@@ -268,9 +290,12 @@ body {
     }
     
     #result.loading,
-    #result.result-success,
-    #result.result-error,
-    #result.result-warning {
+    #result.result-excellent,
+    #result.result-trustworthy,
+    #result.result-safe,
+    #result.result-neutral,
+    #result.result-risky,
+    #result.result-dangerous {
         padding: 20px 20px;
     }
 }

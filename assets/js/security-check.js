@@ -101,15 +101,28 @@ function displayResults(data) {
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
     
-    // Set appropriate styling based on risk level
-    let className = 'result-success';
+    // Progressive Green System: Score-based styling (60+ = green territory)
+    let className = 'result-dangerous';
+    let scoreDescription = 'Very Dangerous';
     
-    if (riskLevel === 'critical') {
-        className = 'result-error';
-    } else if (riskLevel === 'high') {
-        className = 'result-warning';
-    } else if (riskLevel === 'medium') {
-        className = 'result-warning';
+    if (trustScore >= 81) {
+        className = 'result-excellent';
+        scoreDescription = 'Very Trustworthy';
+    } else if (trustScore >= 71) {
+        className = 'result-trustworthy';
+        scoreDescription = 'Trustworthy';
+    } else if (trustScore >= 61) {
+        className = 'result-safe';
+        scoreDescription = 'Likely Safe';
+    } else if (trustScore >= 41) {
+        className = 'result-neutral';
+        scoreDescription = 'Needs Attention';
+    } else if (trustScore >= 21) {
+        className = 'result-risky';
+        scoreDescription = 'Risky';
+    } else {
+        className = 'result-dangerous';
+        scoreDescription = 'Very Dangerous';
     }
     
     resultDiv.className = className;
@@ -117,8 +130,8 @@ function displayResults(data) {
     let html = `
         <div style="text-align: center; margin-bottom: 20px;">
             <h3>Domain: ${data.domain}</h3>
-            <p style="font-size: 18px; margin: 10px 0;"><strong>Trust Score:</strong> ${trustScore}/100</p>
-            <p style="font-size: 16px; margin: 5px 0;"><strong>Risk Level:</strong> ${riskLevel.toUpperCase()}</p>
+            <p style="font-size: 20px; margin: 10px 0; font-weight: 600;"><strong>Trust Score:</strong> ${trustScore}/100</p>
+            <p style="font-size: 16px; margin: 5px 0;"><strong>Assessment:</strong> ${scoreDescription}</p>
         </div>
         
         <div class="results-content">
