@@ -126,23 +126,20 @@ function displayResultsRegular(data) {
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
 
-    // Progressive Green System: Score-based styling (60+ = green territory)
+    // New scoring system: 90+ SAFE, 70+ EXCELLENT, 50+ GOOD, 30+ RISKY, 0+ DANGEROUS
     let className = 'result-dangerous';
     let scoreDescription = 'Very Dangerous';
 
-    if (trustScore >= 81) {
+    if (trustScore >= 90) {
         className = 'result-excellent';
-        scoreDescription = 'Very Trustworthy';
-    } else if (trustScore >= 71) {
+        scoreDescription = 'Ultra Safe';
+    } else if (trustScore >= 70) {
         className = 'result-trustworthy';
-        scoreDescription = 'Trustworthy';
-    } else if (trustScore >= 61) {
-        className = 'result-safe';
-        scoreDescription = 'Likely Safe';
-    } else if (trustScore >= 41) {
+        scoreDescription = 'Very Trustworthy';
+    } else if (trustScore >= 50) {
         className = 'result-neutral';
-        scoreDescription = 'Needs Attention';
-    } else if (trustScore >= 21) {
+        scoreDescription = 'Likely Safe';
+    } else if (trustScore >= 30) {
         className = 'result-risky';
         scoreDescription = 'Risky';
     } else {
@@ -346,23 +343,20 @@ function displayResultsPro(data) {
     const riskLevel = data.risk_level;
     const trustScore = data.trust_score;
 
-    // Progressive Green System: Score-based styling (60+ = green territory)
+    // New scoring system: 90+ SAFE, 70+ EXCELLENT, 50+ GOOD, 30+ RISKY, 0+ DANGEROUS
     let className = 'result-dangerous';
     let scoreDescription = 'Very Dangerous';
 
-    if (trustScore >= 81) {
+    if (trustScore >= 90) {
         className = 'result-excellent';
-        scoreDescription = 'Very Trustworthy';
-    } else if (trustScore >= 71) {
+        scoreDescription = 'Ultra Safe';
+    } else if (trustScore >= 70) {
         className = 'result-trustworthy';
-        scoreDescription = 'Trustworthy';
-    } else if (trustScore >= 61) {
-        className = 'result-safe';
-        scoreDescription = 'Likely Safe';
-    } else if (trustScore >= 41) {
+        scoreDescription = 'Very Trustworthy';
+    } else if (trustScore >= 50) {
         className = 'result-neutral';
-        scoreDescription = 'Needs Attention';
-    } else if (trustScore >= 21) {
+        scoreDescription = 'Likely Safe';
+    } else if (trustScore >= 30) {
         className = 'result-risky';
         scoreDescription = 'Risky';
     } else {
