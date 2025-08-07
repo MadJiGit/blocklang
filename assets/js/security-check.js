@@ -6,11 +6,21 @@ document.getElementById('domainForm').addEventListener('submit', async function 
     const resultDiv = document.getElementById('result');
     const checkBtn = document.getElementById('checkBtn');
 
-    // Show loading state
+    // Show loading state with timer
     resultDiv.style.display = 'block';
     resultDiv.className = 'loading';
-    resultDiv.innerHTML = '🔍 Checking domain security...';
+    resultDiv.innerHTML = '<span style="display: inline-block; min-width: 2ch; text-align: right;">0</span>s Checking domain security...';
     checkBtn.disabled = true;
+    
+    // Start timer
+    let seconds = 0;
+    const timerInterval = setInterval(() => {
+        seconds++;
+        const timerSpan = resultDiv.querySelector('span');
+        if (timerSpan) {
+            timerSpan.textContent = seconds;
+        }
+    }, 1000);
 
     // Smart reCAPTCHA handling
     const isProduction = window.location.hostname === 'blocklang.org' || window.location.hostname === 'www.blocklang.org';
@@ -89,6 +99,10 @@ document.getElementById('domainForm').addEventListener('submit', async function 
 
         showErrorMessage(userMessage);
     } finally {
+        // Stop timer
+        if (typeof timerInterval !== 'undefined') {
+            clearInterval(timerInterval);
+        }
         grecaptcha.reset();
         checkBtn.disabled = false;
     }
