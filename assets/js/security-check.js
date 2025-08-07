@@ -110,7 +110,7 @@ document.getElementById('domainForm').addEventListener('submit', async function 
 
 function displayResults(data) {
     // PRO user detection (future feature)
-    const isPro = true; // TODO: Implement PRO user detection
+    const isPro = false; // TODO: Implement PRO user detection
 
     if (isPro) {
         displayResultsPro(data);
