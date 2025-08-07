@@ -230,22 +230,20 @@ function displayResultsRegular(data) {
             </div>
         </div>`;
 
-    // Add DNS Analysis for regular users too (basic info)
+    // Add DNS Analysis for regular users (basic info only)
     if (data.dns_analysis) {
         html += `
             <div class="results-content">
                 <div class="results-column">
                     <h4>DNS Analysis</h4>
                     <ul>
-                        <li><strong>DNS Score:</strong> ${data.dns_analysis.score}/100</li>
                         <li><strong>Status:</strong> ${data.dns_analysis.success ? 'Valid DNS Configuration' : 'DNS Issues Detected'}</li>
                     </ul>
                 </div>
                 <div class="results-column">
                     <h4>Domain Information</h4>
                     <ul>
-                        <li><strong>Technical Issue:</strong> ${data.technical_issue ? 'Yes' : 'No'}</li>
-                        <li><strong>Last Updated:</strong> ${new Date(data.timestamp).toLocaleString()}</li>
+                        <li><strong>Technical Issue:</strong> ${data.technical_issue ? 'No' : 'Yes'}</li>
                     </ul>
                 </div>
             </div>`;
