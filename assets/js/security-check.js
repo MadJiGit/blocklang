@@ -230,6 +230,27 @@ function displayResultsRegular(data) {
             </div>
         </div>`;
 
+    // Add DNS Analysis for regular users too (basic info)
+    if (data.dns_analysis) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>DNS Analysis</h4>
+                    <ul>
+                        <li><strong>DNS Score:</strong> ${data.dns_analysis.score}/100</li>
+                        <li><strong>Status:</strong> ${data.dns_analysis.success ? 'Valid DNS Configuration' : 'DNS Issues Detected'}</li>
+                    </ul>
+                </div>
+                <div class="results-column">
+                    <h4>Domain Information</h4>
+                    <ul>
+                        <li><strong>Technical Issue:</strong> ${data.technical_issue ? 'Yes' : 'No'}</li>
+                        <li><strong>Last Updated:</strong> ${new Date(data.timestamp).toLocaleString()}</li>
+                    </ul>
+                </div>
+            </div>`;
+    }
+
     // Add report button and inline form
     html += `
         <div class="feedback-section">
@@ -418,6 +439,42 @@ function displayResultsPro(data) {
                 </div>`;
         }
 
+        html += `</div>`;
+    }
+
+    // PRO: DNS Analysis (New Data)
+    if (data.dns_analysis) {
+        html += `
+            <div class="results-content">
+                <div class="results-column">
+                    <h4>DNS Analysis</h4>
+                    <ul>
+                        <li><strong>DNS Score:</strong> ${data.dns_analysis.score}/100</li>
+                        <li><strong>Status:</strong> ${data.dns_analysis.success ? 'Valid DNS Configuration' : 'DNS Issues Detected'}</li>
+                        <li><strong>Last Checked:</strong> ${data.dns_analysis.checked_at ? new Date(data.dns_analysis.checked_at).toLocaleString() : 'Never'}</li>
+                        <li><strong>Data Source:</strong> ${data.dns_analysis.from_cache ? 'Cached' : 'Live DNS lookup'}</li>
+                    </ul>
+                </div>`;
+        
+        // DNS Factors column
+        if (data.dns_analysis.factors && data.dns_analysis.factors.length > 0) {
+            html += `
+                <div class="results-column">
+                    <h4>DNS Factors</h4>
+                    <ul>`;
+            data.dns_analysis.factors.forEach(factor => {
+                html += `<li>${factor}</li>`;
+            });
+            html += `</ul>
+                </div>`;
+        } else {
+            html += `
+                <div class="results-column">
+                    <h4>DNS Factors</h4>
+                    <ul><li>No specific DNS factors identified</li></ul>
+                </div>`;
+        }
+        
         html += `</div>`;
     }
 
