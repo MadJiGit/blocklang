@@ -15,9 +15,16 @@
   },
   "why_3": {
     "title" : "Why We Built This\n(a.k.a. Why Google Made Us Do It) ",
-    "p_1": "You search in Bulgarian.\nGoogle: “Here’s some Russian stuff you didn’t ask for.”\nUs: \uD83E\uDEE0",
-    "p_2": "You want real news.\nGoogle: “Enjoy 37 clickbait articles and 2 conspiracy sites!”\nUs: \uD83E\uDD21",
+    "p_1": "You search in Bulgarian.\nGoogle: \"Here's some Russian stuff you didn't ask for.\"\nUs: \uD83E\uDEE0",
+    "p_2": "You want real news.\nGoogle: \"Enjoy 37 clickbait articles and 2 conspiracy sites!\"\nUs: \uD83E\uDD21",
     "p_3": "At some point, we snapped.\nSo we built a browser extension that blocks the noise, kicks out the nonsense, and lets you search like a sane person.",
-    "p_4": "Started with Chrome. Now on Safari too.\nBecause chaos shouldn’t be platform-specific."
+    "p_4": "Started with Chrome. Now on Safari too.\nBecause chaos shouldn't be platform-specific."
+  },
+  "why_4": {
+    "title" : "Plot Twist: The Internet Got Scarier",
+    "p_1": "So there we were, happy with our search filtering.\nThen we clicked on what looked like a legitimate shopping site.\nSpoiler alert: It wasn't. \uD83E\uDEE0",
+    "p_2": "Fake stores, phishing sites, \"You've won $1,000,000!\" scams...\nApparently, cleaning up search results was just step one.\nStep two: Not getting scammed while browsing. \uD83D\uDE05",
+    "p_3": "So we added Scam Shield.\nNow BlockLang doesn't just filter the noise — it also saves you from sketchy websites that want your credit card info.",
+    "p_4": "Because life's too short to fall for fake Ray-Bans that cost $5 and take 6 months to not arrive. \uD83D\uDE0E"
   }
 }
