@@ -1,14 +1,23 @@
 {
   "post_1": {
+    "title": "Introducing Scam Shield: Real-Time Protection is Here!",
+    "excerpt": "BlockLang just got a major security upgrade! Meet Scam Shield - our new real-time protection against scams, phishing, and malicious websites.",
+    "content": "<p>We're thrilled to announce the biggest update to BlockLang since launch: <strong>Scam Shield</strong>! 🛡️</p><p>What started as a search result filtering extension has evolved into a comprehensive browsing protection tool. Scam Shield provides real-time security warnings using our advanced 0-100% trust scoring system.</p><h3>What's New?</h3><ul><li><strong>Instant threat detection</strong> - Get warned before visiting dangerous sites</li><li><strong>Color-coded warnings</strong> - Green (safe), Orange (risky), Red (dangerous)</li><li><strong>Smart caching</strong> - Trusted sites cached for 30 days, suspicious ones for 30 minutes</li><li><strong>Privacy-first approach</strong> - Only domain names sent, never personal data</li></ul><p>Free users get 5 automatic checks per day, while Pro users enjoy unlimited protection. This feature works seamlessly alongside our existing search filtering capabilities.</p><p>Stay safe out there! 🌐</p>",
+    "author": "BlockLang Team",
+    "date": "2025-08-27",
+    "tags": ["announcement", "security", "scam-shield", "update"],
+    "featured": true
+  },
+  "post_2": {
     "title": "Welcome to BlockLang Blog",
     "excerpt": "Learn about our journey building a privacy-focused browser extension and our mission to clean up the web.",
     "content": "<p>Welcome to the official BlockLang blog! We're excited to share our journey of building a privacy-focused browser extension that helps users take control of their search results.</p><p>BlockLang was born out of frustration with cluttered search results filled with irrelevant content. Whether it's language barriers, low-quality sites, or simply wanting a cleaner browsing experience, we believe users should have the power to customize what they see.</p><p>In this blog, we'll share updates about new features, tips for getting the most out of BlockLang, and insights into web privacy and user control.</p>",
     "author": "BlockLang Team",
     "date": "2024-12-01",
     "tags": ["announcement", "privacy", "introduction"],
-    "featured": true
+    "featured": false
   },
-  "post_2": {
+  "post_3": {
     "title": "5 Tips for Effective Search Filtering",
     "excerpt": "Master the art of search filtering with these practical tips for using BlockLang more effectively.",
     "content": "<p>Getting the most out of BlockLang requires understanding how to set up effective filters. Here are our top 5 tips:</p><h3>1. Start with Wildcards</h3><p>Use patterns like <code>*.ru</code> to block entire country domains quickly.</p><h3>2. Language Filtering</h3><p>Block content in specific languages using <code>language:ru</code> format.</p><h3>3. Target Specific Sites</h3><p>Block individual domains like <code>example.com</code> for precise control.</p><h3>4. Use the Quick Russian Filter</h3><p>Toggle our built-in filter to instantly block 89+ Russian domains.</p><h3>5. Regular Maintenance</h3><p>Review and update your filters periodically to keep them relevant.</p>",
@@ -17,7 +26,7 @@
     "tags": ["tips", "tutorial", "filtering"],
     "featured": false
   },
-  "post_3": {
+  "post_4": {
     "title": "Privacy First: How BlockLang Protects Your Data",
     "excerpt": "Discover how BlockLang maintains complete privacy by processing everything locally on your device.",
     "content": "<p>In an age where data privacy is more important than ever, BlockLang takes a different approach. Unlike many browser extensions that send your data to remote servers, BlockLang operates entirely on your device.</p><h3>Local Processing</h3><p>Every filter you create and every search result we process happens locally in your browser. Your search queries, browsing habits, and filter preferences never leave your device.</p><h3>No Tracking</h3><p>We don't use analytics, tracking pixels, or any form of data collection. What you browse is your business, not ours.</p><h3>Open Source Approach</h3><p>Our commitment to transparency means you can verify exactly what BlockLang does with your data - which is nothing.</p>",
