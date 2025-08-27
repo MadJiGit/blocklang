@@ -209,8 +209,16 @@
                     <img src="assets/img/logo.png" class="img-fluid" alt="BlockLang Logo" width="300" height="300">
                 </div>
                 <div class="col-lg-8 content">
-                    <!-- Why I Built This Story -->
-                    <div class="motivation-story mt-4">
+                    <!-- Why I Built This Story - SWIPER VERSION -->
+                    <div class="why-stories-swiper mt-4">
+                        <div class="swiper-wrapper">
+                            <!-- Slides will be generated dynamically by JavaScript -->
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                    <!-- ORIGINAL FALLBACK (HIDDEN) -->
+                    <div class="motivation-story mt-4" style="display: none;">
                         <h3 id="why-title" class="mb-3"><i class="bi bi-lightbulb"></i> Why We Built This</h3>
                         <p id="why-p1" class="mb-3">
                             As people who spend a lot of time online searching for information, We were constantly
@@ -232,6 +240,7 @@
                         <p id="why-p4" class="mb-3">
                         </p>
                     </div>
+                    <h3 class="mb-3"><i class="bi bi-bullseye"></i> Our Mission</h3>
                     <p id="why-p5" class="py-3">
                         Whether you're researching, learning, or browsing –
                         BlockLang gives you complete control over your search experience while keeping you safe from online threats.

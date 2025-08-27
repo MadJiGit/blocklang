@@ -1146,6 +1146,26 @@ section,
     background-color: var(--accent-color);
 }
 
+/* Why Stories Swiper Pagination */
+.why-stories-swiper .swiper-pagination {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+}
+
+.why-stories-swiper .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: var(--background-color);
+    opacity: 1;
+    border: 1px solid var(--accent-color);
+    margin: 0 4px;
+}
+
+.why-stories-swiper .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--accent-color);
+}
+
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/

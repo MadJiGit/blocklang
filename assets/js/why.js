@@ -1,4 +1,80 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Try Swiper implementation first, fallback to original logic
+    const whyStoriesContainer = document.querySelector('.why-stories-swiper');
+    
+    if (whyStoriesContainer) {
+        // NEW SWIPER IMPLEMENTATION
+        initSwiperWhyStories();
+    } else {
+        // ORIGINAL IMPLEMENTATION (FALLBACK)
+        initOriginalWhyStories();
+    }
+});
+
+// NEW: Swiper-based implementation
+function initSwiperWhyStories() {
+    console.log('Starting Swiper implementation...');
+    fetch('/assets/data/why-details.json')
+        .then(response => response.json())
+        .then(data => {
+            const whyKeys = Object.keys(data).filter(key => key.startsWith('why_'));
+            const swiperWrapper = document.querySelector('.why-stories-swiper .swiper-wrapper');
+            
+            if (!swiperWrapper) return;
+            
+            // Generate slides for each story
+            whyKeys.forEach(key => {
+                const story = data[key];
+                const slide = createWhySlide(story);
+                swiperWrapper.appendChild(slide);
+            });
+            
+            // Initialize Swiper
+            console.log('Initializing Swiper for why-stories...');
+            const swiper = new Swiper('.why-stories-swiper', {
+                pagination: {
+                    el: '.why-stories-swiper .swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 15000,
+                    disableOnInteraction: false,
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                loop: true,
+                speed: 500,
+            });
+            console.log('Swiper initialized:', swiper);
+        })
+        .catch(error => {
+            console.error('Error loading why-details.json for Swiper:', error);
+        });
+}
+
+function createWhySlide(story) {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    
+    const formattedTitle = story.title
+        .replace(/\n\n/g, '<br><br>')
+        .replace(/\n/g, '<br>');
+    
+    slide.innerHTML = `
+        <h3 class="mb-3"><i class="bi bi-lightbulb"></i> ${formattedTitle}</h3>
+        <p class="mb-3">${story.p_1.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
+        <p class="mb-3">${story.p_2.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
+        <p class="mb-3">${story.p_3.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
+        <p class="mb-3">${story.p_4.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
+    `;
+    
+    return slide;
+}
+
+// ORIGINAL IMPLEMENTATION (PRESERVED)
+function initOriginalWhyStories() {
     let currentIndex = 0;
     let whyTexts = {};
     let whyKeys = [];
@@ -116,4 +192,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
+}
