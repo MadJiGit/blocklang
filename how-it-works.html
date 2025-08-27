@@ -16,8 +16,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="robots" content="index, follow">
     <title>How It Works - BlockLang</title>
-    <meta content="How BlockLang filter system works - technical details" name="description">
-    <meta content="how it works, safari extension, block lang, language filter, filtering" name="keywords">
+    <meta content="How BlockLang works: advanced search filtering and real-time scam protection with trust scoring, smart caching, and cross-platform support" name="description">
+    <meta content="how it works, safari extension, block lang, scam protection, trust scoring, language filter, filtering, security" name="keywords">
 
     <link rel="canonical" href="https://www.blocklang.org/how-it-works">
     <meta name="theme-color" content="#2d2d2d">
@@ -61,7 +61,7 @@
             "@type": "WebPage",
             "name": "How BlockLang Works",
             "url": "https://www.blocklang.org/how-it-works",
-            "description": "Learn how the BlockLang extension filters unwanted content from search results using local filtering, language blocking, and real-time DOM manipulation for privacy-first search control."
+            "description": "Learn how BlockLang extension works: advanced search filtering and real-time scam protection with 0-100% trust scoring, smart caching, and cross-platform support for Safari on macOS, iPhone, and iPad."
         }
     </script>
 </head>
@@ -172,11 +172,11 @@
                                         </div>
                                         <div class="card-body">
                                             <ul class="list-unstyled">
-                                                <li class="mb-2"><i class="bi bi-lightning text-warning me-2"></i><strong>Real-time scanning</strong> - checks every website you visit</li>
-                                                <li class="mb-2"><i class="bi bi-server text-info me-2"></i><strong>BlockLang API</strong> - powered by advanced threat detection</li>
-                                                <li class="mb-2"><i class="bi bi-exclamation-octagon text-danger me-2"></i><strong>Instant warnings</strong> - full-screen alerts for dangerous sites</li>
-                                                <li class="mb-2"><i class="bi bi-person-check text-primary me-2"></i><strong>User choice</strong> - "Proceed Anyway" or "Go Back" options</li>
-                                                <li class="mb-0"><i class="bi bi-shield-lock text-success me-2"></i><strong>Privacy-first</strong> - only domain names checked, no personal data</li>
+                                                <li class="mb-2"><i class="bi bi-lightning text-warning me-2"></i><strong>Real-time analysis</strong> - instant 0-100% trust scoring for every site</li>
+                                                <li class="mb-2"><i class="bi bi-server text-info me-2"></i><strong>BlockLang Security API</strong> - powered by advanced threat intelligence</li>
+                                                <li class="mb-2"><i class="bi bi-palette text-primary me-2"></i><strong>Color-coded warnings</strong> - Green (Safe), Orange (Risky), Red (Dangerous)</li>
+                                                <li class="mb-2"><i class="bi bi-gear text-secondary me-2"></i><strong>Smart caching</strong> - 30 days for trusted sites, 30 minutes for suspicious ones</li>
+                                                <li class="mb-0"><i class="bi bi-shield-lock text-success me-2"></i><strong>Privacy-first</strong> - only domain names sent, no personal data or tracking</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -192,8 +192,8 @@
                                             </div>
                                             <div class="col-md-7">
                                                 <h5 class="mb-2">Example Security Warning</h5>
-                                                <p class="mb-1"><strong>malicious-site.com</strong> has been flagged as potentially dangerous.</p>
-                                                <p class="mb-0 small"><strong>Risk Level:</strong> CRITICAL | <strong>Trust Score:</strong> 15/100</p>
+                                                <p class="mb-1"><strong>suspicious-site.com</strong> has been flagged as potentially dangerous.</p>
+                                                <p class="mb-0 small"><strong>Risk Level:</strong> DANGEROUS (0-39%) | <strong>Trust Score:</strong> 23/100</p>
                                             </div>
                                             <div class="col-md-3 text-center">
                                                 <button class="btn btn-danger btn-sm mb-1">Proceed Anyway</button><br>
@@ -207,23 +207,67 @@
                             <div class="row g-3 mb-5">
                                 <div class="col-md-4">
                                     <div class="text-center p-3 bg-light rounded">
-                                        <i class="bi bi-toggle-on text-success fs-1"></i>
-                                        <h6 class="mt-2">Easy Toggle</h6>
-                                        <p class="small mb-0">Enable/disable protection with one click in the extension popup</p>
+                                        <i class="bi bi-clock text-info fs-1"></i>
+                                        <h6 class="mt-2">Domain Snooze</h6>
+                                        <p class="small mb-0">Temporarily disable warnings for specific sites (30 min to 1 month)</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-center p-3 bg-light rounded">
-                                        <i class="bi bi-flag text-warning fs-1"></i>
-                                        <h6 class="mt-2">Report Issues</h6>
-                                        <p class="small mb-0">Help improve protection by reporting false positives</p>
+                                        <i class="bi bi-sliders text-primary fs-1"></i>
+                                        <h6 class="mt-2">Advanced Settings</h6>
+                                        <p class="small mb-0">Choose which risk levels show banners and control checking process</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-center p-3 bg-light rounded">
-                                        <i class="bi bi-laptop text-primary fs-1"></i>
-                                        <h6 class="mt-2">Local Development</h6>
-                                        <p class="small mb-0">Automatically bypasses localhost and development domains</p>
+                                        <i class="bi bi-palette text-success fs-1"></i>
+                                        <h6 class="mt-2">Visual Indicators</h6>
+                                        <p class="small mb-0">Color-coded dots matching actual banner colors in settings</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Risk Levels and Pricing -->
+                            <div class="row g-4 mb-5">
+                                <div class="col-lg-6">
+                                    <div class="card h-100 border-info">
+                                        <div class="card-header bg-info text-white">
+                                            <h4 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Trust Score Levels</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><span class="badge bg-success me-2">90-100%</span><strong>Safe/Excellent</strong> - Trusted, well-known sites</li>
+                                                <li class="mb-2"><span class="badge bg-success me-2">70-89%</span><strong>Good</strong> - Generally safe sites</li>
+                                                <li class="mb-2"><span class="badge bg-warning me-2">40-69%</span><strong>Risky</strong> - Proceed with caution</li>
+                                                <li class="mb-0"><span class="badge bg-danger me-2">0-39%</span><strong>Dangerous</strong> - High risk - avoid these sites</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card h-100 border-primary">
+                                        <div class="card-header bg-primary text-white">
+                                            <h4 class="mb-0"><i class="bi bi-star me-2"></i>Free vs Pro Tiers</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <h6><i class="bi bi-gift text-success me-2"></i>Free Users</h6>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>• 5 automatic site checks per day</li>
+                                                    <li>• Unlimited manual checks</li>
+                                                    <li>• Basic threat detection</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6><i class="bi bi-crown text-warning me-2"></i>Pro Users</h6>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>• Unlimited automatic checks</li>
+                                                    <li>• Enhanced threat detection</li>
+                                                    <li>• Advanced settings & controls</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -625,19 +669,17 @@
                                     <div class="card h-100">
                                         <div class="card-body">
                                             <h5 class="card-title"><i class="bi bi-hdd me-2"></i>Local Storage</h5>
-                                            <p class="card-text">All your filters and settings are stored locally on
-                                                your device using browser storage. No data is sent to external servers
-                                                or third parties.</p>
+                                            <p class="card-text">All your filters and settings are stored locally using browser storage. 
+                                                Security cache includes intelligent expiration: 30 days for trusted sites, 30 minutes for suspicious ones.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card h-100">
                                         <div class="card-body">
-                                            <h5 class="card-title"><i class="bi bi-lightning me-2"></i>Performance</h5>
-                                            <p class="card-text">Filtering operations are optimized for speed. The
-                                                extension processes results in milliseconds without affecting your
-                                                browsing performance.</p>
+                                            <h5 class="card-title"><i class="bi bi-lightning me-2"></i>Smart Caching</h5>
+                                            <p class="card-text">Adaptive caching reduces API calls by 720x for trusted sites. 
+                                                Cache duration is based on trust scores: high-trust domains cached longer, suspicious sites re-checked frequently.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -647,8 +689,25 @@
                                             <h5 class="card-title"><i class="bi bi-shield-check me-2"></i>Privacy First
                                             </h5>
                                             <p class="card-text">No tracking, no analytics, no data collection.
-                                                BlockLang is designed with privacy as the top priority from the ground
-                                                up.</p>
+                                                Only domain names are sent for security checks - never personal data, URLs, or browsing history.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-phone me-2"></i>Cross-Platform</h5>
+                                            <p class="card-text">Native Safari Web Extension optimized for macOS (desktop), iPhone (touch-friendly), 
+                                                and iPad (tablet-optimized) with consistent features across all Apple devices.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-gear me-2"></i>Advanced Settings</h5>
+                                            <p class="card-text">Granular control over scam protection: snooze domains for up to 1 month, 
+                                                choose which risk levels trigger warnings, and toggle the checking process visibility.</p>
                                         </div>
                                     </div>
                                 </div>

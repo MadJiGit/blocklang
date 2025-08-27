@@ -809,10 +809,77 @@ const isDev = !isProduction && (localhost || 192.168.x.x || 10.x.x.x);
 
 ---
 
-*Last updated: 2025-07-25*
-*Current Status: Production-ready security checker with PRO user architecture*
-*Status: ✅ Progressive green scoring system, PRO features protected, report system operational*
-*Focus: Trust score optimization and external API integrations*
+## 🔧 **Security Check System Updates - 2025-08-07**
+
+### ✅ **Loading State Timer Implementation**
+**Problem Solved**: Users needed visual feedback during security check processing
+
+**Timer Feature Added**:
+- **Real-time seconds counter** - shows scanning progress from 0s, 1s, 2s, etc.
+- **Fixed-width display** - prevents text shifting when counter changes from 1 to 2 digits
+- **Automatic cleanup** - timer stops when scan completes or fails
+- **User feedback improvement** - replaced static "🔍 Checking..." with dynamic "5s Checking domain security..."
+
+**Technical Implementation**: `setInterval()` updates counter every second with `min-width: 2ch` CSS for consistent spacing
+
+### ✅ **DNS Analysis Integration**
+**New Data Source**: Added DNS analysis from API response to security reports
+
+**Features Implemented**:
+- **Free Users**: Basic DNS status ("Valid DNS Configuration" or "DNS Issues Detected")
+- **PRO Users**: Complete DNS analysis with score (0-100), factors, cache status, and last checked timestamp
+- **Technical Details**: DNS lookup source (cached vs live), success status
+- **Domain Information**: Technical issue detection and last updated timestamp
+
+**API Integration**: Processes `dns_analysis` object with score, success status, factors array, and metadata
+
+### ✅ **Revised Scoring System Implementation**
+**Problem**: Previous scoring thresholds created misleading risk assessments
+
+**New Risk Categories**:
+- **90-100**: Ultra Safe (result-excellent - dark green)
+- **70-89**: Very Trustworthy (result-trustworthy - green)  
+- **50-69**: Likely Safe (result-neutral - orange/yellow)
+- **30-49**: Risky (result-risky - red)
+- **0-29**: Very Dangerous (result-dangerous - dark red)
+
+**Impact**: More accurate risk communication - 63/100 now shows as "Likely Safe" (orange) instead of misleading green
+
+### ⚠️ **Scoring Algorithm Issue Identified**
+**Critical Problem Discovered**: Trust score algorithm producing false positives
+
+**Example Case - translate.google.bg**:
+- **Final Score**: 20/100 ("Very Dangerous") - clearly incorrect for Google service
+- **Content Analysis**: 35 penalty points for legitimate Google Translate patterns
+- **DNS Analysis**: Only 20/100 despite being Google infrastructure  
+- **WHOIS Data**: Missing creation date causing age penalty
+- **Web Risk**: Correctly identifies as safe (is_threat: false)
+
+**Root Cause**: Algorithm weights appear unbalanced, giving excessive penalty to content patterns and insufficient weight to authoritative sources like Google Web Risk API
+
+**Next Steps Needed**: 
+- Review scoring algorithm weights and caps
+- Implement whitelist for major legitimate services
+- Add fallback scoring for missing WHOIS data
+- Increase Web Risk API influence on final score
+
+### 🎯 **User Experience Improvements**
+**Enhanced Loading Feedback**:
+- Removed confusing magnifying glass emoji
+- Added progressive seconds timer
+- Consistent text alignment during countdown
+
+**Better Risk Communication**:
+- Updated color coding to industry standards
+- Clear risk level descriptions
+- Orange warning color for medium-risk domains
+
+---
+
+*Last updated: 2025-08-07*
+*Current Status: Enhanced security checker with improved UX and DNS analysis*
+*Status: ✅ Timer system, DNS integration, revised scoring thresholds implemented*
+*Priority: Fix trust score algorithm false positives for legitimate services*
 
 ## 🎯 **Security Check UX Overhaul - 2025-07-25**
 
