@@ -1,7 +1,7 @@
 {
   "q_1": {
     "question": "What is BlockLang?",
-    "answer": "BlockLang is a privacy-focused browser extension that helps you clean up your search results by filtering unwanted content. It allows you to block specific domains, languages, or sites from appearing in your Google and Bing search results."
+    "answer": "BlockLang is a comprehensive browser extension with two powerful features: <strong>search result filtering</strong> and <strong>Scam Shield security protection</strong>. Filter unwanted content from search results and stay protected from scams, phishing, and malicious websites in real-time."
   },
   "q_2": {
     "question": "Is BlockLang safe and private?",
@@ -30,5 +30,21 @@
   "q_8": {
     "question": "Does BlockLang work on mobile devices?",
     "answer": "Yes, BlockLang is available for Safari on iOS (iPhone and iPad) through the App Store. The mobile version has the same features as the desktop version."
+  },
+  "q_9": {
+    "question": "What is Scam Shield?",
+    "answer": "Scam Shield is BlockLang's real-time security protection feature that warns you about dangerous websites. It provides instant 0-100% trust scoring and color-coded warnings for scams, phishing, and malware sites."
+  },
+  "q_10": {
+    "question": "How does Scam Shield protect my privacy?",
+    "answer": "Scam Shield only sends domain names (like example.com) to our security API - never personal data, full URLs, or browsing history. All security checks are anonymized and processed instantly without storing any user information."
+  },
+  "q_11": {
+    "question": "Is Scam Shield free?",
+    "answer": "Free users get 5 automatic security checks per day plus unlimited manual checks. Pro users get unlimited automatic checks and advanced security features like domain snoozing and granular warning controls."
+  },
+  "q_12": {
+    "question": "How accurate is Scam Shield?",
+    "answer": "Scam Shield uses advanced threat intelligence to provide 0-100% trust scoring. Sites with scores below 40% are flagged as dangerous, 40-69% as risky, and 70%+ as safe. The system has high accuracy with minimal false positives."
   }
 }
