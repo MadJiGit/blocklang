@@ -2,23 +2,23 @@
   "why_1": {
     "title" : "Why We Built This",
     "p_1" : "Do you ever have this experience?\nYou search for something in your own language, but Google, Bing, or whatever search engine you use shows results in a similar language instead?",
-    "p_2" : "Yes, we know that pain. We’re Bulgarian.\nAnd whenever we searched for something in Bulgarian, Google kept giving us results in Russian. Sure, the languages may sound similar — but the content was completely irrelevant. Just a waste of time.",
+    "p_2" : "Yes, we know that pain. We're Bulgarian.\nAnd whenever we searched for something in Bulgarian, Google kept giving us results in Russian. Sure, the languages may sound similar — but the content was completely irrelevant. Just a waste of time.",
     "p_3" : "Or maybe this sounds familiar:\nYou search for news, and Google floods the page with clickbait sites and fake news?\nThat constant noise made it frustrating to find reliable, high-quality information.\nWe just wanted something simple and quiet — something that filters the junk without getting in the way.",
-    "p_4" : "So we built a browser extension to solve our own problem.\nWe started with a Chrome version, just to test the idea. When we saw how well it worked, we brought it to Safari for macOS and iOS — for people like us who use Apple devices."
+    "p_4" : "So we built a browser extension to solve our own problem.\nWe started with a Chrome version, just to test the idea. When we saw how well it worked, we brought it to Safari for macOS and iOS — for people like us who use Apple devices.\n\nBut as we kept browsing, we realized there was another problem: dangerous websites. Scams, phishing sites, fake stores – they're everywhere. So we added Scam Shield, a real-time security feature that warns you about suspicious sites before you visit them."
   },
   "why_2": {
     "title" : "Why We Built This",
-    "p_1" : "Ever searched for something in your language, only to get bombarded with results in a completely different one?\nYeah. We’ve been there.",
-    "p_2" : "We’re Bulgarian — but Google kept thinking we wanted to read Russian. Thanks, Google, but нет.",
-    "p_3" : "And let’s not even talk about the other mess.\nClickbait. Fake news. Sites that look like they were built in 2004 by a conspiracy theorist with a dial-up modem.\nAll we wanted was decent information. Instead, we got a circus.",
-    "p_4" : "So we built our own solution: a browser extension that blocks the noise, filters the junk, and lets us actually find what we’re looking for.\nIt started as a little tool just for Chrome. It worked so well, we brought it to Safari on macOS and iOS — because hey, we like nice things too."
+    "p_1" : "Ever searched for something in your language, only to get bombarded with results in a completely different one?\nYeah. We've been there.",
+    "p_2" : "We're Bulgarian — but Google kept thinking we wanted to read Russian. Thanks, Google, but нет.",
+    "p_3" : "And let's not even talk about the other mess.\nClickbait. Fake news. Sites that look like they were built in 2004 by a conspiracy theorist with a dial-up modem.\nAll we wanted was decent information. Instead, we got a circus.",
+    "p_4" : "So we built our own solution: a browser extension that blocks the noise, filters the junk, and lets us actually find what we're looking for.\nIt started as a little tool just for Chrome. It worked so well, we brought it to Safari on macOS and iOS — because hey, we like nice things too.\n\nThen we kept browsing and realized: filtering search results was just step one. Step two was avoiding getting scammed. So we added Scam Shield to protect you from dangerous websites too."
   },
   "why_3": {
     "title" : "Why We Built This\n(a.k.a. Why Google Made Us Do It) ",
     "p_1": "You search in Bulgarian.\nGoogle: \"Here's some Russian stuff you didn't ask for.\"\nUs: \uD83E\uDEE0",
     "p_2": "You want real news.\nGoogle: \"Enjoy 37 clickbait articles and 2 conspiracy sites!\"\nUs: \uD83E\uDD21",
     "p_3": "At some point, we snapped.\nSo we built a browser extension that blocks the noise, kicks out the nonsense, and lets you search like a sane person.",
-    "p_4": "Started with Chrome. Now on Safari too.\nBecause chaos shouldn't be platform-specific."
+    "p_4": "Started with Chrome. Now on Safari too.\nBecause chaos shouldn't be platform-specific.\n\nThen we realized the internet had even more problems: scam sites everywhere. So we added Scam Shield because apparently we needed to save people from fake Ray-Bans too. 😎"
   },
   "why_4": {
     "title" : "Plot Twist: The Internet Got Scarier",
