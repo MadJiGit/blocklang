@@ -13,7 +13,7 @@ async function loadFAQData() {
         const faqData = await response.json();
         renderFAQItems(faqData);
     } catch (error) {
-        console.error('Error loading FAQ data:', error);
+        // console.error('Error loading FAQ data:', error);
         // Fallback to show error message
         showErrorMessage();
     }
@@ -25,7 +25,7 @@ function renderFAQItems(faqData) {
     const fallbackDiv = document.querySelector('.faq-fallback');
     
     if (!faqContainer) {
-        console.error('FAQ container not found');
+        // console.error('FAQ container not found');
         return;
     }
 

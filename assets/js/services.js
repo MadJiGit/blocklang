@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         appStoreImage.setAttribute("alt", details.alt);
                     }
                 } else {
-                    console.error(`No details found for platform: ${platform}`);
+                    // console.error(`No details found for platform: ${platform}`);
                 }
 
                 const serviceDetailImage = document.getElementById("service-details-image");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     serviceDetailImage.setAttribute("src", details.image_main);
                     serviceDetailImage.setAttribute("alt", details.alt);
                 } else {
-                    console.error(`No details found for platform: ${platform}`);
+                    // console.error(`No details found for platform: ${platform}`);
                 }
 
             } else {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         .catch(error => {
-            console.error("Failed to load platform details:", error);
+            // console.error("Failed to load platform details:", error);
             document.getElementById("platform-details")?.classList.add("d-none");
             document.getElementById("platform-error")?.classList.remove("d-none");
         });

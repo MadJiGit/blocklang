@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
         } catch (error) {
-            console.error('Form submission error:', error);
+            // console.error('Form submission error:', error);
             showError('Network error. Please check your connection and try again.');
         } finally {
             hideLoading();

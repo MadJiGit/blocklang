@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // NEW: Swiper-based implementation
 function initSwiperWhyStories() {
-    console.log('Starting Swiper implementation...');
     fetch('/assets/data/why-details.json')
         .then(response => response.json())
         .then(data => {
@@ -29,8 +28,6 @@ function initSwiperWhyStories() {
                 swiperWrapper.appendChild(slide);
             });
             
-            // Initialize Swiper
-            console.log('Initializing Swiper for why-stories...');
             const swiper = new Swiper('.why-stories-swiper', {
                 pagination: {
                     el: '.why-stories-swiper .swiper-pagination',
@@ -47,10 +44,9 @@ function initSwiperWhyStories() {
                 loop: true,
                 speed: 500,
             });
-            console.log('Swiper initialized:', swiper);
         })
         .catch(error => {
-            console.error('Error loading why-details.json for Swiper:', error);
+            // console.error('Error loading why-details.json for Swiper:', error);
         });
 }
 
@@ -110,7 +106,7 @@ function initOriginalWhyStories() {
             }
         })
         .catch(error => {
-            console.error('Error loading why-details.json:', error);
+            // console.error('Error loading why-details.json:', error);
         });
     
     function updateAllContent(whyKey) {

@@ -21,7 +21,7 @@ async function loadBlogData() {
         const blogData = await response.json();
         renderBlogPosts(blogData);
     } catch (error) {
-        console.error('Error loading blog data:', error);
+        // console.error('Error loading blog data:', error);
         showFallbackContent();
     }
 }
@@ -31,7 +31,7 @@ function renderBlogPosts(blogData) {
     const loadingDiv = document.getElementById('blog-loading');
     
     if (!blogContainer) {
-        console.error('Blog container not found');
+        // console.error('Blog container not found');
         return;
     }
 

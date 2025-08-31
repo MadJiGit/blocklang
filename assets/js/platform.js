@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // console.log('Details:', details);
             // console.log('Images:', details?.images);
             if (!details) {
-                console.error(`No details found for platform: ${platform}`);
+                // console.error(`No details found for platform: ${platform}`);
                 throw new Error(`No details found for platform: ${platform}`);
             }
             const imagePaths = details.images || [];
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         .catch(error => {
-            console.error("Failed to load platform details:", error);
+            // console.error("Failed to load platform details:", error);
             document.getElementById("platform-details")?.classList.add("d-none");
             document.getElementById("platform-error")?.classList.remove("d-none");
         });
